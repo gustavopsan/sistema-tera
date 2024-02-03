@@ -15,7 +15,7 @@ async function authenticate() {
             method: 'POST',
             mode: 'cors',
             headers: {
-                'ContentType': 'application/json'
+                'Content-Type': 'application/json'
             },
             body: requestBody
         }
