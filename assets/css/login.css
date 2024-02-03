@@ -98,6 +98,12 @@ body {
     color: #ffffff;
 }
 
+.card-container .btn-wrapper button:hover {
+    border: 1px solid #0E0762;
+    background-color: #ffffff;
+    color: #0E0762;
+}
+
 @media (max-width: 768px) {
     .card-container {
         width: 300px;
