@@ -28,9 +28,12 @@ window.addEventListener('load', async () => {
 
             const response = await sessionData.json();
 
-            console.log(response)
+            if (response.message === 'jwt expired') {
+                eraseCookie('UID');
+                eraseCookie('sessionToken');
 
-            // Implementar checagem de sessão
+                window.location.replace('/login?redirectTo=' + encodeURIComponent(window.location.href));
+            }
 
         } else {
             window.location.replace('/login?redirectTo=' + encodeURIComponent(window.location.href));
