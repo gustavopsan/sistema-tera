@@ -4,7 +4,7 @@ const authenticationUrls = [
 ];
 
 const restrictedUrls = [
-    '/'
+    '/', '/index.html'
 ]
 
 window.addEventListener('load', async () => {
