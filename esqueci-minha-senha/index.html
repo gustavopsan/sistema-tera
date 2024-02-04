@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,38 +8,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/login.css">
+    <link rel="stylesheet" href="../assets/css/reset_senha.css">
 </head>
 <body>
     <section class="card-container">
         <div class="header">
-            <b>Área de Login</b>
-            <span>Insira seu email e senha</span>
+            <b>Reset de senha</b>
         </div>
         <div class="input-wrapper">
             <div class="label-wrapper">
-                <span>EMAIL</span>
+                <span>Insira o e-mail de cadastro</span>
             </div>
             <input type="email" name="email" id="emailInput" placeholder="yourname@example.com"/>
         </div>
         <div class="input-wrapper">
             <div class="label-wrapper">
-                <span>SENHA</span>
-                <a href="/esqueci-minha-senha/">
-                    Esqueceu sua senha?
-                </a>
+                <span>Insira seu cpf ou cnpj de cadastro</span>
             </div>
             <div class="password-wrapper">
-                <input type="password" name="password" id="passwordInput" placeholder="***********"/>
-                <!--<input type="checkbox" name="showPassword" id="showPasswordCheckbox"/>
-                <label for="showPasswordCheckbox">
-                    <img src="/assets/img/eye.svg" alt="eye" />
-                </label>-->
+                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00"/>
             </div>
         </div>
         <div class="btn-wrapper">
-            <button id="btn-login">
-                Entrar
+            <button id="btn-enviaremail">
+               <a href="/login/"> Enviar e-mail</a>
             </button>
         </div>
     </section>
@@ -48,8 +40,5 @@
             <img src="../assets/img/t.svg" alt="logo"/>
         </div>
     </section>
-
-    <script src="/assets/js/misc/cookies.js"></script>
-    <script src="/assets/js/auth/authenticate.js"></script>
 </body>
 </html>

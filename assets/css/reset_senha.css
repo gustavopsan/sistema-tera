@@ -1,0 +1,113 @@
+body {
+    background-color: #0E0762;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    vertical-align: middle;
+    min-height: calc(100vh - 95px);
+}
+
+.card-container {
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    padding: 50px 30px;
+    border-radius: 8px;
+    margin: 40px;
+    gap: 15px;
+}
+
+.card-container .header {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-container .header b {
+    margin-bottom: 8%;
+    font-family: 'Mulish', sans-serif;
+    font-size: 24px;
+    color: #252733;
+    font-weight: 700;
+}
+
+.card-container .header span {
+    font-family: 'Mulish', sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: #1C0E8D ;
+
+}
+
+.card-container .input-wrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.card-container .input-wrapper .label-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+}
+
+.card-container .input-wrapper .label-wrapper span {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    color: #1C0E8D;
+}
+
+.card-container .input-wrapper .label-wrapper a {
+    font-family: 'Mulish', sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #1C0E8D;
+    text-decoration: none;
+}
+
+.card-container .input-wrapper input[type=email] {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    width: 95%;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    padding-left: 15px;
+}
+
+.card-container .input-wrapper input[type=cpfcnpj] {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    width: 95%;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    padding-left: 15px;
+}
+
+.card-container .btn-wrapper button {
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    width: 95%;
+    height: 48px;
+    border-radius: 8px;
+    border: none;
+    background-color: #0E0762;
+    color: #ffffff;
+}
+.card-container .btn-wrapper button a {
+text-decoration: none;
+color: #ffffff;
+}
+
+
+@media (max-width: 768px) {
+    .card-container {
+        width: 300px;
+    }
+}
