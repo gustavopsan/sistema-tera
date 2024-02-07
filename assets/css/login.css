@@ -104,6 +104,23 @@ body {
     color: #0E0762;
 }
 
+.error-message-container {
+    display: none;
+    flex-direction: column;
+    
+}
+
+#error-message {
+    align-self: center;
+    padding: 3px 5px;
+    background-color: red;
+    margin-top: 5px;
+    border-radius: 6px;
+    color: #fff;
+    font-family: "Mulish";
+    font-size: 12px;
+}
+
 @media (max-width: 768px) {
     .card-container {
         width: 300px;

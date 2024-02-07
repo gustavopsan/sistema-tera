@@ -3,6 +3,9 @@ const password = document.getElementById('passwordInput');
 
 const buttonLogin = document.getElementById('btn-login');
 
+const errorMessageContainer = document.querySelector('.error-message-container');
+const errorMessage = document.getElementById('error-message');
+
 async function authenticate() {
     const requestBody = JSON.stringify({
         email: email.value,
@@ -28,8 +31,30 @@ async function authenticate() {
     if(response.userData) {
         setCookie("UID",  response.userData.userId, 14);
         setCookie("sessionToken", response.token, 14);
+        setCookie("userModule", response.userData.module, 14);
 
         window.location.replace('/');
+    } else if(response.errorId === 'auth_01') {
+        let message = "E-mail incorreto. Verifique e tente novamente.";
+
+        errorMessage.textContent = message;
+        
+        errorMessageContainer.style.display = 'flex';
+
+        setTimeout(() => { 
+            errorMessageContainer.style.display = 'none'; 
+        }, 3000);
+
+    } else if (response.errorId === 'auth_02') {
+        let message = "Senha inválida. Tente novamente com a senha correta.";
+
+        errorMessage.textContent = message;
+        
+        errorMessageContainer.style.display = 'flex';
+
+        setTimeout(() => { 
+            errorMessageContainer.style.display = 'none'; 
+        }, 3000);
     }
 }
 
