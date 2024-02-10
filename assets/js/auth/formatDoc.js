@@ -44,10 +44,3 @@ function cpfCnpj(v){
     return v
 
 }
-
-function logData() {
-    console.log({
-        email: document.getElementById("emailInput").value,
-        docId: document.getElementById("cpfcnpjInput").value
-    })
-}
