@@ -26,7 +26,6 @@ body {
 }
 
 .card-container .header b {
-    margin-bottom: 8%;
     font-family: 'Mulish', sans-serif;
     font-size: 24px;
     color: #252733;
@@ -105,6 +104,22 @@ text-decoration: none;
 color: #ffffff;
 }
 
+.error-message-container {
+    display: none;
+    flex-direction: column;
+    
+}
+
+#error-message {
+    align-self: center;
+    padding: 3px 5px;
+    background-color: red;
+    margin-top: 5px;
+    border-radius: 6px;
+    color: #fff;
+    font-family: "Mulish";
+    font-size: 12px;
+}
 
 @media (max-width: 768px) {
     .card-container {

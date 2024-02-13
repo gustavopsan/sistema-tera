@@ -13,7 +13,8 @@
 <body>
     <section class="card-container">
         <div class="header">
-            <b>Reset de senha</b>
+            <b>Recuperação de Senha</b>
+            <span>Insira seus dados e recupere seu acesso</span>
         </div>
         <div class="input-wrapper">
             <div class="label-wrapper">
@@ -28,6 +29,9 @@
             <div class="password-wrapper">
                 <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeypress="formatDocId(this,cpfCnpj)" maxlength="18"/>
             </div>
+        </div>
+        <div class="error-message-container" id="error-message-container">
+            <span id="error-message">mensagem de erro teste</span>
         </div>
         <div class="btn-wrapper">
             <button id="buttonRequest">
