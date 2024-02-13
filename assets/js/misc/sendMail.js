@@ -1,6 +1,6 @@
 async function sendMail(email, subject, text, html) {
     const requestData = await fetch(
-        `${BASEPATH}/user/sendmail`,
+        `${BASEPATH}/user/sendemail`,
         {
             method: 'POST',
             mode: 'cors',

@@ -22,7 +22,7 @@ async function requestPasswordRecovery() {
 
     const response = await requestData.json();
 
-    //console.log(response);
+    console.log(response);
 
     if (response.status == "error") {
         let message = 'Nenhuma conta encontrada com os dados informados'
@@ -36,7 +36,20 @@ async function requestPasswordRecovery() {
         }, 3000);
     } else {
         let resetPassLink = window.location.hostname + '/reset-password?uid=' + response.userId + '&t=' + response.token;
-        console.log(resetPassLink);
+        
+        let subject = "Solicitação de Alteração de Senha"
+
+        let message = `
+            <h2>Olá ${response.userName}!</h2>
+            <p>Um pedido de redefinição de senha foi realizado para a sua conta.</p>
+            <p>Caso não tenha solicitado essa operação, por favor desconsiderar este email</p>
+
+            <a href="https://${resetPassLink}">Alterar Senha</a>
+        `;
+
+        sendMail(email.value, subject, 'alteração de senha', message)
+            .then(response => console.log(response))
+            .catch(error => console.log(error));
     }
 }
 
