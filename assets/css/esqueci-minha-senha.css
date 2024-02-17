@@ -113,12 +113,19 @@ color: #ffffff;
 #error-message {
     align-self: center;
     padding: 3px 5px;
-    background-color: red;
     margin-top: 5px;
     border-radius: 6px;
     color: #fff;
     font-family: "Mulish";
     font-size: 12px;
+}
+
+#error-message.error {
+    background-color: red;
+}
+
+#error-message.success {
+    background-color: green;
 }
 
 @media (max-width: 768px) {

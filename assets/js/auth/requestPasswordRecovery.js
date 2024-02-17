@@ -28,6 +28,8 @@ async function requestPasswordRecovery() {
         let message = 'Nenhuma conta encontrada com os dados informados'
 
         messageElement.textContent = message;
+        messageElement.classList.add("error");
+        messageElement.classList.remove("success");
 
         errorMessageContainer.style.display = 'flex';
 
@@ -39,7 +41,7 @@ async function requestPasswordRecovery() {
         
         let subject = "Solicitação de Alteração de Senha"
 
-        let message = `
+        let mail = `
             <h2>Olá ${response.userName}!</h2>
             <p>Um pedido de redefinição de senha foi realizado para a sua conta.</p>
             <p>Caso não tenha solicitado essa operação, por favor desconsiderar este email</p>
@@ -47,9 +49,21 @@ async function requestPasswordRecovery() {
             <a href="https://${resetPassLink}">Alterar Senha</a>
         `;
 
-        sendMail(email.value, subject, 'alteração de senha', message)
+        sendMail(email.value, subject, 'alteração de senha', mail)
             .then(response => console.log(response))
             .catch(error => console.log(error));
+
+            let message = 'Um e-mail foi enviado para o endereço cadastrado na conta';
+
+            messageElement.textContent = message;
+            messageElement.classList.remove("error");
+            messageElement.classList.add("success");
+
+        errorMessageContainer.style.display = 'flex';
+
+        setTimeout(() => { 
+            errorMessageContainer.style.display = 'none'; 
+        }, 3000);
     }
 }
 
