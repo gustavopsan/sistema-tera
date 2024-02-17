@@ -3,31 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TERA SISTEMAS - RECUPERAÇÃO DE SENHA</title>
+    <title>TERA SISTEMAS - RESET DE SENHA</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/esqueci-minha-senha.css">
+    <link rel="stylesheet" href="../assets/css/login.css">
 </head>
 <body>
     <section class="card-container">
         <div class="header">
-            <b>Recuperação de Senha</b>
-            <span>Insira seus dados e recupere seu acesso</span>
+            <b>Reset de Senha</b>
+            <span>Insira sua nova senha de acesso</span>
         </div>
         <div class="input-wrapper">
             <div class="label-wrapper">
-                <span>E-MAIL</span>
+                <span>NOVA SENHA</span>
             </div>
-            <input type="email" name="email" id="emailInput" placeholder="yourname@example.com"/>
+            <input type="password" name="password" id="passwordInput" placeholder="************"/>
         </div>
         <div class="input-wrapper">
             <div class="label-wrapper">
-                <span>CPF / CNPJ</span>
+                <span>CONFIRMAR NOVA SENHA</span>
             </div>
             <div class="password-wrapper">
-                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeypress="formatDocId(this,cpfCnpj)" maxlength="18"/>
+                <input type="password" name="confirmPassword" id="confirmPasswordInput" placeholder="************"/>
             </div>
         </div>
         <div class="error-message-container" id="error-message-container">
@@ -35,7 +35,7 @@
         </div>
         <div class="btn-wrapper">
             <button id="buttonRequest">
-                Enviar e-mail
+                Alterar senha
             </button>
         </div>
     </section>
@@ -46,8 +46,6 @@
     </section>
 
     <script src="/assets/js/misc/cookies.js"></script>
-    <script src="/assets/js/auth/formatDoc.js"></script>
-    <script src="/assets/js/misc/sendMail.js"></script>
-    <script src="/assets/js/auth/requestPasswordRecovery.js"></script>
+    <script src="/assets/js/auth/resetPassword.js"></script>
 </body>
 </html>
