@@ -40,7 +40,7 @@ async function resetPassword() {
         const requestBody = JSON.stringify({
             userId: userId,
             token: token,
-            password: passwordInput.value
+            newPassword: passwordInput.value
         })
 
         const requestData = await fetch(
