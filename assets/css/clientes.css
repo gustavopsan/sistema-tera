@@ -1,0 +1,36 @@
+#clientTable {
+    display: flex;
+    flex-direction: column;
+}
+
+#clientTable thead tr {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    gap: 50px;
+    align-items: center;
+
+    height: 45px;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    background-color: #eff0f6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#clientTable tbody tr {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 40px;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#clientTable tbody tr td {
+    overflow: hidden;
+    text-wrap: nowrap;
+}
