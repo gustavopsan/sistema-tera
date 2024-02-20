@@ -21,7 +21,7 @@
 #clientTable tbody tr {
     display: flex;
     width: 100vw;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     height: 40px;
     color: #767676;
@@ -31,6 +31,5 @@
 }
 
 #clientTable tbody tr td {
-    overflow: hidden;
-    text-wrap: nowrap;
+    padding: 0 30px;
 }

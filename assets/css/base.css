@@ -49,6 +49,10 @@ body {
     font-size: 13px;
 }
 
+.main-content-container {
+    min-height: calc(100vh - 95px);
+}
+
 /** Search */
 
 .search-container {

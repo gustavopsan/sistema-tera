@@ -32,6 +32,7 @@ async function authenticate() {
         setCookie("UID",  response.userData.userId, 14);
         setCookie("sessionToken", response.token, 14);
         setCookie("userModule", response.userData.module, 14);
+        setCookie("sellerId", response.userData.sellerId, 14);
 
         window.location.replace('/');
     } else if(response.errorId === 'auth_01') {
