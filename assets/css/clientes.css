@@ -20,8 +20,8 @@
 
 #clientTable tbody tr {
     display: flex;
-    width: 100vw;
     justify-content: space-evenly;
+    width: 100vw;
     align-items: center;
     height: 40px;
     color: #767676;
@@ -32,4 +32,18 @@
 
 #clientTable tbody tr td {
     padding: 0 30px;
+}
+
+.new-client-link {
+    position: relative;
+    left: 10px;
+    height: 34px;
+    background-color: #0e0762;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    text-decoration: none;
+    color: #d6d7e3;
+    font-family: 'Inter';
+    font-size: 13px;
 }
