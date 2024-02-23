@@ -78,12 +78,11 @@ body {
     color: #5d5d5d;
 }
 
-.search-container button {
+.search-container img {
     position: absolute;
     right: 20px;
-    height: 34px;
-    width: 34px;
-    background-color: #0e0762;
+    height: 30px;
+    width: 30px;
     border: none;
     border-radius: 8px;
 }

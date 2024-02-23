@@ -1,0 +1,130 @@
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    height: 40px;
+    background-color: #f1f1f3;
+}
+
+.sub-header span {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #767676;
+    font-weight: 700;
+}
+
+.sub-header a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #0e0762;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.form-container .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 10px
+}
+
+.form-container .form-wrapper div {
+    display: flex;
+    gap: 5px;
+}
+
+.form-container .form-wrapper span {
+    padding: 10px;
+    background-color: #0e0762;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.form-container .form-wrapper input {
+    height: 30px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 400;
+    width: 95%;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    padding-left: 15px;
+    color: #767676;
+}
+
+.form-container .form-wrapper select[name='state'] {
+    appearance: none;
+    padding: 15px;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    padding-left: 15px;
+    color: #767676;
+}
+#streetInput {
+    width: 100%;
+}
+
+#numberInput, #stateInput {
+    width: 20%
+}
+
+#cityInput {
+    width: 60%;
+}
+
+.form-container .form-wrapper.finish {
+    padding: 30px 20px;
+}
+
+.form-container .form-wrapper.finish button {
+    padding: 10px 40px;
+    background-color: #0e0762;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    border: none;
+    width: fit-content;
+    align-self: flex-end;
+}
+
+.error-message-container {
+    display: none;
+    flex-direction: column;
+    
+}
+
+#error-message {
+    align-self: center;
+    padding: 3px 5px;
+    margin-top: 5px;
+    border-radius: 6px;
+    color: #fff;
+    font-family: "Mulish";
+    font-size: 12px;
+}
+
+#error-message.error {
+    background-color: red;
+}
+
+#error-message.success {
+    background-color: green;
+}
