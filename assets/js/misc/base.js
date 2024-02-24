@@ -30,3 +30,20 @@ function toggleMenu() {
 
     asideMenu.classList.toggle("open")
 }
+
+function toggleMenuLogout() {
+    const menuLogout = document.getElementById('logout-menu');
+    const menuImage = document.getElementById('logout-icon');
+
+    menuImage.classList.toggle('invert');
+    menuLogout.classList.toggle('open');
+}
+
+function logout() {
+    eraseCookie("sellerId");
+    eraseCookie("userModule");
+    eraseCookie("sessionToken");
+    eraseCookie("UID");
+
+    window.location.pathname = '/login'
+}

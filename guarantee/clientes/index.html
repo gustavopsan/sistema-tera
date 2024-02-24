@@ -26,8 +26,26 @@
                 <b id="user-name"></b>
                 <span>Módulo Crediário</span>
             </div>
-            <button>
-                <img src="../../assets/img/arrow.svg" alt="logout-icon">
+            <button onclick="toggleMenuLogout()">
+                <img src="../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+            </button>
+        </div>
+
+        <div class="logout-menu" id="logout-menu">
+            <a href="/">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2L12 12M12 2L2 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                Fechar painel
+            </a>
+            <button id="logout-button" onclick="logout()">
+                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.2344 6.35577C12.0887 6.20489 12.008 6.00281 12.0099 5.79305C12.0117 5.58329 12.0958 5.38264 12.2441 5.23431C12.3925 5.08599 12.5931 5.00185 12.8029 5.00003C13.0126 4.99821 13.2147 5.07884 13.3656 5.22457L14.9656 6.82457C15.1156 6.97459 15.1998 7.17804 15.1998 7.39017C15.1998 7.6023 15.1156 7.80575 14.9656 7.95577L13.3656 9.55577C13.2147 9.7015 13.0126 9.78213 12.8029 9.78031C12.5931 9.77849 12.3925 9.69435 12.2441 9.54603C12.0958 9.3977 12.0117 9.19705 12.0099 8.98729C12.008 8.77753 12.0887 8.57545 12.2344 8.42457L12.4688 8.19017L8.8 8.19017C8.58783 8.19017 8.38434 8.10588 8.23431 7.95586C8.08429 7.80583 8 7.60234 8 7.39017C8 7.178 8.08429 6.97451 8.23431 6.82448C8.38434 6.67446 8.58783 6.59017 8.8 6.59017L12.4688 6.59017L12.2344 6.35577Z" fill="white"/>
+                    <path d="M13.4999 13.5005H0.999937M3.08327 13.5005V3.22271C3.08327 2.44486 3.08327 2.05593 3.23466 1.75884C3.36779 1.4975 3.58028 1.28502 3.8416 1.15187C4.13869 1.00049 4.52765 1.00049 5.30549 1.00049H9.19438C9.97223 1.00049 10.3612 1.00049 10.6583 1.15187C10.9196 1.28502 11.1321 1.4975 11.2652 1.75884C11.4166 2.05593 11.4166 2.44486 11.4166 3.22271M5.1666 7.25049H5.15966" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>    
+                    
+                Sair
             </button>
         </div>
 
@@ -108,7 +126,7 @@
 
     </footer>
 
-    <script src="/assets/js/misc/cookies.js"></script>
+    <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
     <script src="/assets/js/queries/customerQueries.js"></script>
 </body>
