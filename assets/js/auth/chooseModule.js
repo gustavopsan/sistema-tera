@@ -20,3 +20,9 @@ modulesArray.forEach(moduleApi => {
 
     moduleSelector.appendChild(option);
 });
+
+function selectModule() {
+    let moduleUrl = moduleSelector.value;
+
+    window.location.pathname = `/${moduleUrl}`;
+}

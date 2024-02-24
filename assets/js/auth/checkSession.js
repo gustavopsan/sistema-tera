@@ -3,14 +3,11 @@ const authenticationUrls = [
     '/esqueci-minha-senha'
 ];
 
-const restrictedUrls = [
-    '/', '/index.html'
-]
 
 window.addEventListener('load', async () => {
     const token = getCookie('sessionToken');
 
-    if (restrictedUrls.includes(window.location.pathname)) {
+    if (!authenticationUrls.includes(window.location.pathname)) {
         if (token) {
             const sessionData = await fetch(
                 `${BASEPATH}/user/validatesession`,
@@ -27,6 +24,8 @@ window.addEventListener('load', async () => {
             );
 
             const response = await sessionData.json();
+
+            document.getElementById("user-name").innerText = response.name;
 
             if (response.message === 'jwt expired') {
                 eraseCookie('UID');
