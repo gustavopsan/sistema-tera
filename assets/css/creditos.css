@@ -1,0 +1,49 @@
+#creditTable {
+    display: flex;
+    flex-direction: column;
+}
+
+#creditTable thead tr {
+    display: flex;
+    width: 100vw;
+    justify-content: space-evenly;
+    gap: 50px;
+    align-items: center;
+
+    height: 45px;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    background-color: #eff0f6;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#creditTable tbody tr {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    align-items: center;
+    height: 40px;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    border-bottom: 1px solid #e6e6e6;
+}
+
+#creditTable tbody tr td {
+    padding-left: 10px;
+}
+
+.new-credit-link {
+    position: relative;
+    left: 10px;
+    height: 34px;
+    background-color: #0e0762;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    text-decoration: none;
+    color: #d6d7e3;
+    font-family: 'Inter';
+    font-size: 13px;
+}

@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/tera.ico">
-    <title>GUARANTEE - CLIENTES</title>
+    <title>GUARANTEE - CRÉDITOS</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/clientes.css">
+    <link rel="stylesheet" href="../../assets/css/creditos.css">
 </head>
 <body>
     <header class="header-container">
@@ -107,21 +107,23 @@
             <img src="../../assets/img/lupa.svg" alt="icon-search">
         </div>
         <div class="list-container">
-            <table id="clientTable">
+            <table id="creditTable">
                 <thead> 
                     <tr>
                         <td>Nome</td>
-                        <td>Endereço</td>
+                        <td>Cota</td>
+                        <td>Ult. pag.</td>
+                        <td>Saldo</td>
                     </tr>
                 </thead>
-                <tbody id="clientList">
+                <tbody id="creditList">
                     
                 </tbody>
             </table>
         </div>
     </div>
 
-    <a href="/guarantee/clientes/novo/" class="new-client-link">Novo Cliente</a>
+    <a href="/guarantee/crediarios/novo/" class="new-credit-link">Novo crédito</a>
 
     <footer class="footer-container">
 
@@ -129,6 +131,6 @@
 
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/customerQueries.js"></script>
+    <script src="/assets/js/queries/creditQueries.js"></script>
 </body>
 </html>
