@@ -50,4 +50,7 @@ async function listCredits() {
 
 }
 
-window.addEventListener('load', listCredits)
+
+if (creditList) {
+    window.addEventListener('load', listCredits)
+}

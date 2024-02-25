@@ -22,7 +22,6 @@
     color: white;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
-    font-weight: 400;
 }
 
 .form-container {
@@ -44,7 +43,7 @@
     gap: 5px;
 }
 
-.form-container .form-wrapper span {
+.form-container .form-wrapper b {
     padding: 10px;
     background-color: #0e0762;
     border-radius: 8px;
@@ -55,16 +54,36 @@
     width: fit-content;
 }
 
+.form-container .form-wrapper.horizontal {
+    flex-direction: row;
+}
+
+.form-container .form-wrapper.horizontal div {
+    display: flex;
+    flex-direction: column;
+}
+
+.valor-container {
+    width: 33%;
+}
+
+.diaria-container {
+    width: 17%;
+}
+
+.data-container {
+    width: 50%;
+}
+
 .form-container .form-wrapper input {
     height: 30px;
     font-family: 'Mulish', sans-serif;
     font-size: 12px;
     font-weight: 400;
-    width: 95%;
     height: 40px;
+    padding-left: 15px;
     border-radius: 8px;
     border: solid 1px #f0f1f7;
-    padding-left: 15px;
     color: #0e0762;
 }
 
@@ -72,7 +91,7 @@
     color: #0e0762;
 }
 
-.form-container .form-wrapper select[name='state'] {
+.form-container .form-wrapper select[name='diarias'] {
     appearance: none;
     padding: 15px;
     border-radius: 8px;
@@ -80,16 +99,11 @@
     padding-left: 15px;
     color: #0e0762;
 }
-#streetInput {
-    width: 100%;
-}
 
-#numberInput, #stateInput {
-    width: 20%
-}
-
-#cityInput {
-    width: 60%;
+.form-container .form-wrapper p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #0e0762;
 }
 
 .form-container .form-wrapper.finish {
@@ -107,28 +121,4 @@
     border: none;
     width: fit-content;
     align-self: flex-end;
-}
-
-.error-message-container {
-    display: none;
-    flex-direction: column;
-    
-}
-
-#error-message {
-    align-self: center;
-    padding: 3px 5px;
-    margin-top: 5px;
-    border-radius: 6px;
-    color: #fff;
-    font-family: "Mulish";
-    font-size: 12px;
-}
-
-#error-message.error {
-    background-color: red;
-}
-
-#error-message.success {
-    background-color: green;
 }
