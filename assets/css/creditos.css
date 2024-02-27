@@ -5,21 +5,21 @@
 
 #creditTable thead tr {
     display: flex;
-    width: 100vw;
-    justify-content: space-evenly;
-    gap: 50px;
+    width: 100%;
+    justify-content: space-between; /* Espaça uniformemente os elementos do cabeçalho */
     align-items: center;
-
     height: 45px;
     color: #767676;
     font-family: 'Inter';
     font-size: 13px;
     background-color: #eff0f6;
     border-bottom: 1px solid #e6e6e6;
+    padding: 0 10px; /* Adiciona espaçamento interno aos elementos */
 }
 
 #creditTable tbody tr {
     display: flex;
+    
     justify-content: space-evenly;
     width: 100vw;
     align-items: center;
@@ -32,6 +32,52 @@
 
 #creditTable tbody tr td {
     padding-left: 10px;
+}
+
+#creditTable tbody tr td:nth-child(1),
+#creditTable thead tr th:nth-child(1) {
+    width: 25%; /* Largura da coluna 'Nome' */
+}
+
+#creditTable tbody tr td:nth-child(2),
+#creditTable thead tr th:nth-child(2) {
+    width: 20%; /* Largura da coluna 'Cota' */
+}
+
+#creditTable tbody tr td:nth-child(3),
+#creditTable thead tr th:nth-child(3) {
+    width: 20%; /* Largura da coluna 'Pagamentos' */
+}
+
+#creditTable tbody tr td:nth-child(4),
+#creditTable thead tr th:nth-child(4) {
+    width: 30%; /* Largura da coluna 'Valor Remanescente' */
+}
+.pay-button {
+    margin-left: auto; /* Move o botão de pagamento para a direita */
+    background-color: #0e0762;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 8px; /* Aumenta o espaçamento interno do botão */
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pay-button {
+    margin-left: auto; /* Move o botão de pagamento para a direita */
+    margin-right: 10px;
+    background-color: #0e0762;
+    color: #ffffff;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 8px; /* Aumenta o espaçamento interno do botão */
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.pay-button:hover {
+    background-color: #0c054e;
 }
 
 .new-credit-link {

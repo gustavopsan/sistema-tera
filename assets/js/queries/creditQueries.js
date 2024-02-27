@@ -65,6 +65,7 @@ async function listCredits() {
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
                 <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                <td><button class="pay-button">Pagar</button></td>
             </tr>
             `
         } else {
@@ -82,6 +83,7 @@ async function listCredits() {
     });
 
 }
+
 
 
 if (creditList) {
