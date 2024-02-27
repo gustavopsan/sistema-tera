@@ -112,17 +112,22 @@
         <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCustomer()">
             <div class="form-wrapper">
                 <b>Nome completo</b>
-                <input type="text" name="name" id="nameInput" placeholder="Digite o nome aqui" required>
+                <input type="text" name="name" id="nameInput" placeholder="Digite o nome do Cliente" required>
+            </div>
+
+            <div class="form-wrapper">
+                <b>ID do Cliente</b>
+                <input type="text" name="id" id="idInput" placeholder="Client_00000" readonly>
             </div>
             
             <div class="form-wrapper horizontal">
                 <div class="valor-container">
                     <b>Valor do crédito</b>
-                    <input type="number" name="creditValue" id="creditValue">
+                    <input type="number" name="creditValue" id="creditValue" onchange="calculateValue()">
                 </div>
                 <div class="diaria-container">
                     <b>Diárias</b>
-                    <select name="diarias" id="diarias">
+                    <select name="diarias" id="paymentsAmount" onchange="calculateValue()">
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -151,16 +156,16 @@
                 </div>
                 <div class="data-container">
                     <b>Data primeira parcela</b>
-                    <input type="date" name="date" id="dateFirstPayment">
+                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateValue()">
                 </div>
             </div>
             <div class="form-wrapper">
                 <b>Informações do crédito</b>
-                <p>Valor final: <span id="finalValue"></span></p>
-                <p>Quantidade de parcelas: <span id="paymentsAmount"></span></p>
-                <p>valor da parcela: <span id="paymentValue"></span></p>
-                <p>Data do primeiro pagamento: <span id="firstPaymentDate"></span></p>
-                <p>Data do último pagamento: <span id="lastPaymentDate"></span></p>
+                <p>Valor final: <span id="finalValueSpan"></span></p>
+                <p>Quantidade de parcelas: <span id="paymentsAmountSpan"></span></p>
+                <p>Valor da parcela: <span id="paymentValueSpan"></span></p>
+                <p>Data do primeiro pagamento: <span id="firstPaymentDateSpan"></span></p>
+                <p>Data do último pagamento: <span id="lastPaymentDateSpan"></span></p>
             </div>
 
             <div class="form-wrapper finish">

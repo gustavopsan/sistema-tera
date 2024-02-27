@@ -45,8 +45,8 @@
 }
 
 .form-container .form-wrapper span {
-    padding: 10px;
-    background-color: #0e0762;
+    padding: 8px;
+    background-color: #ef9616;
     border-radius: 8px;
     color: white;
     font-size: 14px;
@@ -59,7 +59,7 @@
     height: 30px;
     font-family: 'Mulish', sans-serif;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 800;
     width: 95%;
     height: 40px;
     border-radius: 8px;
@@ -75,6 +75,7 @@
 .form-container .form-wrapper select[name='state'] {
     appearance: none;
     padding: 15px;
+    font-weight: 400;
     border-radius: 8px;
     border: solid 1px #f0f1f7;
     padding-left: 15px;

@@ -44,10 +44,10 @@
 }
 
 .form-container .form-wrapper b {
-    padding: 10px;
-    background-color: #0e0762;
+    padding: 8px;
+    background-color: #ef9616;
     border-radius: 8px;
-    color: white;
+    color: #fff;
     font-size: 14px;
     font-family: 'Inter', sans-serif;
     font-weight: 400;
@@ -79,7 +79,7 @@
     height: 30px;
     font-family: 'Mulish', sans-serif;
     font-size: 12px;
-    font-weight: 400;
+    font-weight: 800;
     height: 40px;
     padding-left: 15px;
     border-radius: 8px;
@@ -89,11 +89,13 @@
 
 .form-container .form-wrapper input::placeholder {
     color: #0e0762;
+    font-weight: 800;
 }
 
 .form-container .form-wrapper select[name='diarias'] {
     appearance: none;
     padding: 15px;
+    font-weight: 800;
     border-radius: 8px;
     border: solid 1px #f0f1f7;
     padding-left: 15px;

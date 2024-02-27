@@ -2,6 +2,39 @@ const creditList = document.getElementById("creditList");
 const searchInput = document.getElementById('searchInput');
 const sellerId = getCookie('sellerId');
 
+const nameInput = document.getElementById('nameInput');
+const creditValueNumber = document.getElementById('creditValue');
+const paymentsAmount = document.getElementById('paymentsAmount');
+const firstPaymentDate = document.getElementById('firstPaymentDate');
+
+const finalValueSpan = document.getElementById('finalValueSpan');
+const paymentsAmountSpan = document.getElementById('paymentsAmountSpan');
+const paymentValueSpan = document.getElementById('paymentValueSpan');
+const firstPaymentDateSpan = document.getElementById('firstPaymentDateSpan');
+const lastPaymentDateSpan = document.getElementById('lastPaymentDateSpan');
+
+function formateAMerdaDaData(data) {
+    let newArr = data.split("-"); 
+    return `${newArr[2]}/${newArr[1]}/${newArr[0]}`
+}
+
+function calculateValue() {
+    var finalValue = (parseFloat(creditValueNumber.value) * 0.2) + parseFloat(creditValueNumber.value);
+    finalValueSpan.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    var paymentValue = finalValue / paymentsAmount.value;
+    paymentValueSpan.innerHTML = paymentValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    paymentsAmountSpan.innerHTML = paymentsAmount.value;
+
+    var daysToSum = parseInt(paymentsAmount.value);
+    var lastDate = new Date(firstPaymentDate.value);
+    lastDate.setDate(lastDate.getDate() + daysToSum);
+
+    firstPaymentDateSpan.innerHTML = formateAMerdaDaData(firstPaymentDate.value);
+    lastPaymentDateSpan.innerHTML = lastDate.toLocaleString("pt-br").split(' ')[0];
+}
+
 async function listCredits() {
 
     const credits = await fetch(
