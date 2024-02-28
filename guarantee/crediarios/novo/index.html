@@ -109,14 +109,15 @@
             <a href="/guarantee/crediarios/">Voltar</a>
         </div>
 
-        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCustomer()">
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCredit()">
             <div class="form-wrapper">
                 <b>Nome completo</b>
-                <input type="text" name="name" id="nameInput" placeholder="Digite o nome do Cliente" required>
+                <span id="nameAutocomplete"></span>
+                <input type="text" name="name" id="nameInput" placeholder="Digite o nome do Cliente" required onkeyup="searchCustomers()">
             </div>
 
-            <div class="form-wrapper">
-                <b>ID do Cliente</b>
+            <div class="form-wrapper" style="display: none;">
+                <b>ID do Cliente (Debug Only)</b>
                 <input type="text" name="id" id="idInput" placeholder="Client_00000" readonly>
             </div>
             
@@ -156,7 +157,7 @@
                 </div>
                 <div class="data-container">
                     <b>Data primeira parcela</b>
-                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateValue()">
+                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
                 </div>
             </div>
             <div class="form-wrapper">
