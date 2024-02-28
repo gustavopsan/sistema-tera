@@ -10,6 +10,7 @@ const formCity = document.getElementById('cityInput');
 const formHood = document.getElementById('hoodInput');
 const formState = document.getElementById('stateInput');
 const formReference = document.getElementById('referenceInput');
+const formModel = document.getElementById('modelInput');
 const formPhone = document.getElementById('phoneInput');
 const formCadastro = document.getElementById('form-cadastro');
 
