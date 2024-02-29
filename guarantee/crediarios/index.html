@@ -131,10 +131,10 @@
         <div class="pay-debit-wrapper">
             <b class="title">Digite o valor pago pelo cliente</b>
             <b id="nomeCliente">Gustavo Santana</b>
-            <form action="javascript:;">
+            <form action="javascript:;" onsubmit="payDebit()">
                 <div>
                     <label for="valorPago">Valor pago:</label>
-                    <input type="number" name="valorPago" id="valorPago" inputMode="decimal">
+                    <input type="number" name="valorPago" id="valorPago" inputMode="decimal" required>
                 </div>
                 <button type="submit">Confirmar</button>
             </form>

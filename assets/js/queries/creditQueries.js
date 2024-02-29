@@ -15,12 +15,13 @@ const paymentValueSpan = document.getElementById('paymentValueSpan');
 const firstPaymentDateSpan = document.getElementById('firstPaymentDateSpan');
 const lastPaymentDateSpan = document.getElementById('lastPaymentDateSpan');
 
-
+// Nome autoexplicativo
 function formateAMerdaDaData(data) {
     let newArr = data.split("-"); 
     return `${newArr[2]}/${newArr[1]}/${newArr[0]}`
 }
 
+// Setando dados de amostragem no momento de criação do débito
 function calculateValue() {
     var finalValue = (parseFloat(creditValueNumber.value) * 0.2) + parseFloat(creditValueNumber.value);
     finalValueSpan.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
@@ -39,6 +40,8 @@ function calculateDates() {
     firstPaymentDateSpan.innerHTML = formateAMerdaDaData(firstPaymentDate.value);
     lastPaymentDateSpan.innerHTML = lastDate.toLocaleString("pt-br").split(' ')[0];
 }
+
+// Methods para criação de novo débito
 
 var clientData = {
     name: "",
@@ -112,6 +115,8 @@ async function createCredit() {
     }
 }
 
+// Listagem de débitos
+
 async function listCredits() {
 
     const credits = await fetch(
@@ -152,7 +157,7 @@ async function listCredits() {
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
                 <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td><button class="pay-button" data-debit-id="${credit.debitId}">Pagar</button></td>
+                <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">Pagar</button></td>
             </tr>
             `
         }
@@ -160,15 +165,57 @@ async function listCredits() {
         creditList.innerHTML += newCredit;
     });
 
-    test();
+    addEvents();
 
 }
 
-function togglePayDebit() {
+// Pagamento de débito
+
+var paymentData = {};
+
+function togglePayDebit(e) {
+
     var payDebitContainer = document.getElementById('pay-debit-container');
+    var clientNameEl = document.getElementById('nomeCliente');
 
-    payDebitContainer.classList.toggle('hide')
+    payDebitContainer.classList.toggle('hide');
+
+    paymentData.debitId = e.target.dataset.debitId;
+    paymentData.clientName = e.target.dataset.clientName;
+
+    clientNameEl.innerText = paymentData.clientName;
+
+    //console.log(paymentData)
 }
+
+async function payDebit() {
+    var paidValueEl = document.getElementById('valorPago');
+
+    var requestData = {
+        debitId: paymentData.debitId,
+        paidValue: parseFloat(paidValueEl.value)
+    }
+
+    const payment = await fetch(
+        `${BASEPATH}/debits/pay`,
+        {
+            method: 'POST', 
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        }
+    );
+
+    let response = await payment.json();
+
+    if (response.debitId) {
+        window.location.reload();
+    }
+}
+
+// Calls Gerais
 
 if (creditList) {
     window.addEventListener('load', listCredits)
@@ -178,7 +225,7 @@ if (nameInput) {
     nameInput.addEventListener('focusout', setData)
 }
 
-function test() {
+function addEvents() {
     var payButtons = document.querySelectorAll('.pay-button');
 
     payButtons.forEach(button => button.addEventListener('click', togglePayDebit));
