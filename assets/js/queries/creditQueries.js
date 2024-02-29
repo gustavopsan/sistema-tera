@@ -15,6 +15,7 @@ const paymentValueSpan = document.getElementById('paymentValueSpan');
 const firstPaymentDateSpan = document.getElementById('firstPaymentDateSpan');
 const lastPaymentDateSpan = document.getElementById('lastPaymentDateSpan');
 
+
 function formateAMerdaDaData(data) {
     let newArr = data.split("-"); 
     return `${newArr[2]}/${newArr[1]}/${newArr[0]}`
@@ -151,13 +152,15 @@ async function listCredits() {
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
                 <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td><button class="pay-button" data-debit-id="${credit.debitId}" onclick="togglePayDebit()">Pagar</button></td>
+                <td><button class="pay-button" data-debit-id="${credit.debitId}">Pagar</button></td>
             </tr>
             `
         }
 
         creditList.innerHTML += newCredit;
     });
+
+    test();
 
 }
 
@@ -167,9 +170,16 @@ function togglePayDebit() {
     payDebitContainer.classList.toggle('hide')
 }
 
-
 if (creditList) {
     window.addEventListener('load', listCredits)
 }
 
-nameInput.addEventListener('focusout', setData)
+if (nameInput) {
+    nameInput.addEventListener('focusout', setData)
+}
+
+function test() {
+    var payButtons = document.querySelectorAll('.pay-button');
+
+    payButtons.forEach(button => button.addEventListener('click', togglePayDebit));
+}

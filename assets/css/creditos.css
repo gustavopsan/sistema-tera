@@ -162,6 +162,7 @@
         font-family: 'Inter';
         font-size: 12px;
         background-color: #ffffff;
+        color: #0c054e;
     }
 
     .pay-debit-wrapper input[type="number"] {
