@@ -151,7 +151,7 @@ async function listCredits() {
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
                 <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td><button class="pay-button" data-debit-id="${credit.debitId}">Pagar</button></td>
+                <td><button class="pay-button" data-debit-id="${credit.debitId}" onclick="togglePayDebit()">Pagar</button></td>
             </tr>
             `
         }
@@ -161,6 +161,11 @@ async function listCredits() {
 
 }
 
+function togglePayDebit() {
+    var payDebitContainer = document.getElementById('pay-debit-container');
+
+    payDebitContainer.classList.toggle('hide')
+}
 
 
 if (creditList) {

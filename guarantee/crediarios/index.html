@@ -126,6 +126,21 @@
 
     <a href="/guarantee/crediarios/novo/" class="new-credit-link">Novo crédito</a>
 
+    <div class="pay-debit-container hide" id="pay-debit-container">
+        <div class="blurred-bg" onclick="togglePayDebit()"></div>
+        <div class="pay-debit-wrapper">
+            <b class="title">Digite o valor pago pelo cliente</b>
+            <b id="nomeCliente">Gustavo Santana</b>
+            <form action="javascript:;">
+                <div>
+                    <label for="valorPago">Valor pago:</label>
+                    <input type="number" name="valorPago" id="valorPago" inputMode="decimal">
+                </div>
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </div>
+
     <footer class="footer-container">
 
     </footer>
