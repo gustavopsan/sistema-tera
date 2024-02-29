@@ -7,7 +7,6 @@
     display: flex;
     width: 100vw;
     justify-content: space-evenly;
-    gap: 50px;
     align-items: center;
 
     height: 45px;
@@ -31,8 +30,24 @@
 }
 
 #clientTable tbody tr td {
-    padding: 0 30px;
+    padding-left: 5%;
 }
+
+#clientTable thead tr td {
+    padding-left: 5%;
+}
+
+
+#clientTable tbody tr td:nth-child(1),
+#clientTable thead tr td:nth-child(1) {
+    width: 45%; /* Largura da coluna 'Nome' */
+}
+
+#clientTable tbody tr td:nth-child(2),
+#clientTable thead tr td:nth-child(2) {
+    width: 45%; /* Largura da coluna endereco */
+}
+
 
 .new-client-link {
     position: relative;
