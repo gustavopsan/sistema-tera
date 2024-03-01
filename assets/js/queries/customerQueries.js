@@ -111,6 +111,7 @@ async function createCustomer() {
             uf: formState.value,
             reference: formReference.value
         },
+        businessModel: formModel.value,
         docId: formCPF.value,
         phone: formPhone.value,
         route: 0
