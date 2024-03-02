@@ -38,19 +38,14 @@ function calculateDates() {
     var daysToSum = parseInt(paymentsAmount.value);
     var lastDate = new Date(firstPaymentDate.value);
 
-    console.log(daysToSum)
-
     switch (weekDay) {
         case 'seg':
             if (daysToSum > 6 && daysToSum < 13) {
                 daysToSum = daysToSum + 1;
-                console.log(daysToSum)
             } else if (daysToSum > 13 && daysToSum < 19) {
                 daysToSum = daysToSum + 2;
-                console.log(daysToSum)
             } else if (daysToSum > 18) {
                 daysToSum = daysToSum + 3
-                console.log(daysToSum)
             }
 
             lastDate.setDate(lastDate.getDate() + daysToSum);
@@ -59,13 +54,10 @@ function calculateDates() {
         case 'ter':
             if (daysToSum > 5 && daysToSum < 12) {
                 daysToSum = daysToSum + 1;
-                console.log(daysToSum)
             } else if (daysToSum > 12 && daysToSum < 18) {
                 daysToSum = daysToSum + 2;
-                console.log(daysToSum)
             } else if (daysToSum > 17) {
                 daysToSum = daysToSum + 3
-                console.log(daysToSum)
             }
 
             lastDate.setDate(lastDate.getDate() + daysToSum);
@@ -74,13 +66,10 @@ function calculateDates() {
         case 'qua':
             if (daysToSum > 4 && daysToSum < 11) {
                 daysToSum = daysToSum + 1;
-                console.log(daysToSum)
             } else if (daysToSum > 11 && daysToSum < 17) {
                 daysToSum = daysToSum + 2;
-                console.log(daysToSum)
             } else if (daysToSum > 16) {
                 daysToSum = daysToSum + 3
-                console.log(daysToSum)
             }
 
             lastDate.setDate(lastDate.getDate() + daysToSum);
@@ -89,13 +78,10 @@ function calculateDates() {
         case 'qui':
             if (daysToSum > 3 && daysToSum < 10) {
                 daysToSum = daysToSum + 1;
-                console.log(daysToSum)
             } else if (daysToSum > 10 && daysToSum < 16) {
                 daysToSum = daysToSum + 2;
-                console.log(daysToSum)
             } else if (daysToSum > 15) {
                 daysToSum = daysToSum + 3
-                console.log(daysToSum)
             }
 
             lastDate.setDate(lastDate.getDate() + daysToSum);
@@ -104,13 +90,10 @@ function calculateDates() {
         case 'sex':
             if (daysToSum > 2 && daysToSum < 9) {
                 daysToSum = daysToSum + 1;
-                console.log(daysToSum)
             } else if (daysToSum > 9 && daysToSum < 15) {
                 daysToSum = daysToSum + 2;
-                console.log(daysToSum)
             } else if (daysToSum > 14) {
                 daysToSum = daysToSum + 3
-                console.log(daysToSum)
             }
 
             lastDate.setDate(lastDate.getDate() + daysToSum);
@@ -119,13 +102,10 @@ function calculateDates() {
         case 'sab':
             if (daysToSum > 1 && daysToSum < 8) {
                 daysToSum = daysToSum + 1;
-                console.log(daysToSum)
             } else if (daysToSum > 8 && daysToSum < 14) {
                 daysToSum = daysToSum + 2;
-                console.log(daysToSum)
             } else if (daysToSum > 13) {
                 daysToSum = daysToSum + 3
-                console.log(daysToSum)
             }
 
             lastDate.setDate(lastDate.getDate() + daysToSum);
@@ -193,8 +173,6 @@ async function createCredit() {
             paymentsRemaing: parseInt(paymentsAmount.value)
         }
     );
-    
-    console.log(requestBody)
 
     const newCredit = await fetch(
         `${BASEPATH}/debits/create`,
@@ -244,7 +222,7 @@ async function listCredits() {
         if(isMobile) {
             newCredit = `
             <tr>
-                <td>${firstName}</td>
+                <td><a href="./informativo/?debit=${credit.debitId}">${firstName}</a></td>
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
                 <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
@@ -286,7 +264,6 @@ function togglePayDebit(e) {
 
     clientNameEl.innerText = paymentData.clientName;
 
-    //console.log(paymentData)
 }
 
 async function payDebit() {
@@ -316,6 +293,63 @@ async function payDebit() {
     }
 }
 
+function addEvents() {
+    var payButtons = document.querySelectorAll('.pay-button');
+
+    payButtons.forEach(button => button.addEventListener('click', togglePayDebit));
+}
+
+async function showDebitInfo() {
+    const Params = new URLSearchParams(window.location.search);
+    const debitId = Params.get("debit");
+
+    const debitIdEl = document.getElementById('debitIdEl');
+    const nameEl = document.getElementById('customer-name');
+    const totalValueEl = document.getElementById('total-value');
+    const paymentsAmountEl = document.getElementById('payments-amount');
+    const paymentValueEl = document.getElementById('payment-value');
+    const paymentsList = document.getElementById('payments-list');
+    const paidValueEl = document.getElementById('paid-value');
+    const paymentsRemaingEl = document.getElementById('payments-remaing');
+    const valueRemaingEl = document.getElementById('value-remaing');
+
+    debitIdEl.innerHTML = debitId;
+
+    var requestData = {
+        debitId: debitId
+    }
+
+    const payment = await fetch(
+        `${BASEPATH}/debits/find`,
+        {
+            method: 'POST', 
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(requestData)
+        }
+    );
+
+    let response = await payment.json();    
+
+    nameEl.innerHTML = response.customerData.name;
+    totalValueEl.innerHTML = response.totalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    paymentsAmountEl.innerHTML = response.paymentsAmount;
+    paymentValueEl.innerHTML = (response.totalValue / response.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    paidValueEl.innerHTML = (response.totalValue - response.valueRemaing).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    paymentsRemaingEl.innerHTML = response.paymentsRemaing;
+    valueRemaingEl.innerHTML = response.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+
+    response.payments.forEach(payment => {
+        var date = payment[0].date;
+        var dateValue = date.split('T')[0]
+        var item = `<tr><td>${formateAMerdaDaData(dateValue)}</td><td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td></tr>`;
+        
+        document.getElementById('payments-list').innerHTML += item;
+    })
+}
+
 // Calls Gerais
 
 if (creditList) {
@@ -326,8 +360,8 @@ if (nameInput) {
     nameInput.addEventListener('focusout', setData)
 }
 
-function addEvents() {
-    var payButtons = document.querySelectorAll('.pay-button');
+var Params = new URLSearchParams(window.location.search);
 
-    payButtons.forEach(button => button.addEventListener('click', togglePayDebit));
+if (Params.has('debit')) {
+    window.addEventListener('load', showDebitInfo)
 }

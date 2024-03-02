@@ -37,6 +37,10 @@
 #creditTable tbody tr td:nth-child(1),
 #creditTable thead tr th:nth-child(1) {
     width: 25%; /* Largura da coluna 'Nome' */
+    a {
+        text-decoration: none;
+        color: #767676;
+    }
 }
 
 #creditTable tbody tr td:nth-child(2),
