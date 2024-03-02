@@ -44,3 +44,18 @@
         padding: 10px;
     }
 }
+
+.new-credit-link {
+    position: absolute;
+    left: 10px;
+    bottom: 20px;
+    height: fit-content;
+    background-color: #0e0762;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    text-decoration: none;
+    color: #d6d7e3;
+    font-family: 'Inter';
+    font-size: 13px;
+}
