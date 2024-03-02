@@ -50,9 +50,10 @@
 
 
 .new-client-link {
-    position: relative;
+    position: absolute;
     left: 10px;
-    height: 34px;
+    bottom: 60px;
+    height: fit-content;
     background-color: #0e0762;
     border: none;
     border-radius: 8px;
