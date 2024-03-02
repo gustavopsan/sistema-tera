@@ -33,9 +33,110 @@ function calculateValue() {
 }
 
 function calculateDates() {
+    var weekDays = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
+    var weekDay = weekDays[new Date(firstPaymentDate.value).getDay() + 1];
     var daysToSum = parseInt(paymentsAmount.value);
     var lastDate = new Date(firstPaymentDate.value);
-    lastDate.setDate(lastDate.getDate() + daysToSum);
+
+    console.log(daysToSum)
+
+    switch (weekDay) {
+        case 'seg':
+            if (daysToSum > 6 && daysToSum < 13) {
+                daysToSum = daysToSum + 1;
+                console.log(daysToSum)
+            } else if (daysToSum > 13 && daysToSum < 19) {
+                daysToSum = daysToSum + 2;
+                console.log(daysToSum)
+            } else if (daysToSum > 18) {
+                daysToSum = daysToSum + 3
+                console.log(daysToSum)
+            }
+
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+
+        case 'ter':
+            if (daysToSum > 5 && daysToSum < 12) {
+                daysToSum = daysToSum + 1;
+                console.log(daysToSum)
+            } else if (daysToSum > 12 && daysToSum < 18) {
+                daysToSum = daysToSum + 2;
+                console.log(daysToSum)
+            } else if (daysToSum > 17) {
+                daysToSum = daysToSum + 3
+                console.log(daysToSum)
+            }
+
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+    
+        case 'qua':
+            if (daysToSum > 4 && daysToSum < 11) {
+                daysToSum = daysToSum + 1;
+                console.log(daysToSum)
+            } else if (daysToSum > 11 && daysToSum < 17) {
+                daysToSum = daysToSum + 2;
+                console.log(daysToSum)
+            } else if (daysToSum > 16) {
+                daysToSum = daysToSum + 3
+                console.log(daysToSum)
+            }
+
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+
+        case 'qui':
+            if (daysToSum > 3 && daysToSum < 10) {
+                daysToSum = daysToSum + 1;
+                console.log(daysToSum)
+            } else if (daysToSum > 10 && daysToSum < 16) {
+                daysToSum = daysToSum + 2;
+                console.log(daysToSum)
+            } else if (daysToSum > 15) {
+                daysToSum = daysToSum + 3
+                console.log(daysToSum)
+            }
+
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+        
+        case 'sex':
+            if (daysToSum > 2 && daysToSum < 9) {
+                daysToSum = daysToSum + 1;
+                console.log(daysToSum)
+            } else if (daysToSum > 9 && daysToSum < 15) {
+                daysToSum = daysToSum + 2;
+                console.log(daysToSum)
+            } else if (daysToSum > 14) {
+                daysToSum = daysToSum + 3
+                console.log(daysToSum)
+            }
+
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+
+        case 'sab':
+            if (daysToSum > 1 && daysToSum < 8) {
+                daysToSum = daysToSum + 1;
+                console.log(daysToSum)
+            } else if (daysToSum > 8 && daysToSum < 14) {
+                daysToSum = daysToSum + 2;
+                console.log(daysToSum)
+            } else if (daysToSum > 13) {
+                daysToSum = daysToSum + 3
+                console.log(daysToSum)
+            }
+
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+
+        default:
+            lastDate.setDate(lastDate.getDate() + daysToSum);
+            break;
+    }
+
+    
 
     firstPaymentDateSpan.innerHTML = formateAMerdaDaData(firstPaymentDate.value);
     lastPaymentDateSpan.innerHTML = lastDate.toLocaleString("pt-br").split(' ')[0];
