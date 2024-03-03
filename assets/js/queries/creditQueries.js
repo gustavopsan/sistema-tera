@@ -4,17 +4,25 @@ const sellerId = getCookie('sellerId');
 
 const nameInput = document.getElementById('nameInput');
 const creditValueNumber = document.getElementById('creditValue');
-const paymentsAmount = document.getElementById('paymentsAmount');
+const daysAmountCont = document.getElementById('diaria-container');
+const weeksAmountCont = document.getElementById('semanas-container');
+const weeksAmount = document.getElementById('weeksAmount');
+const daysAmount = document.getElementById('daysAmount');
+
 const firstPaymentDate = document.getElementById('firstPaymentDate');
 const nameSpan = document.getElementById('nameAutocomplete');
 const idInput = document.getElementById('idInput');
+const paymentModel = document.getElementById('paymentModel');
 
 const finalValueSpan = document.getElementById('finalValueSpan');
 const paymentsAmountSpan = document.getElementById('paymentsAmountSpan');
 const paymentValueSpan = document.getElementById('paymentValueSpan');
 const firstPaymentDateSpan = document.getElementById('firstPaymentDateSpan');
 const lastPaymentDateSpan = document.getElementById('lastPaymentDateSpan');
-const paymentMmethodEl = document.getElementById('paymentMethod');
+const paymentMethodEl = document.getElementById('paymentMethod');
+
+var paymentsAmount = 0;
+var paymentsAmountDisp = 0;
 
 // Nome autoexplicativo
 function formateAMerdaDaData(data) {
@@ -24,97 +32,130 @@ function formateAMerdaDaData(data) {
 
 // Setando dados de amostragem no momento de criação do débito
 function calculateValue() {
+
+    if (paymentModel.value == 'daily') {
+        paymentsAmount = daysAmount.value;
+        paymentsAmountDisp = daysAmount.value;
+        //console.log(paymentsAmountDisp);
+    } else {
+        paymentsAmount = weeksAmount.value;
+        paymentsAmountDisp = parseInt(paymentsAmount) + 1;
+        //console.log(paymentsAmountDisp);
+    }
+
     var finalValue = (parseFloat(creditValueNumber.value) * 0.2) + parseFloat(creditValueNumber.value);
     finalValueSpan.innerHTML = finalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
-    var paymentValue = finalValue / paymentsAmount.value;
+    var paymentValue = finalValue / paymentsAmountDisp;
     paymentValueSpan.innerHTML = paymentValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
 
-    paymentsAmountSpan.innerHTML = paymentsAmount.value;
+    paymentsAmountSpan.innerHTML = paymentsAmountDisp;
+}
+
+function hideDays() {
+    if(paymentModel.value == "weekly") {
+       weeksAmountCont.classList.remove('hide');
+       daysAmountCont.classList.add('hide');
+
+    } else if(paymentModel.value == "daily") {
+        weeksAmountCont.classList.add('hide');
+        daysAmountCont.classList.remove('hide');
+    }
 }
 
 function calculateDates() {
     var weekDays = ['dom', 'seg', 'ter', 'qua', 'qui', 'sex', 'sab'];
     var weekDay = weekDays[new Date(firstPaymentDate.value).getDay() + 1];
-    var daysToSum = parseInt(paymentsAmount.value);
+    var daysToSum = parseInt(paymentsAmount);
     var lastDate = new Date(firstPaymentDate.value);
 
-    switch (weekDay) {
-        case 'seg':
-            if (daysToSum > 6 && daysToSum < 13) {
-                daysToSum = daysToSum + 1;
-            } else if (daysToSum > 13 && daysToSum < 19) {
-                daysToSum = daysToSum + 2;
-            } else if (daysToSum > 18) {
-                daysToSum = daysToSum + 3
-            }
+    if (paymentModel.value == 'daily') {
+        switch (weekDay) {
+            case 'seg':
+                if (daysToSum > 6 && daysToSum < 13) {
+                    daysToSum = daysToSum + 1;
+                } else if (daysToSum > 13 && daysToSum < 19) {
+                    daysToSum = daysToSum + 2;
+                } else if (daysToSum > 18) {
+                    daysToSum = daysToSum + 3
+                }
 
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
 
-        case 'ter':
-            if (daysToSum > 5 && daysToSum < 12) {
-                daysToSum = daysToSum + 1;
-            } else if (daysToSum > 12 && daysToSum < 18) {
-                daysToSum = daysToSum + 2;
-            } else if (daysToSum > 17) {
-                daysToSum = daysToSum + 3
-            }
+            case 'ter':
+                if (daysToSum > 5 && daysToSum < 12) {
+                    daysToSum = daysToSum + 1;
+                } else if (daysToSum > 12 && daysToSum < 18) {
+                    daysToSum = daysToSum + 2;
+                } else if (daysToSum > 17) {
+                    daysToSum = daysToSum + 3
+                }
 
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
-    
-        case 'qua':
-            if (daysToSum > 4 && daysToSum < 11) {
-                daysToSum = daysToSum + 1;
-            } else if (daysToSum > 11 && daysToSum < 17) {
-                daysToSum = daysToSum + 2;
-            } else if (daysToSum > 16) {
-                daysToSum = daysToSum + 3
-            }
-
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
-
-        case 'qui':
-            if (daysToSum > 3 && daysToSum < 10) {
-                daysToSum = daysToSum + 1;
-            } else if (daysToSum > 10 && daysToSum < 16) {
-                daysToSum = daysToSum + 2;
-            } else if (daysToSum > 15) {
-                daysToSum = daysToSum + 3
-            }
-
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
         
-        case 'sex':
-            if (daysToSum > 2 && daysToSum < 9) {
-                daysToSum = daysToSum + 1;
-            } else if (daysToSum > 9 && daysToSum < 15) {
-                daysToSum = daysToSum + 2;
-            } else if (daysToSum > 14) {
-                daysToSum = daysToSum + 3
-            }
+            case 'qua':
+                if (daysToSum > 4 && daysToSum < 11) {
+                    daysToSum = daysToSum + 1;
+                } else if (daysToSum > 11 && daysToSum < 17) {
+                    daysToSum = daysToSum + 2;
+                } else if (daysToSum > 16) {
+                    daysToSum = daysToSum + 3
+                }
 
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
 
-        case 'sab':
-            if (daysToSum > 1 && daysToSum < 8) {
-                daysToSum = daysToSum + 1;
-            } else if (daysToSum > 8 && daysToSum < 14) {
-                daysToSum = daysToSum + 2;
-            } else if (daysToSum > 13) {
-                daysToSum = daysToSum + 3
-            }
+            case 'qui':
+                if (daysToSum > 3 && daysToSum < 10) {
+                    daysToSum = daysToSum + 1;
+                } else if (daysToSum > 10 && daysToSum < 16) {
+                    daysToSum = daysToSum + 2;
+                } else if (daysToSum > 15) {
+                    daysToSum = daysToSum + 3
+                }
 
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
+            
+            case 'sex':
+                if (daysToSum > 2 && daysToSum < 9) {
+                    daysToSum = daysToSum + 1;
+                } else if (daysToSum > 9 && daysToSum < 15) {
+                    daysToSum = daysToSum + 2;
+                } else if (daysToSum > 14) {
+                    daysToSum = daysToSum + 3
+                }
 
-        default:
-            lastDate.setDate(lastDate.getDate() + daysToSum);
-            break;
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
+
+            case 'sab':
+                if (daysToSum > 1 && daysToSum < 8) {
+                    daysToSum = daysToSum + 1;
+                } else if (daysToSum > 8 && daysToSum < 14) {
+                    daysToSum = daysToSum + 2;
+                } else if (daysToSum > 13) {
+                    daysToSum = daysToSum + 3
+                }
+
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
+
+            default:
+                lastDate.setDate(lastDate.getDate() + daysToSum);
+                break;
+        }
+    } else {
+        var weeksAmount = parseInt(paymentsAmount);
+        var lastDate = new Date(firstPaymentDate.value);
+
+        if (weekDay == 'seg') {
+            lastDate.setDate(lastDate.getDate() + ((weeksAmount * 7) + 1));
+        } else {
+            lastDate.setDate(lastDate.getDate() + (weeksAmount * 7));
+        }
     }
 
     
@@ -170,8 +211,10 @@ async function createCredit() {
             sellerId: sellerId,
             customerId: clientData.clientId,
             value: parseFloat(creditValueNumber.value),
-            paymentsAmount: parseInt(paymentsAmount.value),
-            paymentsRemaing: parseInt(paymentsAmount.value)
+            firstPaymentDate: new Date(firstPaymentDate.value),
+            paymentModel: paymentModel.value,
+            paymentsAmount: parseInt(paymentsAmountDisp),
+            paymentsRemaing: parseInt(paymentsAmountDisp)
         }
     );
 
@@ -273,7 +316,7 @@ async function payDebit() {
     var requestData = {
         debitId: paymentData.debitId,
         paidValue: parseFloat(paidValueEl.value),
-        paymentMethod: paymentMmethodEl.value
+        paymentMethod: paymentMethodEl.value
     }
 
     const payment = await fetch(
@@ -314,6 +357,8 @@ async function showDebitInfo() {
     const paidValueEl = document.getElementById('paid-value');
     const paymentsRemaingEl = document.getElementById('payments-remaing');
     const valueRemaingEl = document.getElementById('value-remaing');
+    const paymentModelEl = document.getElementById('payment-model');
+    const firstPaymentDateEl = document.getElementById('first-payment-date');
     const payDebitButton = document.getElementById('pay-button');
 
     debitIdEl.innerHTML = debitId;
@@ -336,7 +381,7 @@ async function showDebitInfo() {
 
     let response = await payment.json();   
     
-    console.log(response);
+    //console.log(response);
 
     payDebitButton.dataset.debitId = response.debitId;
     payDebitButton.dataset.clientName = response.customerData.name;
@@ -347,6 +392,12 @@ async function showDebitInfo() {
     paidValueEl.innerHTML = (response.totalValue - response.valueRemaing).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     paymentsRemaingEl.innerHTML = response.paymentsRemaing;
     valueRemaingEl.innerHTML = response.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    
+    if (response.paymentModel == "daily") { paymentModelEl.innerHTML = "Diária" }
+    else if (response.paymentModel == "weekly") { paymentModelEl.innerHTML = "Semanal" };
+
+    let date = response.firstPaymentDate.toString().split('T')[0];
+    firstPaymentDateEl.innerHTML = formateAMerdaDaData(date);
 
     response.payments.forEach(payment => {
         var date = payment[0].date;
@@ -374,7 +425,7 @@ async function searchDebits() {
 
     let response = await searchedCredits.json();
 
-    console.log(response);
+    //console.log(response);
 
     creditList.innerHTML = "";
 

@@ -126,9 +126,18 @@
                     <b>Valor do crédito</b>
                     <input type="number" name="creditValue" id="creditValue" required onchange="calculateValue()" inputMode="decimal">
                 </div>
-                <div class="diaria-container">
+                <div class="model-container">
+                    <b>Modelo</b>
+                    <select name="paymentModel" id="paymentModel" onchange="hideDays()">
+                        <option value="daily">Diário</option>
+                        <option value="weekly">Semanal</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-wrapper horizontal">
+                <div class="diaria-container" id="diaria-container">
                     <b>Diárias</b>
-                    <select name="diarias" id="paymentsAmount" onchange="calculateValue()">
+                    <select name="diarias" id="daysAmount" onchange="calculateValue()">
                         <option value="1">01</option>
                         <option value="2">02</option>
                         <option value="3">03</option>
@@ -155,11 +164,27 @@
                         <option value="24">24</option>
                     </select>
                 </div>
+                <div class="semanas-container hide" id="semanas-container">
+                    <b>Semanas</b>
+                    <select name="semanas" id="weeksAmount" onchange="calculateValue()">
+                        <option value="0">01</option>
+                        <option value="1">02</option>
+                        <option value="2">03</option>
+                        <option value="3">04</option>
+                        <option value="4">05</option>
+                        <option value="5">06</option>
+                        <option value="6">07</option>
+                        <option value="7">08</option>
+                        <option value="8">09</option>
+                        <option value="9">10</option>
+                    </select>
+                </div>
                 <div class="data-container">
                     <b>Data primeira parcela</b>
                     <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
                 </div>
             </div>
+
             <div class="form-wrapper">
                 <b>Informações do crédito</b>
                 <p>Valor final: <span id="finalValueSpan"></span></p>
