@@ -5,15 +5,15 @@
     font-family: "Inter";
     color: #767676;
     border-bottom: 1px solid #e6e6e6;
+}
 
-    span#debitIdEl {
-        font-weight: 700;
-    }
-
-    div {
-        display: flex;
+.main-content-header div {
+    display: flex;
         gap: 10px;
-    }
+}
+
+.main-content-header span#debitIdEl {
+    font-weight: 700;
 }
 
 .debit-info {
@@ -24,6 +24,7 @@
     gap: 10px;
     max-width: 90vw;
     font-family: 'Inter';
+    font-size: 13px;
     color: #0E0762;
 }
 
@@ -31,18 +32,18 @@
     width: -webkit-fill-available;
     border-collapse: collapse;
     border: 1px solid #767676;
+}
 
-    thead tr {
-        width: -webkit-fill-available;
-        background-color: #EFF0F6;
-        font-family: "Inter";
-        color: #767676;
-        border-bottom: 1px solid #e6e6e6;
-    }
+#table-payments thead tr {
+    width: -webkit-fill-available;
+    background-color: #EFF0F6;
+    font-family: "Inter";
+    color: #767676;
+    border-bottom: 1px solid #e6e6e6;
+}
 
-    td {
-        padding: 10px;
-    }
+#table-payments td {
+    padding: 8px;
 }
 
 .new-credit-link {
