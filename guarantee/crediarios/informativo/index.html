@@ -121,6 +121,7 @@
                     <thead>
                         <tr>
                             <td>Data</td>
+                            <td>Método</td>
                             <td>Valor</td>
                         </tr>
                     </thead>
@@ -153,6 +154,13 @@
                 <div>
                     <label for="valorPago">Valor pago:</label>
                     <input type="number" name="valorPago" id="valorPago" inputMode="decimal" required>
+                </div>
+                <div>
+                    <label for="paymentMethod">Forma de Pagamento:</label>
+                    <select name="paymentMethod" id="paymentMethod">
+                        <option value="Pix">Pix</option>
+                        <option value="À Vista">À Vista</option>
+                    </select>
                 </div>
                 <button type="submit">Confirmar</button>
             </form>

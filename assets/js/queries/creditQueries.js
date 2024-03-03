@@ -14,6 +14,7 @@ const paymentsAmountSpan = document.getElementById('paymentsAmountSpan');
 const paymentValueSpan = document.getElementById('paymentValueSpan');
 const firstPaymentDateSpan = document.getElementById('firstPaymentDateSpan');
 const lastPaymentDateSpan = document.getElementById('lastPaymentDateSpan');
+const paymentMmethodEl = document.getElementById('paymentMethod');
 
 // Nome autoexplicativo
 function formateAMerdaDaData(data) {
@@ -271,7 +272,8 @@ async function payDebit() {
 
     var requestData = {
         debitId: paymentData.debitId,
-        paidValue: parseFloat(paidValueEl.value)
+        paidValue: parseFloat(paidValueEl.value),
+        paymentMethod: paymentMmethodEl.value
     }
 
     const payment = await fetch(
@@ -332,7 +334,9 @@ async function showDebitInfo() {
         }
     );
 
-    let response = await payment.json();    
+    let response = await payment.json();   
+    
+    console.log(response);
 
     payDebitButton.dataset.debitId = response.debitId;
     payDebitButton.dataset.clientName = response.customerData.name;
@@ -347,7 +351,7 @@ async function showDebitInfo() {
     response.payments.forEach(payment => {
         var date = payment[0].date;
         var dateValue = date.split('T')[0]
-        var item = `<tr><td>${formateAMerdaDaData(dateValue)}</td><td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td></tr>`;
+        var item = `<tr><td>${formateAMerdaDaData(dateValue)}</td><td>${payment[0].paymentMethod}</td><td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td></tr>`;
         
         document.getElementById('payments-list').innerHTML += item;
     })

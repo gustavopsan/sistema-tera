@@ -162,5 +162,17 @@
         color: #0e0762;
     }
 
+    .pay-debit-wrapper select {
+        height: 30px;
+        font-family: 'Mulish', sans-serif;
+        font-size: 12px;
+        font-weight: 800;
+        height: 30px;
+        border-radius: 8px;
+        padding: 5px;
+        border: solid 1px #f0f1f7;
+        color: #0e0762;
+    }
+
 
 }
