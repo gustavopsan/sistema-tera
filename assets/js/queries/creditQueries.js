@@ -312,6 +312,7 @@ async function showDebitInfo() {
     const paidValueEl = document.getElementById('paid-value');
     const paymentsRemaingEl = document.getElementById('payments-remaing');
     const valueRemaingEl = document.getElementById('value-remaing');
+    const payDebitButton = document.getElementById('pay-button');
 
     debitIdEl.innerHTML = debitId;
 
@@ -333,6 +334,8 @@ async function showDebitInfo() {
 
     let response = await payment.json();    
 
+    payDebitButton.dataset.debitId = response.debitId;
+    payDebitButton.dataset.clientName = response.customerData.name;
     nameEl.innerHTML = response.customerData.name;
     totalValueEl.innerHTML = response.totalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     paymentsAmountEl.innerHTML = response.paymentsAmount;

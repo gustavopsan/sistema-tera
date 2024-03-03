@@ -108,6 +108,7 @@
                 <span>Detalhes do débito:</span>
                 <span id="debitIdEl"></span>
             </div>
+            <button id="pay-button" data-debit-id="" data-client-name="" onclick="togglePayDebit(event)">Pagar</button>
         </div>
 
         <div class="debit-info">
@@ -143,6 +144,20 @@
 
     <a href="/guarantee/crediarios/" class="new-credit-link">Voltar</a>
 
+    <div class="pay-debit-container hide" id="pay-debit-container">
+        <div class="blurred-bg" onclick="togglePayDebit()"></div>
+        <div class="pay-debit-wrapper">
+            <b class="title">Digite o valor pago pelo cliente</b>
+            <b id="nomeCliente">Gustavo Santana</b>
+            <form action="javascript:;" onsubmit="payDebit()">
+                <div>
+                    <label for="valorPago">Valor pago:</label>
+                    <input type="number" name="valorPago" id="valorPago" inputMode="decimal" required>
+                </div>
+                <button type="submit">Confirmar</button>
+            </form>
+        </div>
+    </div>
 
     <footer class="footer-container">
 
