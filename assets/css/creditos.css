@@ -30,6 +30,14 @@
     border-bottom: 1px solid #e6e6e6;
 }
 
+#creditTable tbody tr.quited {
+    color: #00B649;
+}
+
+#creditTable tbody tr.quited a {
+    color: #00B649;
+}
+
 #creditTable tbody tr td {
     padding-left: 10px;
 }

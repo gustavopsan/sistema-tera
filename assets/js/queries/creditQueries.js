@@ -357,6 +357,82 @@ async function showDebitInfo() {
     })
 }
 
+async function searchDebits() {
+    const debitStr = searchInput.value;
+
+    const searchedCredits = await fetch(
+        `${BASEPATH}/debits/search`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ queryString: debitStr, sellerId: sellerId })
+        }
+    )
+
+    let response = await searchedCredits.json();
+
+    console.log(response);
+
+    creditList.innerHTML = "";
+
+    response.forEach(credit => {
+        var newCredit;
+        var name = credit.customerData.name;
+        var firstName = name.split(" ")[0];
+
+        if (credit.isQuited) {
+            if(isMobile) {
+                newCredit = `
+                <tr class="quited">
+                    <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${firstName}</a></td>
+                    <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
+                    <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td></td>
+                </tr>
+                `
+            } else {
+                newCredit = `
+                <tr class="quited">
+                    <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
+                    <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
+                    <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td></td>
+                </tr>
+                `
+            }
+        } else {
+            if(isMobile) {
+                newCredit = `
+                <tr>
+                    <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${firstName}</a></td>
+                    <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
+                    <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">Pagar</button></td>
+                </tr>
+                `
+            } else {
+                newCredit = `
+                <tr>
+                    <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
+                    <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
+                    <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                    <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">Pagar</button></td>
+                </tr>
+                `
+            }
+        }
+
+        creditList.innerHTML += newCredit;
+    })
+}
+
 // Calls Gerais
 
 if (creditList) {
