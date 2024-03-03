@@ -433,6 +433,18 @@ async function searchDebits() {
     })
 }
 
+function handleSearchEvents(e) {
+    e.preventDefault();
+
+    var searchString = e.target.value;
+
+    if (searchString === "") {
+        listCredits()
+    } else {
+        searchDebits()
+    }
+}
+
 // Calls Gerais
 
 if (creditList) {
