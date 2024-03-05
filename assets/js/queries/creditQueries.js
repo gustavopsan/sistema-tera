@@ -266,7 +266,7 @@ async function listCredits() {
         if(isMobile) {
             newCredit = `
             <tr>
-                <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${firstName}</a></td>
+                <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
                 <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
