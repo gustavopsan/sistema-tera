@@ -1,6 +1,7 @@
 #creditTable {
     display: flex;
     flex-direction: column;
+    padding-bottom: 35px;
 }
 
 #creditTable thead tr {
@@ -23,11 +24,12 @@
     justify-content: space-evenly;
     width: 100vw;
     align-items: center;
-    height: 40px;
+    height: fit-content;
     color: #767676;
     font-family: 'Inter';
     font-size: 13px;
-    border-bottom: 1px solid #e6e6e6;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 5px 0;
 }
 
 #creditTable tbody tr.quited {
@@ -94,7 +96,7 @@
 }
 
 .new-credit-link {
-    position: absolute;
+    position: sticky;
     left: 10px;
     bottom: 20px;
     height: fit-content;
