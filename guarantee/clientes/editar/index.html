@@ -119,17 +119,17 @@
             </div>
             <div class="form-wrapper">
                 <span>CPF</span>
-                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeyup="formatDocId(this,cpfCnpj)" maxlength="14" required/>
+                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeyup="formatDocId(this,cpfCnpj)" maxlength="14" required onchange="prepareChanges(event)"/>
             </div>
             <div class="form-wrapper">
                 <span>Endereço completo</span>
                 <div>
-                    <input type="text" name="street" id="streetInput"  placeholder="Rua" required>
+                    <input type="text" name="street" id="streetInput"  placeholder="Rua" required onchange="prepareAddressChanges(event)">
                 </div>
                 <div>
-                    <input type="number" name="number" id="numberInput"  placeholder="Nº" required inputMode="decimal">
-                    <input type="text" name="city" id="cityInput" placeholder="Cidade" required>
-                    <select name="state" id="stateInput" required>
+                    <input type="number" name="number" id="numberInput"  placeholder="Nº" required inputMode="decimal" onchange="prepareAddressChanges(event)">
+                    <input type="text" name="city" id="cityInput" placeholder="Cidade" required onchange="prepareAddressChanges(event)">
+                    <select name="uf" id="stateInput" required onchange="prepareAddressChanges(event)">
                         <option value="" selected hidden>Estado</option>
                         <option value="AC">AC</option>
                         <option value="AL">AL</option>
@@ -161,19 +161,19 @@
                     </select>
                 </div>
                 <div>
-                    <input type="text" name="hood" id="hoodInput" placeholder="Bairro" required>
+                    <input type="text" name="hood" id="hoodInput" placeholder="Bairro" required onchange="prepareAddressChanges(event)">
                 </div>
                 <div>
-                    <input type="text" name="reference" id="referenceInput" placeholder="Ponto de referência">
+                    <input type="text" name="reference" id="referenceInput" placeholder="Ponto de referência" onchange="prepareAddressChanges(event)">
                 </div>
             </div>
             <div class="form-wrapper">
                 <span>Modelo do negócio</span>
-                <input type="text" name="model" id="modelInput" placeholder="Digite o modelo aqui" required>
+                <input type="text" name="businessModel" id="modelInput" placeholder="Digite o modelo aqui" required onchange="prepareChanges(event)">
             </div>
             <div class="form-wrapper">
                 <span>Contato</span>
-                <input type="tel" name="phone" id="phoneInput"  placeholder="+55 (00) 00000-0000" required>
+                <input type="tel" name="phone" id="phoneInput"  placeholder="+55 (00) 00000-0000" required onchange="prepareChanges(event)">
             </div>
             <div class="error-message-container" id="error-message-container">
                 <span id="error-message" class="error">mensagem de erro teste</span>

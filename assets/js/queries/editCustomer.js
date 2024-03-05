@@ -63,8 +63,21 @@ function prepareChanges(event) {
     console.log(customerChanges)
 }
 
+function prepareAddressChanges(event) {
+    var change = {
+        customerId: customerId,
+        key: `address.${event.target.name}`,
+        newvalue: event.target.value
+    }
+
+    customerChanges.push(change);
+
+    console.log(customerChanges)
+}
+
 function sendChanges(){
     if (customerChanges.length > 0){
+
         customerChanges.forEach(async change => {
             const updatedCustomer = await fetch(
                 `${BASEPATH}/customer/update`,
