@@ -400,9 +400,10 @@ async function showDebitInfo() {
     firstPaymentDateEl.innerHTML = formateAMerdaDaData(date);
 
     response.payments.forEach(payment => {
-        var date = payment[0].date;
-        var dateValue = date.split('T')[0]
-        var item = `<tr><td>${formateAMerdaDaData(dateValue)}</td><td>${payment[0].paymentMethod}</td><td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td></tr>`;
+        var date = new Date(payment[0].date).toLocaleString('pt-BR');
+        console.log(date);
+        var dateValue = date.split(',')[0]
+        var item = `<tr><td>${dateValue.split(' ')[0]}</td><td>${payment[0].paymentMethod}</td><td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td></tr>`;
         
         document.getElementById('payments-list').innerHTML += item;
     })
