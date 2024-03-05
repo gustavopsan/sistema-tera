@@ -72,13 +72,14 @@ function sendChanges(){
                     method: 'POST',
                     mode: 'cors',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'Content-Type': 'application/json',
                     },
-                    body: change
+                    body: JSON.stringify(change)
                 }
             );
-            
-            return updatedCustomer.json();
+
+                let response = await updatedCustomer.json();
+                console.log(response)
         });
     } else {
         errorMessage.innerHTML = "Nenhuma alteração feita nos dados do cliente"
