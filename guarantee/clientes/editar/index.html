@@ -10,16 +10,20 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/clientes.css">
+    <link rel="stylesheet" href="../../../assets/css/base.css">
+    <link rel="stylesheet" href="../../../assets/css/novo-cliente.css">
 </head>
 <body>
+    <script src="/assets/js/misc/base.js"></script>
+    <script src="/assets/js/auth/checkSession.js"></script>
+
     <header class="header-container">
         <div class="header-content-left">
-            <button onclick="toggleMenu()">
-                <img src="../../assets/img/menu.svg" alt="menu-icon">
+            <button class="menu-button" onclick="toggleMenu()">
+                <img src="../../../assets/img/menu.svg" width="24px" height="24px" alt="menu-icon">
             </button>
         </div>
         <div class="header-content-right">
@@ -28,7 +32,7 @@
                 <span>Módulo Crediário</span>
             </div>
             <button onclick="toggleMenuLogout()">
-                <img src="../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+                <img src="../../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
             </button>
         </div>
 
@@ -54,7 +58,7 @@
             <div class="aside-menu-content">
                 <div class="aside-menu-content-header">
                     <button class="menu-button" onclick="toggleMenu()">
-                        <img src="../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
+                        <img src="../../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
                     </button>
                     <h2 class="logo-text">Crediário | TERA</h2>
                 </div>
@@ -101,34 +105,88 @@
             </div>
         </div>
     </header>
-    <div class="main-content-container">
-        <div class="search-container">
-            <input type="text" name="search" id="searchInput" placeholder="Pesquisar"/>
-            <img src="../../assets/img/lupa.svg" alt="icon-search">
-        </div>
-        <div class="list-container">
-            <table id="clientTable">
-                <thead> 
-                    <tr>
-                        <td>Nome</td>
-                        <td>Endereço</td>
-                    </tr>
-                </thead>
-                <tbody id="clientList">
 
-                </tbody>
-            </table>
+    <div class="main-content-container">
+        <div class="sub-header">
+            <span>Editar cliente</span>
+            <a href="/guarantee/clientes/">Voltar</a>
         </div>
+
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="sendChanges()">
+            <div class="form-wrapper">
+                <span>Nome completo</span>
+                <input type="text" name="name" id="nameInput" placeholder="Digite o nome aqui" required onchange="prepareChanges(event)">
+            </div>
+            <div class="form-wrapper">
+                <span>CPF</span>
+                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeyup="formatDocId(this,cpfCnpj)" maxlength="14" required/>
+            </div>
+            <div class="form-wrapper">
+                <span>Endereço completo</span>
+                <div>
+                    <input type="text" name="street" id="streetInput"  placeholder="Rua" required>
+                </div>
+                <div>
+                    <input type="number" name="number" id="numberInput"  placeholder="Nº" required inputMode="decimal">
+                    <input type="text" name="city" id="cityInput" placeholder="Cidade" required>
+                    <select name="state" id="stateInput" required>
+                        <option value="" selected hidden>Estado</option>
+                        <option value="AC">AC</option>
+                        <option value="AL">AL</option>
+                        <option value="AP">AP</option>
+                        <option value="AM">AM</option>
+                        <option value="BA">BA</option>
+                        <option value="CE">CE</option>
+                        <option value="DF">DF</option>
+                        <option value="ES">ES</option>
+                        <option value="GO">GO</option>
+                        <option value="MA">MA</option>
+                        <option value="MS">MS</option>
+                        <option value="MT">MT</option>
+                        <option value="MG">MG</option>
+                        <option value="PA">PA</option>
+                        <option value="PB">PB</option>
+                        <option value="PR">PR</option>
+                        <option value="PE">PE</option>
+                        <option value="PI">PI</option>
+                        <option value="RJ">RJ</option>
+                        <option value="RN">RN</option>
+                        <option value="RS">RS</option>
+                        <option value="RO">RO</option>
+                        <option value="RR">RR</option>
+                        <option value="SC">SC</option>
+                        <option value="SP">SP</option>
+                        <option value="SE">SE</option>
+                        <option value="TO">TO</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="text" name="hood" id="hoodInput" placeholder="Bairro" required>
+                </div>
+                <div>
+                    <input type="text" name="reference" id="referenceInput" placeholder="Ponto de referência">
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <span>Modelo do negócio</span>
+                <input type="text" name="model" id="modelInput" placeholder="Digite o modelo aqui" required>
+            </div>
+            <div class="form-wrapper">
+                <span>Contato</span>
+                <input type="tel" name="phone" id="phoneInput"  placeholder="+55 (00) 00000-0000" required>
+            </div>
+            <div class="error-message-container" id="error-message-container">
+                <span id="error-message" class="error">mensagem de erro teste</span>
+            </div>
+            <div class="form-wrapper finish">
+                <button id="excludeCustomer">Excluir</button>
+                <button id="createDebit">R$</button>
+                <button type="submit" id="saveCustoomerBt">Salvar</button>
+            </div>
+        </form>
     </div>
 
-    <a href="/guarantee/clientes/novo/" class="new-client-link">Novo Cliente</a>
-
-    <footer class="footer-container">
-
-    </footer>
-
-    <script src="/assets/js/misc/base.js"></script>
-    <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/customerQueries.js"></script>
+    <script src="/assets/js/auth/formatDoc.js"></script>
+    <script src="/assets/js/queries/editCustomer.js"></script>
 </body>
 </html>

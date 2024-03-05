@@ -95,11 +95,13 @@
 
 .form-container .form-wrapper.finish {
     padding: 30px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .form-container .form-wrapper.finish button {
-    padding: 10px 40px;
-    background-color: #0e0762;
+    padding: 10px 30px;
     border-radius: 8px;
     color: white;
     font-size: 14px;
@@ -109,6 +111,19 @@
     width: fit-content;
     align-self: flex-end;
 }
+
+.form-container .form-wrapper.finish button#saveCustoomerBt {
+    background-color: #0e0762;
+}
+
+.form-container .form-wrapper.finish button#createDebit {
+    background-color: #00B649;
+}
+
+.form-container .form-wrapper.finish button#excludeCustomer {
+    background-color: #F26464;
+}
+
 
 .error-message-container {
     display: none;

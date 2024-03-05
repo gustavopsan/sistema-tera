@@ -43,6 +43,7 @@ async function listCustomers() {
             <tr>
                 <td>${customer.name}</td>
                 <td>${customer.address.street}, ${customer.address.number}</td>
+                <td><a href="/guarantee/clientes/editar/?cid=${customer._id}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
             </tr>
             `
         } else {
@@ -50,6 +51,7 @@ async function listCustomers() {
             <tr>
                 <td>${customer.name}</td>
                 <td>${customer.address.street}, ${customer.address.number} - ${customer.address.hood}, ${customer.address.city} - ${customer.address.uf}</td>
+                <td><a href="/guarantee/clientes/editar/?cid=${customer._id}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
             </tr>
             `
         }
@@ -85,6 +87,7 @@ async function searchCustomers() {
             <tr>
                 <td>${customer.name}</td>
                 <td>${customer.address.street}, ${customer.address.number}</td>
+                <td><button onclick=""><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></button></td>
             </tr>
             `
         } else {
@@ -92,6 +95,7 @@ async function searchCustomers() {
             <tr>
                 <td>${customer.name}</td>
                 <td>${customer.address.street}, ${customer.address.number} - ${customer.address.hood}, ${customer.address.city} - ${customer.address.uf}</td>
+                <td><button onclick=""><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></button></td>
             </tr>
             `
         }

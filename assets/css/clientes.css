@@ -37,6 +37,13 @@
     padding-left: 5%;
 }
 
+#clientTable a {
+    background-color: transparent;
+    border: none;
+    padding-right: 15px;
+    cursor: pointer;
+}
+    
 
 #clientTable tbody tr td:nth-child(1),
 #clientTable thead tr td:nth-child(1) {
