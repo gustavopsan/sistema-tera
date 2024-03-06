@@ -57,7 +57,7 @@
 
 
 .new-client-link {
-    position: absolute;
+    position: sticky;
     left: 10px;
     bottom: 20px;
     height: fit-content;
