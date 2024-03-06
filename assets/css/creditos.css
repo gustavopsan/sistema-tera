@@ -20,7 +20,6 @@
 
 #creditTable tbody tr {
     display: flex;
-    
     justify-content: space-evenly;
     width: 100vw;
     align-items: center;

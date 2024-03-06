@@ -1,6 +1,7 @@
 #clientTable {
     display: flex;
     flex-direction: column;
+    padding-bottom: 35px;
 }
 
 #clientTable thead tr {
@@ -35,7 +36,7 @@
 }
 
 #clientTable thead tr td {
-    padding-left: 5%;
+    padding-left: 10px;
 }
 
 #clientTable a {
@@ -71,3 +72,4 @@
     font-family: 'Inter';
     font-size: 13px;
 }
+
