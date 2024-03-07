@@ -64,6 +64,12 @@
     padding: 8px;
 }
 
+#table-payments td button {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
 .new-credit-link {
     position: absolute;
     left: 10px;

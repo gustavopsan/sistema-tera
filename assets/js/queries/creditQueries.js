@@ -383,7 +383,6 @@ async function showDebitInfo() {
 
     let response = await payment.json();   
     
-    //console.log(response);
 
     payDebitButton.dataset.debitId = response.debitId;
     payDebitButton.dataset.clientName = response.customerData.name;
@@ -403,13 +402,55 @@ async function showDebitInfo() {
 
     response.payments.forEach(payment => {
         var date = new Date(payment[0].date).toLocaleString('pt-BR');
-        console.log(date);
+
         var dateValue = date.split(',')[0]
-        var item = `<tr><td>${dateValue.split(' ')[0]}</td><td>${payment[0].paymentMethod}</td><td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td></tr>`;
+        var item = `
+            <tr>
+                <td>${dateValue.split(' ')[0]}</td>
+                <td>${payment[0].paymentMethod}</td>
+                <td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                <td>
+                    <button class="payment-button" data-debit-id="${response.debitId}" data-payment-index="${payment[0].index}">
+                        <img src="/assets/img/x.svg">
+                    </button>
+                </td>
+            </tr>`;
         
         document.getElementById('payments-list').innerHTML += item;
     })
+
+    addPaymentEvents();
 }
+
+function addPaymentEvents() {
+    var paymentButtons = document.querySelectorAll('.payment-button');
+
+    paymentButtons.forEach(button => button.addEventListener('click', revokeDebitPayment));
+}
+
+async function revokeDebitPayment(event) {
+    var debitId = event.target.parentElement.dataset.debitId;
+    var paymentIndex = event.target.parentElement.dataset.paymentIndex;
+
+    const revoked = await fetch(
+        `${BASEPATH}/debits/revokeDebitPayment`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ debitId: debitId, paymentIndex: paymentIndex})
+        }
+    );
+
+    let response = await revoked.json();
+
+    if (response) {
+        window.location.reload();
+    }
+}
+
 
 async function searchDebits() {
     const debitStr = searchInput.value;
