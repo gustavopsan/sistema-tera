@@ -44,6 +44,7 @@
     font-family: 'Inter';
     font-size: 13px;
     color: #0E0762;
+    padding-bottom: 35px;
 }
 
 #table-payments {
@@ -71,7 +72,7 @@
 }
 
 .new-credit-link {
-    position: absolute;
+    position: sticky;
     left: 10px;
     bottom: 20px;
     height: fit-content;
