@@ -5,17 +5,17 @@
 }
 
 #clientTable thead tr {
-    display: flex;
-    width: 100vw;
+    display: table;
     justify-content: space-evenly;
+    width: 100vw;
     align-items: center;
-
     height: 45px;
     color: #767676;
     font-family: 'Inter';
     font-size: 13px;
     background-color: #eff0f6;
     border-bottom: 1px solid #e6e6e6;
+    padding: 5px 0;
 }
 
 #clientTable tbody tr {
@@ -36,14 +36,15 @@
 }
 
 #clientTable thead tr td {
-    padding-left: 10px;
+    padding-left: 5%;
+    padding-right: 9%;
 }
 
 #clientTable a {
     background-color: transparent;
     border: none;
-    padding-right: 15px;
-    cursor: pointer;
+    padding-right: 20px;
+    cursor: pointer;    
 }
     
 
