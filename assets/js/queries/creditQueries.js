@@ -263,11 +263,19 @@ async function listCredits() {
         var arrayLength = parseInt(credit.payments.length) - 1;
 
         if(arrayLength > -1) {
-            var actualDate = new Date().toISOString().split("T")[0];
-            var lastPaymentDate = credit.payments[arrayLength][0].date.split("T")[0];
+            var actualDate = new Date();
+            actualDate.setHours(actualDate.getHours() - 3);
+
+            var lastPaymentDate = new Date(credit.payments[arrayLength][0].date);
+
+            lastPaymentDate.setHours(lastPaymentDate.getHours() - 3)
+
+            console.log(actualDate.toISOString().split('T')[0], lastPaymentDate.toISOString().split('T')[0])
+
+            var isPaidToday = lastPaymentDate.toISOString().split('T')[0] === actualDate.toISOString().split('T')[0];
 
             newCredit = `
-            <tr class=${lastPaymentDate == actualDate ? "paid" : "" }>
+            <tr class=${isPaidToday ? "paid" : "" }>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
