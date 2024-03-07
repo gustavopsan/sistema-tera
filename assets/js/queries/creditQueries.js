@@ -260,12 +260,14 @@ async function listCredits() {
 
     response.forEach(credit => {
         var newCredit;
-        var name = credit.customerData.name;
-        var firstName = name.split(" ")[0];
+        var arrayLength = parseInt(credit.payments.length) - 1;
 
-        if(isMobile) {
+        if(arrayLength > -1) {
+            var actualDate = new Date().toISOString().split("T")[0];
+            var lastPaymentDate = credit.payments[arrayLength][0].date.split("T")[0];
+
             newCredit = `
-            <tr>
+            <tr class=${lastPaymentDate == actualDate ? "paid" : "" }>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
                 <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
                 <td>${credit.payments.length} / ${credit.paymentsAmount}</td>

@@ -31,6 +31,14 @@
     padding: 5px 0;
 }
 
+#creditTable tbody tr.paid {
+    color: #00B649;
+}
+
+#creditTable tbody tr.paid a {
+    color: #00B649;
+}
+
 #creditTable tbody tr.quited {
     color: #00B649;
 }
