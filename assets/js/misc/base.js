@@ -47,3 +47,5 @@ function logout() {
 
     window.location.pathname = '/login'
 }
+
+const sellerId = getCookie('sellerId');

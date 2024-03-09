@@ -112,7 +112,11 @@
     align-self: flex-end;
 }
 
-.form-container .form-wrapper.finish button#saveCustoomerBt {
+.form-container .form-wrapper.finish button#createCustomerBtn {
+    background-color: #0e0762;
+}
+
+.form-container .form-wrapper.finish button#saveCustomerBt {
     background-color: #0e0762;
 }
 

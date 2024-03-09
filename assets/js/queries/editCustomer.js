@@ -92,7 +92,10 @@ function sendChanges(){
             );
 
                 let response = await updatedCustomer.json();
-                console.log(response)
+                
+                if (response.customerId) {
+                    window.location.pathname = "/guarantee/clientes";
+                }
         });
     } else {
         errorMessage.innerHTML = "Nenhuma alteração feita nos dados do cliente"
