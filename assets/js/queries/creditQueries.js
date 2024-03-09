@@ -1,6 +1,5 @@
 const creditList = document.getElementById("creditList");
 const searchInput = document.getElementById('searchInput');
-const sellerId = getCookie('sellerId');
 
 const nameInput = document.getElementById('nameInput');
 const creditValueNumber = document.getElementById('creditValue');
