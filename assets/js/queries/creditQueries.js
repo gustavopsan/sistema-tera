@@ -275,21 +275,23 @@ async function listCredits() {
 
             newCredit = `
             <tr class=${isPaidToday ? "paid" : "" }>
+                <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
-                <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
-                <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">Pagar</button></td>
+                <td>R$${(credit.totalValue / credit.paymentsAmount)}</td>
+                <td>${credit.payments.length}/${credit.paymentsAmount}</td>
+                <td>R$${credit.valueRemaing}</td>
+                <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">R$</button></td>
             </tr>
             `
         } else {
             newCredit = `
             <tr>
+                <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
-                <td>${(credit.totalValue / credit.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td>${credit.payments.length} / ${credit.paymentsAmount}</td>
-                <td>${credit.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
-                <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">Pagar</button></td>
+                <td>R$${(credit.totalValue / credit.paymentsAmount)}</td>
+                <td>${credit.payments.length}/${credit.paymentsAmount}</td>
+                <td>R$${credit.valueRemaing}</td>
+                <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">R$</button></td>
             </tr>
             `
         }

@@ -50,14 +50,18 @@
 
 #clientTable tbody tr td:nth-child(1),
 #clientTable thead tr td:nth-child(1) {
-    width: 45%; /* Largura da coluna 'Nome' */
+    width: 10%; /* Largura da coluna 'Nome' */
 }
 
 #clientTable tbody tr td:nth-child(2),
 #clientTable thead tr td:nth-child(2) {
-    width: 45%; /* Largura da coluna endereco */
+    width: 40%; /* Largura da coluna endereco */
 }
 
+#clientTable tbody tr td:nth-child(3),
+#clientTable thead tr td:nth-child(3) {
+    width: 40%; /* Largura da coluna endereco */
+}
 
 .new-client-link {
     position: sticky;

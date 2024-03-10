@@ -51,34 +51,40 @@
     padding-left: 10px;
 }
 
-#creditTable tbody tr td:nth-child(1),
-#creditTable thead tr th:nth-child(1) {
-    width: 25%; /* Largura da coluna 'Nome' */
-}
-
 #creditTable a {
     text-decoration: none;
     color: #767676;
 }
 
+#creditTable tbody tr td:nth-child(1),
+#creditTable thead tr td:nth-child(1) {
+    width: 10%; /* Largura da coluna 'Nome' */
+}
+
 #creditTable tbody tr td:nth-child(2),
-#creditTable thead tr th:nth-child(2) {
-    width: 20%; /* Largura da coluna 'Cota' */
+#creditTable thead tr td:nth-child(2) {
+    width: 60%; /* Largura da coluna 'Cota' */
 }
 
 #creditTable tbody tr td:nth-child(3),
-#creditTable thead tr th:nth-child(3) {
+#creditTable thead tr td:nth-child(3) {
     width: 20%; /* Largura da coluna 'Pagamentos' */
 }
 
 #creditTable tbody tr td:nth-child(4),
-#creditTable thead tr th:nth-child(4) {
+#creditTable thead tr td:nth-child(4) {
     width: 30%; /* Largura da coluna 'Valor Remanescente' */
 }
+
+#creditTable tbody tr td:nth-child(5),
+#creditTable thead tr td:nth-child(5) {
+    width: 20%; /* Largura da coluna 'Valor Remanescente' */
+}
+
 .pay-button {
     margin-left: auto; /* Move o botão de pagamento para a direita */
     background-color: #0e0762;
-    color: #ffffff;
+    color: #e0b7b7;
     border: none;
     border-radius: 4px;
     padding: 8px 8px; /* Aumenta o espaçamento interno do botão */

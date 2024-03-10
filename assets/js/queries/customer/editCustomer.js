@@ -94,7 +94,7 @@ function sendChanges(){
                 let response = await updatedCustomer.json();
                 
                 if (response.customerId) {
-                    window.location.pathname = "/guarantee/clientes";
+                    //window.location.pathname = "/guarantee/clientes";
                 }
         });
     } else {
