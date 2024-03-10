@@ -277,9 +277,9 @@ async function listCredits() {
             <tr class=${isPaidToday ? "paid" : "" }>
                 <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
-                <td>R$${(credit.totalValue / credit.paymentsAmount)}</td>
+                <td>R$ ${(credit.totalValue / credit.paymentsAmount)}</td>
                 <td>${credit.payments.length}/${credit.paymentsAmount}</td>
-                <td>R$${credit.valueRemaing}</td>
+                <td>R$ ${credit.valueRemaing}</td>
                 <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">R$</button></td>
             </tr>
             `
@@ -288,9 +288,9 @@ async function listCredits() {
             <tr>
                 <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
-                <td>R$${(credit.totalValue / credit.paymentsAmount)}</td>
+                <td>R$ ${(credit.totalValue / credit.paymentsAmount)}</td>
                 <td>${credit.payments.length}/${credit.paymentsAmount}</td>
-                <td>R$${credit.valueRemaing}</td>
+                <td>R$ ${credit.valueRemaing}</td>
                 <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">R$</button></td>
             </tr>
             `
@@ -396,12 +396,12 @@ async function showDebitInfo() {
     payDebitButton.dataset.debitId = response.debitId;
     payDebitButton.dataset.clientName = response.customerData.name;
     nameEl.innerHTML = response.customerData.name;
-    totalValueEl.innerHTML = response.totalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    totalValueEl.innerHTML = "R$ " + response.totalValue;
     paymentsAmountEl.innerHTML = response.paymentsAmount;
-    paymentValueEl.innerHTML = (response.totalValue / response.paymentsAmount).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-    paidValueEl.innerHTML = (response.totalValue - response.valueRemaing).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    paymentValueEl.innerHTML = "R$ " + (response.totalValue / response.paymentsAmount);
+    paidValueEl.innerHTML = "R$ " + (response.totalValue - response.valueRemaing);
     paymentsRemaingEl.innerHTML = response.paymentsRemaing;
-    valueRemaingEl.innerHTML = response.valueRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+    valueRemaingEl.innerHTML = "R$ " + response.valueRemaing;
     
     if (response.paymentModel == "daily") { paymentModelEl.innerHTML = "Diária" }
     else if (response.paymentModel == "weekly") { paymentModelEl.innerHTML = "Semanal" };
@@ -417,7 +417,7 @@ async function showDebitInfo() {
             <tr>
                 <td>${dateValue.split(' ')[0]}</td>
                 <td>${payment[0].paymentMethod}</td>
-                <td>${payment[0].value.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</td>
+                <td>R$ ${payment[0].value}</td>
                 <td>
                     <button class="payment-button" data-debit-id="${response.debitId}" data-payment-index="${payment[0].index}">
                         <img src="/assets/img/x.svg">
