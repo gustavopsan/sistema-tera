@@ -20,15 +20,15 @@
 
 #creditTable tbody tr {
     display: flex;
-    justify-content: space-evenly;
-    width: 100vw;
+    justify-content: space-between;
+    width: -webkit-fill-available;
     align-items: center;
     height: fit-content;
     color: #767676;
     font-family: 'Inter';
     font-size: 13px;
     border-bottom: 1px solid #d5d5d5;
-    padding: 5px 0;
+    padding: 5px 10px;
 }
 
 #creditTable tbody tr.paid {
@@ -47,9 +47,6 @@
     color: #00B649;
 }
 
-#creditTable tbody tr td {
-    padding-left: 10px;
-}
 
 #creditTable a {
     text-decoration: none;
@@ -59,26 +56,36 @@
 #creditTable tbody tr td:nth-child(1),
 #creditTable thead tr td:nth-child(1) {
     width: 10%; /* Largura da coluna 'Nome' */
+    padding-right: 10px;
 }
 
 #creditTable tbody tr td:nth-child(2),
 #creditTable thead tr td:nth-child(2) {
-    width: 60%; /* Largura da coluna 'Cota' */
+    width: 45%; /* Largura da coluna 'Cota' */
 }
 
 #creditTable tbody tr td:nth-child(3),
 #creditTable thead tr td:nth-child(3) {
     width: 20%; /* Largura da coluna 'Pagamentos' */
+    text-align: center;
 }
 
 #creditTable tbody tr td:nth-child(4),
 #creditTable thead tr td:nth-child(4) {
     width: 30%; /* Largura da coluna 'Valor Remanescente' */
+    text-align: center;
 }
 
 #creditTable tbody tr td:nth-child(5),
 #creditTable thead tr td:nth-child(5) {
     width: 20%; /* Largura da coluna 'Valor Remanescente' */
+    text-align: center;
+}
+
+#creditTable tbody tr td:nth-child(6),
+#creditTable thead tr td:nth-child(6) {
+    min-width: 30px;
+    padding-right: 10px;
 }
 
 .pay-button {
