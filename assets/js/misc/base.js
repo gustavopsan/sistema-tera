@@ -21,8 +21,6 @@ function eraseCookie(name) {
     document.cookie = name +'=; Path=/; Expires=Thu, 01 Jan 1970 00:00:01 GMT;';
 }
 
-const BASEPATH = "https://api-sistema-tera.vercel.app"
-
 var isMobile = navigator.userAgent.match(/(?:phone|windows\s+phone|ipod|blackberry|(?:android|bb\d+|meego|silk|googlebot) .+? mobile|palm|windows\s+ce|opera mini|avantgo|mobilesafari|docomo|KAIOS)/i) != null || navigator.userAgent.match(/(?:ipad|playbook|(?:android|bb\d+|meego|silk)(?! .+? mobile))/i) != null;
 
 function toggleMenu() {
