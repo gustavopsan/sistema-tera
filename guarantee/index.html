@@ -9,11 +9,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/clientes.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/home.css">
 </head>
 <body>
     <header class="header-container">
@@ -102,7 +102,53 @@
         </div>
     </header>
     <div class="main-content-container">
-        
+        <div class="content-card">
+            <div class="entry-el green">R$</div>
+            <div class="info">
+                <b id="payments-today">R$ 0,00</b>
+                <span>Valor recebido hoje</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="entry-el green">R$</div>
+            <div class="info">
+                <b id="payments-week">R$ 0,00</b>
+                <span>Valor recebido esta semana</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="entry-el orange">R$</div>
+            <div class="info">
+                <b id="credits-today">R$ 0,00</b>
+                <span>Valor de saídas de hoje</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="entry-el orange">R$</div>
+            <div class="info">
+                <b id="credits-week">R$ 0,00</b>
+                <span>Valor de saídas desta semana</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="entry-el green">R$</div>
+            <div class="info">
+                <b id="payments-month">R$ 0,00</b>
+                <span>Valor recebido esse mês</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="entry-el orange">R$</div>
+            <div class="info">
+                <b id="credits-month">R$ 0,00</b>
+                <span>Valor de saídas deste mês</span>
+            </div>
+        </div>
     </div>
 
 
@@ -113,5 +159,6 @@
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
+    <script src="/assets/js/queries/generalQueries.js"></script>
 </body>
 </html>

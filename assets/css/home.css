@@ -1,0 +1,39 @@
+.main-content-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+
+.content-card {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    background-color: #0E0762;
+    border-radius: 10px;
+    padding: 10px 20px;
+    color: #fff;
+    font-family: "Inter";
+    font-weight: 200;
+}
+
+.entry-el.green {
+    background-color: #00B649;
+    padding: 30px;
+    border-radius: 50%;
+}
+
+.entry-el.orange {
+    background-color: #EF9616;
+    padding: 30px;
+    border-radius: 50%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+
+    justify-content: center;
+}
+
