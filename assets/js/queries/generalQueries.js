@@ -34,8 +34,8 @@ async function loadGeneralData() {
         paymentsWeekEl.innerHTML = response.paymentsThisWeek.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         paymentsMonthEl.innerHTML = response.paymentsThisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         creditsTodayEl.innerHTML = response.creditsToday.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-        creditsWeekEl.innerHTML = response.creditsthisWeek.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
-        creditsMonthEl.innerHTML = response.creditsthisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        creditsWeekEl.innerHTML = response.creditsThisWeek.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        creditsMonthEl.innerHTML = response.creditsThisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     }
 
 }
