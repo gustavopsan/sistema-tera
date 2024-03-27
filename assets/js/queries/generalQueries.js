@@ -30,7 +30,7 @@ async function loadGeneralData() {
     console.log(response);
 
     if (response) {
-        paymentsTodayEl.innerHTML = response.paymentsToday.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        paymentsMonthEl.innerHTML = response.paymentsThisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         paymentsWeekEl.innerHTML = response.paymentsThisWeek.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         paymentsMonthEl.innerHTML = response.paymentsThisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         creditsTodayEl.innerHTML = response.creditsToday.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
