@@ -4,23 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/tera.ico">
-    <title>GUARANTEE - CRÉDITOS</title>
+    <title>GUARANTEE - DESPESAS</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../../assets/css/base.css">
-    <link rel="stylesheet" href="../../../assets/css/novo-credito.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/despesas.css">
 </head>
 <body>
     <header class="header-container">
         <div class="header-content-left">
-            <button class="menu-button" onclick="toggleMenu()">
-                <img src="../../../assets/img/menu.svg" width="24px" height="24px" alt="menu-icon">
+            <button onclick="toggleMenu()">
+                <img src="../../assets/img/menu.svg" alt="menu-icon">
             </button>
         </div>
         <div class="header-content-right">
@@ -29,7 +28,7 @@
                 <span>Módulo Crediário</span>
             </div>
             <button onclick="toggleMenuLogout()">
-                <img src="../../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+                <img src="../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
             </button>
         </div>
 
@@ -55,7 +54,7 @@
             <div class="aside-menu-content">
                 <div class="aside-menu-content-header">
                     <button class="menu-button" onclick="toggleMenu()">
-                        <img src="../../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
+                        <img src="../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
                     </button>
                     <h2 class="logo-text">Crediário | TERA</h2>
                 </div>
@@ -102,107 +101,43 @@
             </div>
         </div>
     </header>
-
     <div class="main-content-container">
         <div class="sub-header">
-            <span>Novo crédito</span>
-            <a href="/guarantee/crediarios/">Voltar</a>
+            <span>Últimos Lançamentos</span>
+            <a href="/guarantee/">Voltar</a>
         </div>
+        <div class="search-container">
+            <div class="search-wrapper">
+                <span>Do dia:</span>
+                <input type="date" name="date" id="firstDate">
+                <div class="search-wrapper">
+                    <span>Ao dia:</span>
+                    <input type="date" name="date" id="firstDate">
+                </div>
+                <div class="search-wrapper">
+                    <button type="button" class="search-btn">Buscar</button>
+                </div>
+            </div>
+        </div>
+        <div class="list-container">
+            <table id="creditTable">
+                <thead> 
+                    <tr>
+                        <td>Descrição</td>
+                        <td>Data</td>
+                        <td>Valor</td>
+                        <td></td>
+                    </tr>
+                </thead>
+                <tbody id="creditList">
 
-        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCredit()">
-            <div class="form-wrapper">
-                <b>Nome completo</b>
-                <span id="nameAutocomplete"></span>
-                <input type="text" name="name" id="nameInput" placeholder="Digite o nome do Cliente" required onkeyup="searchCustomers()" autocomplete="off">
-            </div>
-
-            <div class="form-wrapper" style="display: none;">
-                <b>ID do Cliente (Debug Only)</b>
-                <input type="text" name="id" id="idInput" placeholder="Client_00000" readonly>
-            </div>
-            
-            <div class="form-wrapper horizontal">
-                <div class="valor-container">
-                    <b>Valor do crédito</b>
-                    <input type="number" name="creditValue" id="creditValue" required onchange="calculateValue()" inputMode="decimal">
-                </div>
-                <div class="model-container">
-                    <b>Modelo</b>
-                    <select name="paymentModel" id="paymentModel" onchange="hideDays()">
-                        <option value="daily">Diário</option>
-                        <option value="weekly">Semanal</option>
-                    </select>
-                </div>
-            </div>
-            <div class="form-wrapper horizontal">
-                <div class="diaria-container" id="diaria-container">
-                    <b>Diárias</b>
-                    <select name="diarias" id="daysAmount" onchange="calculateValue()">
-                        <option value="1">01</option>
-                        <option value="2">02</option>
-                        <option value="3">03</option>
-                        <option value="4">04</option>
-                        <option value="5">05</option>
-                        <option value="6">06</option>
-                        <option value="7">07</option>
-                        <option value="8">08</option>
-                        <option value="9">09</option>
-                        <option value="10">10</option>
-                        <option value="11">11</option>
-                        <option value="12">12</option>
-                        <option value="13">13</option>
-                        <option value="14">14</option>
-                        <option value="15">15</option>
-                        <option value="16">16</option>
-                        <option value="17">17</option>
-                        <option value="18">18</option>
-                        <option value="19">19</option>
-                        <option value="20">20</option>
-                        <option value="21">21</option>
-                        <option value="22">22</option>
-                        <option value="23">23</option>
-                        <option value="24">24</option>
-                    </select>
-                </div>
-                <div class="semanas-container hide" id="semanas-container">
-                    <b>Semanas</b>
-                    <select name="semanas" id="weeksAmount" onchange="calculateValue()">
-                        <option value="0">01</option>
-                        <option value="1">02</option>
-                        <option value="2">03</option>
-                        <option value="3">04</option>
-                        <option value="4">05</option>
-                        <option value="5">06</option>
-                        <option value="6">07</option>
-                        <option value="7">08</option>
-                        <option value="8">09</option>
-                        <option value="9">10</option>
-                    </select>
-                </div>
-                <div class="data-container">
-                    <b>Data do crédito</b>
-                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
-                </div>
-            </div>
-
-            <div class="form-wrapper">
-                <b>Informações do crédito</b>
-                <p>Valor final: <span id="finalValueSpan"></span></p>
-                <p>Quantidade de parcelas: <span id="paymentsAmountSpan"></span></p>
-                <p>Valor da parcela: <span id="paymentValueSpan"></span></p>
-<!--                <p>Data do primeiro pagamento: <span id="firstPaymentDateSpan"></span></p>
-                <p>Data do último pagamento: <span id="lastPaymentDateSpan"></span></p> -->
-            </div>
-
-            <div class="form-wrapper finish">
-                <button type="submit" id="createCustomerBtn">Adicionar</button>
-            </div>
-        </form>
+                </tbody>
+            </table>
+        </div>
     </div>
 
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/credit/createCredit.js"></script>
 </body>
 </html>
