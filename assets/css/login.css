@@ -39,6 +39,12 @@ body {
     color: #1C0E8D  ;
 }
 
+.card-container #form-login {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
 .card-container .input-wrapper {
     text-align: left;
 }
@@ -84,6 +90,22 @@ body {
     border-radius: 8px;
     border: solid 1px #f0f1f7;
     padding-left: 15px;
+}
+
+.card-container .password-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    align-items: center;
+}
+
+.card-container .password-wrapper input[type=checkbox] {
+    display: none;
+}
+
+.card-container .password-wrapper label {
+    position: absolute;
+    right: 80px;
 }
 
 .card-container .btn-wrapper button {

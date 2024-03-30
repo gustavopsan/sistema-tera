@@ -17,32 +17,34 @@
             <b>Área de Login</b>
             <span>Insira seu email e senha</span>
         </div>
-        <div class="input-wrapper">
-            <div class="label-wrapper">
-                <span>EMAIL</span>
+        <form id="form-login" action="javascript:;" onsubmit="authenticate()">
+            <div class="input-wrapper">
+                <div class="label-wrapper">
+                    <span>EMAIL</span>
+                </div>
+                <input type="email" name="email" id="emailInput" placeholder="yourname@example.com" required/>
             </div>
-            <input type="email" name="email" id="emailInput" placeholder="yourname@example.com"/>
-        </div>
-        <div class="input-wrapper">
-            <div class="label-wrapper">
-                <span>SENHA</span>
-                <a href="/esqueci-minha-senha/">
-                    Esqueceu sua senha?
-                </a>
-            </div>
-            <div class="password-wrapper">
-                <input type="password" name="password" id="passwordInput" placeholder="***********"/>
-                <!--<input type="checkbox" name="showPassword" id="showPasswordCheckbox"/>
-                <label for="showPasswordCheckbox">
-                    <img src="/assets/img/eye.svg" alt="eye" />
-                </label>-->
-            </div>
+            <div class="input-wrapper">
+                <div class="label-wrapper">
+                    <span>SENHA</span>
+                    <a href="/esqueci-minha-senha/">
+                        Esqueceu sua senha?
+                    </a>
+                </div>
+                <div class="password-wrapper">
+                    <input type="password" name="password" id="passwordInput" placeholder="***********" required/>
+                    <!--<input type="checkbox" name="showPassword" id="showPasswordCheckbox"/>
+                    <label for="showPasswordCheckbox">
+                        <img src="/assets/img/eye.svg" alt="eye" />
+                    </label>-->
+                </div>
+            </form>
             <div class="error-message-container">
                 <span id="error-message">mensagem de erro teste</span>
             </div>
         </div>
         <div class="btn-wrapper">
-            <button id="btn-login">
+            <button id="btn-login" type="submit">
                 Entrar
             </button>
         </div>

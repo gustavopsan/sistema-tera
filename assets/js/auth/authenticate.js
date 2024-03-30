@@ -47,7 +47,7 @@ async function authenticate() {
         }, 3000);
 
     } else if (response.errorId === 'auth_02') {
-        let message = "Senha inválida. Tente novamente com a senha correta.";
+        let message = "Senha inválida. Verifique e tente novamente.";
 
         errorMessage.textContent = message;
         
@@ -60,3 +60,9 @@ async function authenticate() {
 }
 
 buttonLogin.addEventListener('click', authenticate);
+
+document.getElementById("form-login").addEventListener("keyup", (event) => {
+    if (event.code === "Enter") {
+        authenticate();
+    }
+})
