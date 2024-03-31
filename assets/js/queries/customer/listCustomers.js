@@ -25,7 +25,7 @@ async function listCustomers() {
             newCustomer = `
             <tr>
                 <td>${parseInt(customer.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
-                <td>${customer.name}</td>
+                <td><a href="/guarantee/clientes/resumo/?cid=${customer._id}">${customer.name}</a></td>
                 <td>${customer.address.street}, ${customer.address.number}</td>
                 <td><a href="/guarantee/clientes/editar/?cid=${customer._id}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
             </tr>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="/tera.ico">
+    <title>GUARANTEE - CRÉDITOS</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../../../assets/css/base.css">
+    <link rel="stylesheet" href="../../../assets/css/credito.css">
+</head>
+<body>
+    <header class="header-container">
+        <div class="header-content-left">
+            <button onclick="toggleMenu()">
+                <img src="../../../assets/img/menu.svg" alt="menu-icon">
+            </button>
+        </div>
+        <div class="header-content-right">
+            <div class="user-info">
+                <b id="user-name"></b>
+                <span>Módulo Crediário</span>
+            </div>
+            <button onclick="toggleMenuLogout()">
+                <img src="../../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+            </button>
+        </div>
+
+        <div class="logout-menu" id="logout-menu">
+            <a href="/">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M2 2L12 12M12 2L2 12" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                    
+                Mudar módulo
+            </a>
+            <button id="logout-button" onclick="logout()">
+                <svg width="16" height="15" viewBox="0 0 16 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.2344 6.35577C12.0887 6.20489 12.008 6.00281 12.0099 5.79305C12.0117 5.58329 12.0958 5.38264 12.2441 5.23431C12.3925 5.08599 12.5931 5.00185 12.8029 5.00003C13.0126 4.99821 13.2147 5.07884 13.3656 5.22457L14.9656 6.82457C15.1156 6.97459 15.1998 7.17804 15.1998 7.39017C15.1998 7.6023 15.1156 7.80575 14.9656 7.95577L13.3656 9.55577C13.2147 9.7015 13.0126 9.78213 12.8029 9.78031C12.5931 9.77849 12.3925 9.69435 12.2441 9.54603C12.0958 9.3977 12.0117 9.19705 12.0099 8.98729C12.008 8.77753 12.0887 8.57545 12.2344 8.42457L12.4688 8.19017L8.8 8.19017C8.58783 8.19017 8.38434 8.10588 8.23431 7.95586C8.08429 7.80583 8 7.60234 8 7.39017C8 7.178 8.08429 6.97451 8.23431 6.82448C8.38434 6.67446 8.58783 6.59017 8.8 6.59017L12.4688 6.59017L12.2344 6.35577Z" fill="white"/>
+                    <path d="M13.4999 13.5005H0.999937M3.08327 13.5005V3.22271C3.08327 2.44486 3.08327 2.05593 3.23466 1.75884C3.36779 1.4975 3.58028 1.28502 3.8416 1.15187C4.13869 1.00049 4.52765 1.00049 5.30549 1.00049H9.19438C9.97223 1.00049 10.3612 1.00049 10.6583 1.15187C10.9196 1.28502 11.1321 1.4975 11.2652 1.75884C11.4166 2.05593 11.4166 2.44486 11.4166 3.22271M5.1666 7.25049H5.15966" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>    
+                    
+                Sair
+            </button>
+        </div>
+
+        <div class="aside-menu-container" id="aside-menu-container">
+            <div class="aside-menu-content">
+                <div class="aside-menu-content-header">
+                    <button class="menu-button" onclick="toggleMenu()">
+                        <img src="../../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
+                    </button>
+                    <h2 class="logo-text">Crediário | TERA</h2>
+                </div>
+                <div class="aside-menu-content-body">
+                    <ul class="aside-menu-list">
+                        <li class="aside-menu-item">
+                            <a href="/guarantee/" class="aside-menu-link">
+                                <svg width="25" height="25" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.7888 23.95V17.95H16.7888V23.95H21.7888V15.95H24.7888L14.7888 6.94995L4.78882 15.95H7.78882V23.95H12.7888Z" fill="white"/>
+                                </svg>
+                                <b>Início</b>
+                            </a>
+                        </li>
+                        <li class="aside-menu-item">
+                            <a href="/guarantee/clientes/" class="aside-menu-link">
+                                <svg width="24" height="24" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3.60217 14.1112C3.60217 11.1267 4.78779 8.26434 6.8982 6.15394C9.00861 4.04353 11.8709 2.85791 14.8555 2.85791V14.1112H26.1088C26.1088 17.0958 24.9232 19.9581 22.8128 22.0686C20.7024 24.179 17.8401 25.3646 14.8555 25.3646C11.8709 25.3646 9.00861 24.179 6.8982 22.0686C4.78779 19.9581 3.60217 17.0958 3.60217 14.1112Z" fill="white"/>
+                                    <path d="M17.6688 3.2124C19.6151 3.71664 21.3912 4.73223 22.8128 6.15391C24.2345 7.57559 25.2501 9.35162 25.7543 11.2979H17.6688V3.2124Z" fill="white"/>
+                                </svg>
+                                <b>Clientes</b>
+                            </a>
+                        </li>
+                        <li class="aside-menu-item">
+                            <a href="/guarantee/crediarios" class="aside-menu-link">
+                                <svg width="25" height="25" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M13.0366 11.0534C12.7713 10.7972 12.416 10.6554 12.0472 10.6586C11.6783 10.6618 11.3255 10.8097 11.0647 11.0705C10.8039 11.3313 10.656 11.6841 10.6528 12.053C10.6496 12.4218 10.7913 12.7771 11.0476 13.0424L13.8609 15.8558C14.1247 16.1195 14.4824 16.2676 14.8554 16.2676C15.2284 16.2676 15.5861 16.1195 15.8499 15.8558L18.6633 13.0424C18.9195 12.7771 19.0613 12.4218 19.0581 12.053C19.0549 11.6841 18.9069 11.3313 18.6461 11.0705C18.3853 10.8097 18.0325 10.6618 17.6637 10.6586C17.2949 10.6554 16.9395 10.7972 16.6742 11.0534L16.2621 11.4655V5.01458C16.2621 4.64151 16.1139 4.28371 15.8501 4.01991C15.5863 3.75611 15.2285 3.60791 14.8554 3.60791C14.4824 3.60791 14.1246 3.75611 13.8608 4.01991C13.597 4.28371 13.4488 4.64151 13.4488 5.01458V11.4655L13.0366 11.0534Z" fill="white"/>
+                                    <path d="M5.00879 7.82798C5.00879 7.08184 5.30519 6.36626 5.8328 5.83865C6.3604 5.31105 7.07598 5.01465 7.82212 5.01465H9.22879C9.60186 5.01465 9.95965 5.16285 10.2235 5.42665C10.4873 5.69045 10.6355 6.04824 10.6355 6.42132C10.6355 6.79439 10.4873 7.15218 10.2235 7.41598C9.95965 7.67978 9.60186 7.82798 9.22879 7.82798H7.82212V17.6746H10.6355L12.0421 20.488H17.6688L19.0755 17.6746H21.8888V7.82798H20.4821C20.1091 7.82798 19.7513 7.67978 19.4875 7.41598C19.2237 7.15218 19.0755 6.79439 19.0755 6.42132C19.0755 6.04824 19.2237 5.69045 19.4875 5.42665C19.7513 5.16285 20.1091 5.01465 20.4821 5.01465H21.8888C22.6349 5.01465 23.3505 5.31105 23.8781 5.83865C24.4057 6.36626 24.7021 7.08184 24.7021 7.82798V21.8946C24.7021 22.6408 24.4057 23.3564 23.8781 23.884C23.3505 24.4116 22.6349 24.708 21.8888 24.708H7.82212C7.07598 24.708 6.3604 24.4116 5.8328 23.884C5.30519 23.3564 5.00879 22.6408 5.00879 21.8946V7.82798Z" fill="white"/>
+                                </svg>
+                                    
+                                <b>Crediários</b>
+                            </a>
+                        </li>
+                        <li class="aside-menu-item remove">
+                            <a href="/guarantee/relatorios" class="aside-menu-link">
+                                <svg width="25" height="25" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M9.05662 3.6687C8.31048 3.6687 7.59489 3.9651 7.06729 4.49271C6.53969 5.02031 6.24329 5.73589 6.24329 6.48203V23.362C6.24329 24.1082 6.53969 24.8238 7.06729 25.3514C7.59489 25.879 8.31048 26.1754 9.05662 26.1754H20.31C21.0561 26.1754 21.7717 25.879 22.2993 25.3514C22.8269 24.8238 23.1233 24.1082 23.1233 23.362V11.2844C23.1231 10.5383 22.8266 9.82285 22.299 9.29537L17.4966 4.49301C16.9691 3.96537 16.2537 3.66886 15.5076 3.6687H9.05662ZM11.87 17.7354C11.87 17.3623 11.7218 17.0045 11.4579 16.7407C11.1941 16.4769 10.8364 16.3287 10.4633 16.3287C10.0902 16.3287 9.73242 16.4769 9.46862 16.7407C9.20482 17.0045 9.05662 17.3623 9.05662 17.7354V21.9554C9.05662 22.3284 9.20482 22.6862 9.46862 22.95C9.73242 23.2138 10.0902 23.362 10.4633 23.362C10.8364 23.362 11.1941 23.2138 11.4579 22.95C11.7218 22.6862 11.87 22.3284 11.87 21.9554V17.7354ZM14.6833 13.5154C15.0564 13.5154 15.4141 13.6636 15.6779 13.9274C15.9418 14.1912 16.09 14.549 16.09 14.922V21.9554C16.09 22.3284 15.9418 22.6862 15.6779 22.95C15.4141 23.2138 15.0564 23.362 14.6833 23.362C14.3102 23.362 13.9524 23.2138 13.6886 22.95C13.4248 22.6862 13.2766 22.3284 13.2766 21.9554V14.922C13.2766 14.549 13.4248 14.1912 13.6886 13.9274C13.9524 13.6636 14.3102 13.5154 14.6833 13.5154ZM20.31 12.1087C20.31 11.7356 20.1617 11.3778 19.8979 11.114C19.6341 10.8502 19.2764 10.702 18.9033 10.702C18.5302 10.702 18.1724 10.8502 17.9086 11.114C17.6448 11.3778 17.4966 11.7356 17.4966 12.1087V21.9554C17.4966 22.3284 17.6448 22.6862 17.9086 22.95C18.1724 23.2138 18.5302 23.362 18.9033 23.362C19.2764 23.362 19.6341 23.2138 19.8979 22.95C20.1617 22.6862 20.31 22.3284 20.31 21.9554V12.1087Z" fill="white"/>
+                                </svg>
+                                    
+                                <b>Gestão</b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="main-content-container">
+        <div class="main-content-header">
+            <div>
+                <span>Detalhes do cliente:</span>
+                <span id="clientIdEl"></span>
+            </div>
+        </div>
+
+        <div class="debit-info">
+            <p><b>Cliente: </b><span id="customer-name"></span></p>
+            <p><b>Últimos créditos:</b></p>
+            <p>
+                <table id="table-payments">
+                    <thead>
+                        <tr>
+                            <td>Data</td>
+                            <td>Valor</td>
+                            <td>Modelo</td>
+                            <td>Status</td>
+                        </tr>
+                    </thead>
+                    <tbody id="debits-list">
+
+                    </tbody>
+                </table>
+            </p>
+        </div>
+    </div>
+
+    <a href="/guarantee/clientes/" class="new-credit-link">Voltar</a>
+
+    <script src="/assets/js/misc/config.js"></script>
+    <script src="/assets/js/misc/base.js"></script>
+    <script src="/assets/js/auth/checkSession.js"></script>
+    <script src="/assets/js/queries/customer/loadCustomerCredits.js"></script>
+</body>
+</html>
