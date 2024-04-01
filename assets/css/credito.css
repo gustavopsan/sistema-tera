@@ -63,6 +63,9 @@
 
 #table-payments a {
     text-decoration: none !important;
+    font-family: 'Inter';
+    font-size: 13px;
+    color: #0E0762;
 }
 
 #table-payments td {
