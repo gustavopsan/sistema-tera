@@ -62,7 +62,7 @@ async function loadCustomerCredits() {
                 <td>${dateValue}</td>
                 <td>R$ ${credit.totalValue}</td>
                 <td>${creditModel}</td>
-                <td>${credit.isQuited ? "Quitado" : "Aberto"}</td>
+                <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.isQuited ? "Quitado" : "Aberto"}</a></td>
             </tr>`;
         
         document.getElementById('debits-list').innerHTML += item;
