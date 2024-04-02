@@ -24,11 +24,11 @@ async function listCredits() {
 
         if(arrayLength > -1) {
             var actualDate = new Date();
-            actualDate.setHours(actualDate.getHours() - 15);
+            actualDate.setHours(actualDate.getHours() + 15);
 
             var lastPaymentDate = new Date(credit.payments[arrayLength][0].date);
 
-            lastPaymentDate.setHours(lastPaymentDate.getHours() - 15);
+            lastPaymentDate.setHours(lastPaymentDate.getHours() + 15);
 
             var isPaidToday = lastPaymentDate.toISOString().split('T')[0] === actualDate.toISOString().split('T')[0];
 
