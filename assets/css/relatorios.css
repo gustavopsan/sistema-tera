@@ -1,0 +1,130 @@
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    height: 40px;
+    background-color: #f1f1f3;
+}
+
+.sub-header span {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #767676;
+    font-weight: 700;
+}
+
+.sub-header a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #0e0762;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.form-container .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 10px;
+    position: relative
+}
+
+.form-container .form-wrapper div {
+    display: flex;
+    gap: 5px;
+}
+
+.form-container .form-wrapper b {
+    padding: 8px;
+    background-color: #ef9616;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.form-container .form-wrapper.horizontal {
+    flex-direction: row;
+}
+
+.form-container .form-wrapper.horizontal div {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-container {
+    width: 50%;
+}
+
+.form-container .form-wrapper input {
+    height: 30px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    height: 40px;
+    padding-left: 15px;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    color: #0e0762;
+    background-color: transparent;
+}
+
+.form-container .form-wrapper.finish {
+    padding: 20px;
+}
+
+.form-container .form-wrapper.finish button {
+    padding: 10px;
+    background-color: #0e0762;
+    border-radius: 7px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    border: none;
+    width: fit-content;
+    align-self: flex-end;
+}
+
+#clientTable {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 35px;
+}
+
+#clientTable thead tr {
+    display: table;
+    justify-content: space-evenly;
+    width: 100vw;
+    align-items: center;
+    height: 45px;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    background-color: #eff0f6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 5px 0;
+}
+
+#clientTable thead tr td {
+    padding-left: 5%;
+    padding-right: 9%;
+}
+    
+
+#clientTable tbody tr td:nth-child(3),
+#clientTable thead tr td:nth-child(3) {
+    width: 40%; /* Largura da coluna endereco */
+}

@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/despesas.css">
+    <link rel="stylesheet" href="../../assets/css/relatorios.css">
 </head>
 <body>
     <header class="header-container">
@@ -116,34 +116,36 @@
             <span>Últimos Lançamentos</span>
             <a href="javascript:history.back()">Voltar</a>
         </div>
-        <div class="search-container">
-            <div class="search-wrapper">
-                <span>Do dia:</span>
-                <input type="date" name="date" id="firstDate">
-                <div class="search-wrapper">
-                    <span>Ao dia:</span>
-                    <input type="date" name="date" id="firstDate">
+
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCredit()">
+            <div class="form-wrapper horizontal">
+                <div class="data-container">
+                    <b>Do Dia</b>
+                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
                 </div>
-                <div class="search-wrapper">
-                    <button type="button" class="search-btn">Buscar</button>
+
+                <div class="data-container">
+                    <b>Ao Dia</b>
+                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
+                </div>
+                <div class="form-wrapper finish">
+                    <button type="submit" id="createCustomerBtn">Filtrar</button>
                 </div>
             </div>
-        </div>
-        <div class="list-container">
-            <table id="creditTable">
-                <thead> 
-                    <tr>
-                        <td>Descrição</td>
-                        <td>Data</td>
-                        <td>Valor</td>
-                        <td></td>
-                    </tr>
-                </thead>
-                <tbody id="creditList">
-
-                </tbody>
-            </table>
-        </div>
+            <div class="list-container">
+                <table id="clientTable">
+                    <thead> 
+                        <tr>
+                            <td>Nome</td>
+                            <td>Valor</td>
+                            <td>Data</td>
+                        </tr>
+                    </thead>
+                    <tbody id="clientList">
+    
+                    </tbody>
+                </table>
+            </div>
     </div>
 
     <script src="/assets/js/misc/config.js"></script>
