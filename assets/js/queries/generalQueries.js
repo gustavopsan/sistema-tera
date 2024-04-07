@@ -4,6 +4,9 @@ const creditsTodayEl = document.getElementById('credits-today');
 const creditsWeekEl = document.getElementById('credits-week');
 const paymentsMonthEl = document.getElementById('payments-month');
 const creditsMonthEl = document.getElementById('credits-month');
+const expensesMonthEl = document.getElementById('expenses-month');
+const totalRemaingEl = document.getElementById('total-remaing');
+const totalValueEl = document.getElementById('total-value');
 
 async function loadGeneralData() {
 
@@ -36,6 +39,8 @@ async function loadGeneralData() {
         creditsTodayEl.innerHTML = response.creditsToday.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         creditsWeekEl.innerHTML = response.creditsThisWeek.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         creditsMonthEl.innerHTML = response.creditsThisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        totalRemaingEl.innerHTML = response.paymentsRemaing.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
+        totalValueEl.innerHTML = response.allDebitsThisMonth.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
     }
 
 }
