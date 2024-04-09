@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="/tera.ico">
-    <title>TERA - GUARANTEE</title>
+    <title>GUARANTEE - DESPESAS</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="../assets/css/home.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/relatorios.css">
 </head>
 <body>
     <header class="header-container">
@@ -112,87 +112,44 @@
         </div>
     </header>
     <div class="main-content-container">
-        <div class="content-card">
-            <div class="entry-el green">R$</div>
-            <div class="info">
-                <b id="payments-today">R$ 0,00</b>
-                <span>Rcebido hoje</span>
-            </div>
+        <div class="sub-header">
+            <span>Despesas</span>
+            <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <div class="content-card">
-            <div class="entry-el green">R$</div>
-            <div class="info">
-                <b id="payments-week">R$ 0,00</b>
-                <span>Recebido esta semana (domingo a sábado)</span>
-            </div>
-        </div>
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCredit()">
+            <div class="form-wrapper horizontal">
+                <div class="data-container">
+                    <b>Do Dia</b>
+                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
+                </div>
 
-        <div class="content-card">
-            <div class="entry-el green">R$</div>
-            <div class="info">
-                <b id="payments-month">R$ 0,00</b>
-                <span>Recebido este mês</span>
+                <div class="data-container">
+                    <b>Ao Dia</b>
+                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
+                </div>
+                <div class="form-wrapper finish">
+                    <button type="submit" id="createCustomerBtn">Filtrar</button>
+                </div>
             </div>
-        </div>
-
-        <div class="content-card">
-            <div class="entry-el orange">R$</div>
-            <div class="info">
-                <b id="credits-today">R$ 0,00</b>
-                <span>Saída de crédito hoje</span>
+            <div class="list-container">
+                <table id="clientTable">
+                    <thead> 
+                        <tr>
+                            <td>Nome</td>
+                            <td>Valor</td>
+                            <td>Data</td>
+                        </tr>
+                    </thead>
+                    <tbody id="clientList">
+    
+                    </tbody>
+                </table>
             </div>
-        </div>
-
-        <div class="content-card">
-            <div class="entry-el orange">R$</div>
-            <div class="info">
-                <b id="credits-week">R$ 0,00</b>
-                <span>Saída de crédito esta semana (domingo a sábado)</span>
-            </div>
-        </div>
-
-        <div class="content-card">
-            <div class="entry-el orange">R$</div>
-            <div class="info">
-                <b id="credits-month">R$ 0,00</b>
-                <span>Saída de crédito este mês</span>
-            </div>
-        </div>
-
-        <!--<div class="content-card">
-            <div class="entry-el orange">R$</div>
-            <div class="info">
-                <b id="expenses-month">R$ 0,00</b>
-                <span>Despesas lançadas este mês</span>
-            </div>
-        </div>-->
-
-        <div class="content-card">
-            <div class="entry-el green">R$</div>
-            <div class="info">
-                <b id="total-remaing">R$ 0,00</b>
-                <span>Valor em aberto a receber</span>
-            </div>
-        </div>
-
-        <div class="content-card">
-            <div class="entry-el green">R$</div>
-            <div class="info">
-                <b id="total-value">R$ 0,00</b>
-                <span>Total de crediários este mês (com juros)</span>
-            </div>
-        </div>
     </div>
-
-
-    <footer class="footer-container">
-
-    </footer>
 
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/generalQueries.js"></script>
 </body>
 </html>
