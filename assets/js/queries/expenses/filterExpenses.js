@@ -17,9 +17,10 @@ function handleInitialDateChange(event) {
 
 function handleFinalDateChange(event) {
     var newDate = new Date(event.target.value);
-    newDate.setHours(23, 59, 59);
+    newDate.setHours(newDate.getHours() + 23, 59, 59);  
     
     finalDate = newDate.toISOString();
+    console.log(finalDate)
 }
 
 async function filterExpenses(initialDate, finalDate){
@@ -41,9 +42,38 @@ async function filterExpenses(initialDate, finalDate){
 
     let response = await expenses.json();
 
-    console.log(response)
+    expenseList.innerHTML = "";
+
+    response.forEach(expense => {
+        var newExpense;
+        var date = expense.date.split('T')[0];
+
+        newExpense = `
+            <tr>
+                <td>${expense.description}</td>
+                <td>R$ ${expense.value}</td>
+                <td>${formateAMerdaDaData(date)}</td>
+                <td>
+                    <button class="expense-button" data-expense-id="${expense._id}">
+                        <img src="/assets/img/x.svg">
+                    </button>
+                </td>
+            </tr>
+        `;
+
+        expenseList.innerHTML += newExpense;
+    })
+
+    resetButton.style.display = 'flex';
 }
 
 filterButton.addEventListener('click', () => {
     filterExpenses(initialDate, finalDate);
 });
+
+resetButton.addEventListener('click', () => {
+    initialDate = new Date().toISOString();
+    finalDate = new Date().toISOString();
+    listExpenses();
+    resetButton.style.display = 'none';
+})

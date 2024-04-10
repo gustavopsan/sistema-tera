@@ -99,7 +99,7 @@
 }
 
 .form-container .form-wrapper.finish button#clear {
-    padding: 5px;
+    padding: 5px 10px;
     background-color: #9e5711;
     border-radius: 7px;
     color: white;
