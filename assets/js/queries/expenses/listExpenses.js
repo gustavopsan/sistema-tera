@@ -6,12 +6,6 @@ function formateAMerdaDaData(data) {
 }
 
 async function listExpenses() {
-    const requestBody = JSON.stringify(
-        {
-            sellerId: sellerId
-        }
-    );
-
     const expenses = await fetch(
         `${BASEPATH}/expense/list`,
         {
@@ -25,8 +19,6 @@ async function listExpenses() {
     );
 
     let response = await expenses.json();
-
-    console.log(response)
 
     expenseList.innerHTML = "";
 

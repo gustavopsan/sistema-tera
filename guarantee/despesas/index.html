@@ -121,12 +121,12 @@
             <div class="form-wrapper horizontal">
                 <div class="data-container">
                     <b>Do Dia</b>
-                    <input type="date" name="date" id="firstFilterDate" onchange="">
+                    <input type="date" name="date" id="firstFilterDate" onchange="handleInitialDateChange(event)">
                 </div>
 
                 <div class="data-container">
                     <b>Ao Dia</b>
-                    <input type="date" name="date" id="lastFilterDate" onchange="">
+                    <input type="date" name="date" id="lastFilterDate" onchange="handleFinalDateChange(event)">
                 </div>
                 <div class="form-wrapper finish">
                     <button type="submit" id="filter">Filtrar</button>
@@ -155,5 +155,6 @@
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
     <script src="/assets/js/queries/expenses/listExpenses.js"></script>
+    <script src="/assets/js/queries/expenses/filterExpenses.js"></script>
 </body>
 </html>
