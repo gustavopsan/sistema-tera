@@ -65,6 +65,7 @@ async function filterExpenses(initialDate, finalDate){
     })
 
     resetButton.style.display = 'flex';
+    addEevents();
 }
 
 filterButton.addEventListener('click', () => {
