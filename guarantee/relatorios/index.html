@@ -117,39 +117,44 @@
             <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCredit()">
+        <form class="form-container" id="form-cadastro" action="javascript:;">
             <div class="form-wrapper horizontal">
                 <div class="data-container">
                     <b>Do Dia</b>
-                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
+                    <input type="date" name="date" id="initialDate" onchange="handleInitialDateChange(event)"/>
                 </div>
 
                 <div class="data-container">
                     <b>Ao Dia</b>
-                    <input type="date" name="date" id="firstPaymentDate" onchange="calculateDates()">
+                    <input type="date" name="date" id="finalDate" onchange="handleFinalDateChange(event)"/>
                 </div>
                 <div class="form-wrapper finish">
-                    <button type="submit" id="createCustomerBtn">Filtrar</button>
+                    <button type="submit" id="filter">Filtrar</button>
                 </div>
             </div>
             <div class="list-container">
-                <table id="clientTable">
+                <table id="paymentTable">
                     <thead> 
                         <tr>
-                            <td>Nome</td>
-                            <td>Valor</td>
                             <td>Data</td>
+                            <td>Cliente</td>
+                            <td>Valor</td>
                         </tr>
                     </thead>
-                    <tbody id="clientList">
+                    <tbody id="paymentList">
     
                     </tbody>
                 </table>
+            </div>
+
+            <div class="span-info">
+                <p><b>Valor total pago: </b><span id="paid-value"></span></p>
             </div>
     </div>
 
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
+    <script src="/assets/js/queries/credit/filterCredits.js"></script>
 </body>
 </html>
