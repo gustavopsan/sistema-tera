@@ -10,8 +10,6 @@ const errorMessageContainer = document.getElementById('error-message-container')
 
 async function resetPassword() {
 
-    console.log(passwordInput.value)
-
     if (passwordInput.value == "" || confirmPasswordInput.value == "") {
         let message = 'Senha ou confirmação não podem estar vazios. Tente novamente!'
 
@@ -56,8 +54,6 @@ async function resetPassword() {
         );
 
         const response = requestData.json();
-
-        console.log(response);
 
         if (response.status == "error") {
             let message = 'Solicitação inválida ou expirada. Inicie uma nova solicitação.'

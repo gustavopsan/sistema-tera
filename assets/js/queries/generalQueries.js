@@ -30,8 +30,6 @@ async function loadGeneralData() {
 
     let response = await data.json();
 
-    console.log(response);
-
     if (response) {
         paymentsTodayEl.innerHTML = response.paymentsToday.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});
         paymentsWeekEl.innerHTML = response.paymentsThisWeek.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'});

@@ -59,8 +59,6 @@ function prepareChanges(event) {
     };
 
     customerChanges.push(change);
-
-    console.log(customerChanges)
 }
 
 function prepareAddressChanges(event) {
@@ -71,8 +69,6 @@ function prepareAddressChanges(event) {
     }
 
     customerChanges.push(change);
-
-    console.log(customerChanges)
 }
 
 function sendChanges(){

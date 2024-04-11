@@ -13,8 +13,6 @@ const moduleInfo = [
 modulesArray.forEach(moduleApi => {
     let option = document.createElement('option');
 
-    console.log(moduleApi);
-
     option.value = moduleApi;
     option.textContent = moduleInfo.find(module => module.key === moduleApi).name;
 

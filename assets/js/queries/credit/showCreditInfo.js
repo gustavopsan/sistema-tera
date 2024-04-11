@@ -40,9 +40,7 @@ async function showDebitInfo() {
         }
     );
 
-    let response = await payment.json();   
-    
-    console.log(response);
+    let response = await payment.json();
 
     payDebitButton.dataset.debitId = response.debitId;
     payDebitButton.dataset.clientName = response.customerData.name;

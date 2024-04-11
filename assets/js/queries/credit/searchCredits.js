@@ -17,8 +17,6 @@ async function searchDebits() {
 
     let response = await searchedCredits.json();
 
-    //console.log(response);
-
     creditList.innerHTML = "";
 
     response.forEach(credit => {

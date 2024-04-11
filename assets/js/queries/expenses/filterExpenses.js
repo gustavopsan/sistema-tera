@@ -6,8 +6,6 @@ function formateAMerdaDaData(data) {
     return `${newArr[2]}/${newArr[1]}/${newArr[0]}`
 }
 
-console.log(new Date().toISOString())
-
 var initialDate;
 var finalDate;
 
@@ -20,7 +18,6 @@ function handleFinalDateChange(event) {
     newDate.setHours(newDate.getHours() + 23, 59, 59);  
     
     finalDate = newDate.toISOString();
-    console.log(finalDate)
 }
 
 async function filterExpenses(initialDate, finalDate){

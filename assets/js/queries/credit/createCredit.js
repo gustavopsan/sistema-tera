@@ -21,11 +21,9 @@ function calculateValue() {
     if (paymentModel.value == 'daily') {
         paymentsAmount = daysAmount.value;
         paymentsAmountDisp = daysAmount.value;
-        //console.log(paymentsAmountDisp);
     } else {
         paymentsAmount = weeksAmount.value;
         paymentsAmountDisp = parseInt(paymentsAmount) + 1;
-        //console.log(paymentsAmountDisp);
     }
 
     var finalValue = (parseFloat(creditValueNumber.value) * 0.2) + parseFloat(creditValueNumber.value);

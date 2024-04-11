@@ -22,8 +22,6 @@ async function requestPasswordRecovery() {
 
     const response = await requestData.json();
 
-    console.log(response);
-
     if (response.status == "error") {
         let message = 'Nenhuma conta encontrada com os dados informados'
 

@@ -26,8 +26,6 @@ async function authenticate() {
 
     const response = await requestData.json();
 
-    console.log(response);
-
     if(response.userData) {
         setCookie("UID",  response.userData.userId, 14);
         setCookie("sessionToken", response.token, 14);
