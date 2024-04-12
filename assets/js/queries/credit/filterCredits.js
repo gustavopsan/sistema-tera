@@ -48,11 +48,14 @@ async function filterCredits(initialDate, finalDate) {
 
     response.payments.forEach(payment => {
         var newPayment;
-        var date = payment.paymentDate.split('T')[0];
+        var date = new Date(payment.paymentDate);
+        date.setHours(date.getHours() - 3);
+
+        var parsedDate = date.toISOString().split("T")[0];
 
         newPayment = `
             <tr>
-                <td>${formateAMerdaDaData(date)}</td>
+                <td>${formateAMerdaDaData(parsedDate)}</td>
                 <td>${payment.clientName}</td>
                 <td>R$ ${payment.paymentValue}</td>
             </tr>
