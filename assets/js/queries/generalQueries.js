@@ -15,7 +15,7 @@ async function loadGeneralData() {
             sellerId: sellerId
         }
     );
-
+ 
     const data = await fetch(
         `${BASEPATH}/debits/loadgeneraldata`,
         {
