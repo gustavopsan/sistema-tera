@@ -120,7 +120,7 @@
 
 #expenseTable thead tr, #paymentTable thead tr {
     display: flex;
-    justify-content: space-around;
+    justify-content: stretch;
     width: 100vw;
     align-items: center;
     height: 45px;
@@ -132,9 +132,36 @@
     padding: 5px 0;
 }
 
+#expenseTable thead tr td:nth-child(1), #expenseTable tbody tr td:nth-child(1) {
+    width: 40%; /* Largura da coluna 'Nome' */
+    padding-left: 30px;
+}
+
+#expenseTable thead tr td:nth-child(2), #expenseTable tbody tr td:nth-child(2) {
+    width: 20%; /* Largura da coluna 'Nome' */
+}
+
+#expenseTable thead tr td:nth-child(3), #expenseTable tbody tr td:nth-child(3) {
+    width: 20%; /* Largura da coluna 'Nome' */
+}
+
+#paymentTable thead tr td:nth-child(1), #paymentTable tbody tr td:nth-child(1) {
+    width: 20%;
+    padding-left: 30px;
+}
+
+#paymentTable thead tr td:nth-child(2), #paymentTable tbody tr td:nth-child(2) {
+    width: 50%;
+}
+
+#paymentTable thead tr td:nth-child(3), #paymentTable tbody tr td:nth-child(3) {
+    width: 20%;
+    padding-left: 10px;
+}
+
 #expenseTable tbody tr, #paymentTable tbody tr{
     display: flex;
-    justify-content: space-evenly;
+    justify-content: stretch;
     width: 100vw;
     align-items: center;
     height: fit-content;
