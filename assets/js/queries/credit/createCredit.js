@@ -9,6 +9,11 @@ const nameSpan = document.getElementById('nameAutocomplete');
 const idInput = document.getElementById('idInput');
 const paymentModel = document.getElementById('paymentModel');
 
+const Params = new URLSearchParams(window.location.search);
+const customerId = Params.get("cid");
+
+console.log(customerId)
+
 // Nome autoexplicativo
 function formateAMerdaDaData(data) {
     let newArr = data.split("-"); 

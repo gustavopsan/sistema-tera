@@ -15,6 +15,7 @@ var phoneEl = document.getElementById("phoneInput");
 var errorContainer = document.getElementById("error-message-container");
 var errorMessage = document.getElementById("error-message");
 var saveCustomerBtn = document.getElementById("saveCustomerBt");
+var newCreditLink = document.getElementById("createDebit");
 
 async function loadCustomerData() {
      var requestData = JSON.stringify({
@@ -46,6 +47,7 @@ async function loadCustomerData() {
         hoodEl.value = response.address.hood;
         referenceEl.value = response.address.reference;
         phoneEl.value = response.phone;
+        newCreditLink.href = `/guarantee/crediarios/novo?cid=${response._id}`;
     }
 }
 
@@ -90,7 +92,7 @@ function sendChanges(){
                 let response = await updatedCustomer.json();
                 
                 if (response.customerId) {
-                    //window.location.pathname = "/guarantee/clientes";
+                    window.location.pathname = "/guarantee/clientes";
                 }
         });
     } else {
