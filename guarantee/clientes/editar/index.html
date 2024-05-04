@@ -120,7 +120,10 @@
     <div class="main-content-container">
         <div class="sub-header">
             <span>Editar cliente</span>
-            <a href="javascript:history.back()">Voltar</a>
+            <div>
+                <button id="excludeCustomer" onclick="excludeCustomer()">Excluir</button>
+                <a href="javascript:history.back()">Voltar</a>
+            </div>
         </div>
 
         <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="sendChanges()">
@@ -190,7 +193,6 @@
                 <span id="error-message" class="error">mensagem de erro teste</span>
             </div>
             <div class="form-wrapper finish">
-                <a href="#" id="excludeCustomer">Excluir</a>
                 <a href="#" id="createDebit">R$</a>
                 <button type="submit" id="saveCustomerBt">Salvar</button>
             </div>

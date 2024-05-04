@@ -17,6 +17,8 @@ var errorMessage = document.getElementById("error-message");
 var saveCustomerBtn = document.getElementById("saveCustomerBt");
 var newCreditLink = document.getElementById("createDebit");
 
+var clientId;
+
 async function loadCustomerData() {
      var requestData = JSON.stringify({
         customerId: customerId,
@@ -48,6 +50,8 @@ async function loadCustomerData() {
         referenceEl.value = response.address.reference;
         phoneEl.value = response.phone;
         newCreditLink.href = `/guarantee/crediarios/novo?cid=${response._id}`;
+
+        clientId = response.customerId;
     }
 }
 
@@ -101,6 +105,34 @@ function sendChanges(){
 
         setTimeout(() => { errorContainer.style.display = "none"; }, 3000)
     }
+}
+
+async function excludeCustomer() {
+    var requestData = JSON.stringify({
+        customerId: clientId,
+        sellerId: sellerId
+    })
+
+    const excluded = await fetch(
+        `${BASEPATH}/customer/exclude`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: requestData
+        }
+    );
+
+    var response = await excluded.json();
+
+    if (response.message == "CUSTOMER_HAVE_DEBITS") {
+        alert("Cliente tem débitos pendentes!")
+    } else {
+        window.location.pathname = '/guarantee/clientes';
+    }
+    
 }
 
 window.addEventListener('load', loadCustomerData);

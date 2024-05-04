@@ -25,6 +25,19 @@
     font-weight: 400;
 }
 
+.sub-header #excludeCustomer {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #F26464;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
 .form-container {
     display: flex;
     flex-direction: column;
