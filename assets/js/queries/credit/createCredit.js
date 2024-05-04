@@ -159,6 +159,32 @@ var clientData = {
     clientId: ""
 }
 
+async function loadClientData() {
+    const response = await fetch(
+        `${BASEPATH}/customer/find`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ customerId: customerId })
+        }
+    )
+
+    let data = await response.json();
+
+    nameSpan.innerText = data.name;
+    idInput.value = data._id;
+
+    clientData.name = data.name;
+    clientData.clientId = data._id;
+}
+
+if (customerId) {
+    loadClientData();
+}
+
 async function searchCustomers() {
     const customerStr = nameInput.value;
 
