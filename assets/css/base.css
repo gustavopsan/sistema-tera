@@ -114,6 +114,10 @@
     vertical-align: middle;
 }
 
+.aside-menu-container.catalog .aside-menu-content .aside-menu-content-header {
+    background-color: #002DDE;
+}
+
 .aside-menu-container .aside-menu-content .aside-menu-content-header .menu-button {
     background-color: transparent;
     border: none;
@@ -135,6 +139,10 @@
     background-color: #0E0762;
     height: 100%;
     padding-top: 15px;
+}
+
+.aside-menu-container.catalog .aside-menu-content .aside-menu-content-body {
+    background-color: #002DDE;
 }
 
 .aside-menu-container .aside-menu-content .aside-menu-content-body .aside-menu-list li {

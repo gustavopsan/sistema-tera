@@ -25,7 +25,9 @@ window.addEventListener('load', async () => {
 
             const response = await sessionData.json();
 
-            document.getElementById("user-name").innerText = response.name;
+            if (document.getElementById('user-name')){
+                document.getElementById("user-name").innerText = response.name;
+            }
 
             if (response.message === 'jwt expired') {
                 eraseCookie('UID');

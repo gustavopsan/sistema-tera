@@ -7,7 +7,8 @@ const moduleSelector = document.getElementById("moduleSelector");
 const moduleInfo = [
     { key: 'personal', name: 'Finança Pessoal'},
     { key: 'guarantee', name: 'Crediário' },
-    { key: 'erp', name: 'Empresarial' }
+    { key: 'erp', name: 'Empresarial' },
+    { key: 'catalogo', name: 'Catálogo' }
 ]
 
 modulesArray.forEach(moduleApi => {
