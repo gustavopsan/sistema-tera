@@ -177,6 +177,7 @@ async function loadClientData() {
     nameSpan.innerText = data.name;
     idInput.value = data._id;
     nameInput.placeholder = "";
+    nameInput.value = data.name;
 
     clientData.name = data.name;
     clientData.clientId = data._id;
