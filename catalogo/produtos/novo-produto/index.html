@@ -12,14 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/produtos.css">
+    <link rel="stylesheet" href="../../../assets/css/base.css">
+    <link rel="stylesheet" href="../../../assets/css/produtos.css">
 </head>
 <body>
     <header class="header-container">
         <div class="header-content-left">
             <button onclick="toggleMenu()">
-                <img src="../../assets/img/menu.svg" alt="menu-icon">
+                <img src="../../../assets/img/menu.svg" alt="menu-icon">
             </button>
         </div>
         <div class="header-content-right">
@@ -28,7 +28,7 @@
                 <span>Módulo Catálogo</span>
             </div>
             <button onclick="toggleMenuLogout()">
-                <img src="../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+                <img src="../../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
             </button>
         </div>
 
@@ -54,7 +54,7 @@
             <div class="aside-menu-content">
                 <div class="aside-menu-content-header">
                     <button class="menu-button" onclick="toggleMenu()">
-                        <img src="../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
+                        <img src="../../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
                     </button>
                     <h2 class="logo-text">Catálogo | TERA</h2>
                 </div>
@@ -153,327 +153,66 @@
     </header>
     <div class="main-content-container">
         <div class="sub-header">
-            <span>Produtos</span>
-            <a href="/catalogo/produtos/novo-produto">Novo Produto</a>
-        </div>
-        <div class="search-container">
-            <input type="text" name="search" id="searchInput" placeholder="Pesquisar"/>
-            <img src="../../assets/img/lupa.svg" alt="icon-search">
+            <span>Novo Produto</span>
+            <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <div class="list-container">
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
+        <form action="javascript:;" class="form-container" id="form-produto">
+            <div class="form-wrapper">
+                <div>
+                    <span>Descrição</span>
+                    <input type="text" name="name" id="name" placeholder="Nome do produto" required/>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Preço</span>
+                    <input type="number" name="productValue" id="productValue" required inputMode="decimal" placeholder="R$ 0,00">
+                </div>
+                <div>
+                    <span>Preço promocional</span>
+                    <input type="number" name="promotionalValue" id="promotionalValue" required inputMode="decimal" placeholder="R$ 0,00">
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Imagem do produto</span>
+                    <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
+
+                    <input type="file" name="imageInput" id="imageInput">
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Descrição do produto</span>
+                    <textarea name="description" id="description" placeholder="Descrição do produto"></textarea>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Categoria do produto</span>
+                    <select name="category" id="category" required>
+                        <option value="">Selecione uma categoria</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Produto ativo?</span>
+                    <select name="active" id="active" required>
+                        <option value="1">Sim</option>
+                        <option value="0">Não</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
+            <div class="submit-options">
+                <button type="submit" class="submit-button">
+                    Salvar
+                </button>
             </div>
+        </form>
 
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 
 
