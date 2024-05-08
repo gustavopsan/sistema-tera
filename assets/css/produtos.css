@@ -124,6 +124,10 @@
     color: #0e0762;
 }
 
+.form-container .form-wrapper input[type="file"] {
+    padding: 15px 15px 0 15px;
+}
+
 .form-container .form-wrapper input#name {
     width: 200%;
 }
@@ -152,6 +156,11 @@
     border: solid 1px #f0f1f7;
     padding-left: 15px;
     color: #0e0762;
+}
+
+.form-container .form-wrapper img {
+    max-width: 300px;
+    border-radius: 20px;
 }
 
 .submit-options {
