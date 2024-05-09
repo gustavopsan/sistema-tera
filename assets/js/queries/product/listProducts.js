@@ -26,14 +26,14 @@ async function listProducts() {
         newProduct.setAttribute('class', 'list-item');
 
         newProduct.innerHTML = `
-            <img src="${product.imagePath}" alt="image" class="item-image">
+            <img src="${product.imagePath ?? '/assets/img/image-gray.svg'}" alt="image" class="item-image">
             <div class="item-info">
                 <b>${product.name}</b>
                 <div>
-                <span>R$ ${parseFloat(product.promotionalValue)}</span>
-                    <button class="list-item-button">
+                <span>${product.promotionalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                    <a href="/catalogo/produtos/editar?pid=${product._id}" class="list-item-button">
                         <img src="/assets/img/pen.svg" alt="edit">
-                    </button>
+                    </a>
                 </div>
             </div>
         `;

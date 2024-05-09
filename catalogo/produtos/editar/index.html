@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="/tera.ico">
     <meta name="referrer" content="no-referrer">
+    <link rel="icon" type="image/x-icon" href="/tera.ico">
     <title>TERA - CATALOG</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,14 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../assets/css/base.css">
-    <link rel="stylesheet" href="../../assets/css/produtos.css">
+    <link rel="stylesheet" href="../../../assets/css/base.css">
+    <link rel="stylesheet" href="../../../assets/css/produtos.css">
 </head>
 <body>
     <header class="header-container">
         <div class="header-content-left">
             <button onclick="toggleMenu()">
-                <img src="../../assets/img/menu.svg" alt="menu-icon">
+                <img src="../../../assets/img/menu.svg" alt="menu-icon">
             </button>
         </div>
         <div class="header-content-right">
@@ -29,7 +29,7 @@
                 <span>Módulo Catálogo</span>
             </div>
             <button onclick="toggleMenuLogout()">
-                <img src="../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+                <img src="../../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
             </button>
         </div>
 
@@ -55,7 +55,7 @@
             <div class="aside-menu-content">
                 <div class="aside-menu-content-header">
                     <button class="menu-button" onclick="toggleMenu()">
-                        <img src="../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
+                        <img src="../../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
                     </button>
                     <h2 class="logo-text">Catálogo | TERA</h2>
                 </div>
@@ -154,99 +154,66 @@
     </header>
     <div class="main-content-container">
         <div class="sub-header">
-            <span>Produtos</span>
-            <a href="/catalogo/produtos/novo">Novo Produto</a>
-        </div>
-        <div class="search-container">
-            <input type="text" name="search" id="searchInput" placeholder="Pesquisar"/>
-            <img src="../../assets/img/lupa.svg" alt="icon-search">
+            <span>Editar Produto</span>
+            <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <div class="list-container" id="listContainer">
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <a class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </a>
-                    </div>
+        <form action="javascript:;" class="form-container" id="form-produto" action="javascript:;" onsubmit="createProduct(event)">
+            <div class="form-wrapper">
+                <div>
+                    <span>Nome</span>
+                    <input type="text" name="name" id="name" placeholder="Nome do produto" required/>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Preço</span>
+                    <input type="number" name="productValue" id="productValue" required inputMode="decimal" placeholder="R$ 0,00">
+                </div>
+                <div>
+                    <span>Preço promocional</span>
+                    <input type="number" name="promotionalValue" id="promotionalValue" required inputMode="decimal" placeholder="R$ 0,00">
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Imagem do produto</span>
+                    <img src="/assets/img/image-gray.svg" alt="image" class="item-image" id="imagePreview">
+
+                    <input type="file" name="imageInput" id="imageInput" onchange="uploadImage()">
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Descrição do produto</span>
+                    <textarea name="description" id="description" required placeholder="Descrição do produto"></textarea>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Categoria do produto</span>
+                    <select name="category" id="category">
+                        <option value="">Selecione uma categoria</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-wrapper">
+                <div>
+                    <span>Produto ativo?</span>
+                    <select name="active" id="active">
+                        <option value="true">Sim</option>
+                        <option value="false">Não</option>
+                    </select>
                 </div>
             </div>
 
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <a class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </a>
-                    </div>
-                </div>
+            <div class="submit-options">
+                <button type="submit" class="submit-button">
+                    Salvar
+                </button>
             </div>
+        </form>
 
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <a class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <button class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <a class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="list-item">
-                <img src="/assets/img/image-gray.svg" alt="image" class="item-image">
-                <div class="item-info">
-                    <b>Nome do produto</b>
-                    <div>
-                    <span>R$ 100,00</span>
-                        <a class="list-item-button">
-                            <img src="/assets/img/pen.svg" alt="edit">
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
     </div>
 
 
@@ -257,6 +224,11 @@
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/product/listProducts.js"></script>
+    <script>
+        const Params = new URLSearchParams(window.location.search);
+        const productId = Params.get("pid");
+
+        console.log(productId);
+    </script>
 </body>
 </html>

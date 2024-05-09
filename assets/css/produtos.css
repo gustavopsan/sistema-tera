@@ -69,16 +69,27 @@
     justify-content: space-between;
 }
 
-.list-container .list-item .item-info button {
+.list-container .list-item .item-info a {
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     padding: 5px;
     border: none;
     background-color: #0e0762;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
 }
 
-.list-container .list-item .item-info button img {
+.list-container .list-item .item-info b {
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    max-width: 135px;
+    text-wrap: nowrap;
+}
+
+.list-container .list-item .item-info a img {
     height: 15px;
 }
 
