@@ -87,7 +87,7 @@ function prepareImageChanges(imagePath) {
     var change = {
         productId: productId,
         key: "imagePath",
-        newvValue: imagePath
+        newValue: imagePath
     }
 
     productChanges.push(change);
