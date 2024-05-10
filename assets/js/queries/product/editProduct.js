@@ -122,10 +122,8 @@ function sendChanges(){
 
                 let response = await updatedProduct.json();
 
-                console.log(response)
-                
                 if (response.productId) {
-                    //window.location.pathname = "/catalogo/produtos";
+                    window.location.pathname = "/catalogo/produtos";
                 }
         });
     } else {
