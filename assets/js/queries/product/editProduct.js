@@ -97,8 +97,8 @@ function prepareImageChanges(imagePath) {
 function prepareValueChanges(event) {
     var change = {
         productId: productId,
-        key: parseFloat(event.target.name),
-        newValue: event.target.value
+        key: event.target.name,
+        newValue: parseFloat(event.target.value)
     }
 
     productChanges.push(change);
