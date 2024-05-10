@@ -80,6 +80,7 @@ function prepareChanges(event) {
     }
 
     productChanges.push(change);
+    console.log(productChanges)
 }
 
 function prepareImageChanges(imagePath) {
@@ -90,6 +91,7 @@ function prepareImageChanges(imagePath) {
     }
 
     productChanges.push(change);
+    console.log(productChanges)
 }
 
 function sendChanges(){
@@ -108,11 +110,15 @@ function sendChanges(){
             );
 
                 let response = await updatedProduct.json();
+
+                console.log(response)
                 
                 if (response.productId) {
-                    window.location.pathname = "/catalogo/produtos";
+                    //window.location.pathname = "/catalogo/produtos";
                 }
         });
+    } else {
+        alert("Nenhuma alteração feita nos dados do produto")
     }
 }
 
