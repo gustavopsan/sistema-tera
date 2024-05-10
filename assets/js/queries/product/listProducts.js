@@ -30,7 +30,7 @@ async function listProducts() {
             <div class="item-info">
                 <b>${product.name}</b>
                 <div>
-                <span>${product.promotionalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'}) ?? product.originalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                <span>${product.originalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
                     <a href="/catalogo/produtos/editar?pid=${product._id}" class="list-item-button">
                         <img src="/assets/img/pen.svg" alt="edit">
                     </a>
