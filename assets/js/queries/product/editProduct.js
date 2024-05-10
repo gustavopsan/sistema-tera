@@ -59,7 +59,12 @@ async function loadProductData() {
         productDescription.value = response.description;
         productCategory.value = response.category;
         isActive.value = response.isActive;
-        imagePreview.setAttribute("src", response.imagePath);
+        if (response.imagePath) {
+            imagePreview.setAttribute("src", response.imagePath);
+            imagePath = response.imagePath;
+        } else {
+            imagePreview.setAttribute("src", "/assets/img/image-gray.svg");
+        }
         imagePath = response.imagePath;
     }
 }
