@@ -94,6 +94,17 @@ function prepareImageChanges(imagePath) {
     console.log(productChanges)
 }
 
+function prepareValueChanges(event) {
+    var change = {
+        productId: productId,
+        key: parseFloat(event.target.name),
+        newValue: event.target.value
+    }
+
+    productChanges.push(change);
+    console.log(productChanges)
+}
+
 function sendChanges(){
     if (productChanges.length > 0) {
         productChanges.forEach(async change => {
