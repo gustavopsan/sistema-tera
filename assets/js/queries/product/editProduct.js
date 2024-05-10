@@ -76,7 +76,7 @@ function prepareChanges(event) {
     var change = {
         productId: productId,
         key: event.target.name,
-        newvalue: event.target.value
+        newValue: event.target.value
     }
 
     productChanges.push(change);
@@ -87,7 +87,7 @@ function prepareImageChanges(imagePath) {
     var change = {
         productId: productId,
         key: "imagePath",
-        newvalue: imagePath
+        newvValue: imagePath
     }
 
     productChanges.push(change);
