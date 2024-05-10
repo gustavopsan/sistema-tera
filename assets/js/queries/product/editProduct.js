@@ -11,6 +11,8 @@ const productCategory = document.getElementById("category");
 const isActive = document.getElementById("active");
 var imagePath;
 
+var productChanges = [];
+
 async function uploadImage() {
     const formData = new FormData();
     const CLIENT_ID = "c68f107bf5ec711";
@@ -31,6 +33,7 @@ async function uploadImage() {
 
     imagePreview.setAttribute("src", `${response.data.link}`);
     imagePath = response.data.link;
+    prepareImageChanges(response.data.link)
 }
 
 async function loadProductData() {
@@ -66,6 +69,50 @@ async function loadProductData() {
             imagePreview.setAttribute("src", "/assets/img/image-gray.svg");
         }
         imagePath = response.imagePath;
+    }
+}
+
+function prepareChanges(event) {
+    var change = {
+        productId: productId,
+        key: event.target.name,
+        newvalue: event.target.value
+    }
+
+    productChanges.push(change);
+}
+
+function prepareImageChanges(imagePath) {
+    var change = {
+        productId: productId,
+        key: "imagePath",
+        newvalue: imagePath
+    }
+
+    productChanges.push(change);
+}
+
+function sendChanges(){
+    if (productChanges.length > 0) {
+        productChanges.forEach(async change => {
+            const updatedProduct = await fetch(
+                `${BASEPATH}/product/update`,
+                {
+                    method: 'POST',
+                    mode: 'cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(change)
+                }
+            );
+
+                let response = await updatedProduct.json();
+                
+                if (response.productId) {
+                    window.location.pathname = "/catalogo/produtos";
+                }
+        });
     }
 }
 

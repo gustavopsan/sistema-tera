@@ -158,21 +158,21 @@
             <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <form action="javascript:;" class="form-container" id="form-produto" action="javascript:;" onsubmit="">
+        <form action="javascript:;" class="form-container" id="form-produto" action="javascript:;" onsubmit="sendChanges()">
             <div class="form-wrapper">
                 <div>
                     <span>Nome</span>
-                    <input type="text" name="name" id="name" placeholder="Nome do produto" required/>
+                    <input type="text" name="name" id="name" placeholder="Nome do produto" required onchange="prepareChanges(event)"/>
                 </div>
             </div>
             <div class="form-wrapper">
                 <div>
                     <span>Preço</span>
-                    <input type="number" name="productValue" id="productValue" required inputMode="decimal" placeholder="R$ 0,00">
+                    <input type="number" name="originalValue" id="productValue" required inputMode="decimal" placeholder="R$ 0,00" onchange="prepareChanges(event)">
                 </div>
                 <div>
                     <span>Preço promocional</span>
-                    <input type="number" name="promotionalValue" id="promotionalValue" required inputMode="decimal" placeholder="R$ 0,00">
+                    <input type="number" name="promotionalValue" id="promotionalValue" required inputMode="decimal" placeholder="R$ 0,00" onchange="prepareChanges(event)">
                 </div>
             </div>
             <div class="form-wrapper">
@@ -186,13 +186,13 @@
             <div class="form-wrapper">
                 <div>
                     <span>Descrição do produto</span>
-                    <textarea name="description" id="description" required placeholder="Descrição do produto"></textarea>
+                    <textarea name="description" id="description" required placeholder="Descrição do produto" onchange="prepareChanges(event)"></textarea>
                 </div>
             </div>
             <div class="form-wrapper">
                 <div>
                     <span>Categoria do produto</span>
-                    <select name="category" id="category">
+                    <select name="category" id="category" onchange="prepareChanges(event)">
                         <option value="">Selecione uma categoria</option>
                     </select>
                 </div>
@@ -200,7 +200,7 @@
             <div class="form-wrapper">
                 <div>
                     <span>Produto ativo?</span>
-                    <select name="active" id="active">
+                    <select name="isActive" id="active" onchange="prepareChanges(event)">
                         <option value="true">Sim</option>
                         <option value="false">Não</option>
                     </select>
