@@ -122,7 +122,7 @@ function sendChanges(){
 
                 let response = await updatedProduct.json();
 
-                if (response.productId) {
+                if (response._id) {
                     window.location.pathname = "/catalogo/produtos";
                 }
         });
