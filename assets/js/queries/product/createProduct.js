@@ -63,3 +63,25 @@ async function createProduct(e) {
         console.log(response);
     }
 }
+
+async function loadCategories() {
+    const request = await fetch(
+        `${BASEPATH}/categories/get`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ sellerId: sellerId })
+        }
+    );
+
+    const response = await request.json();
+
+    response.categories.forEach(category => {
+        productCategory.innerHTML += `<option value="${category[0].name}">${category[0].name}</option>`;
+    });
+}
+
+window.onload = loadCategories;

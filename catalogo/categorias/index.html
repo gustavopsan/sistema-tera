@@ -154,7 +154,7 @@
         <div class="sub-header">
             <span>Categorias</span>
             <div>
-                <button>Nova</button>
+                <button onclick="handleCreateForm()">Nova</button>
                 <a href="javascript:history.back()">Voltar</a>
             </div>
         </div>
@@ -192,6 +192,15 @@
 
     </div>
 
+    <div class="create-category-container hidden" id="create-category-container">
+        <div class="blurred-bg" onclick="handleCreateForm()"></div>
+        <div class="create-category-wrapper">
+            <b>Nova categoria</b>
+            <input type="text" placeholder="Nome da categoria" id="newCategoryName">
+            <button onclick="createCategory()">Salvar</button>
+        </div>
+    </div>
+
 
     <footer class="footer-container">
 
@@ -200,5 +209,6 @@
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
+    <script src="/assets/js/queries/categories/handleCategories.js"></script>
 </body>
 </html>
