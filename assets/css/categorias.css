@@ -1,0 +1,73 @@
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    height: 40px;
+    background-color: #f1f1f3;
+}
+
+.sub-header span {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #767676;
+    font-weight: 700;
+}
+
+.sub-header a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #0e0762;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.category-header {
+    display: flex;
+    padding: 10px;
+}
+
+.category-header b {
+    font-family: "Inter";
+}
+
+.category-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.category-list .category-item {
+    border: 1px solid #DDDDDD;
+    padding: 5px 10px 5px 20px;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.category-list .category-item span {
+    font-family: "Inter";
+    font-size: 12px;
+    color: #0e0762;
+    font-weight: bold;
+}
+
+.category-list .category-item button {
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    width: 35px;
+    background-color: #f26464;
+    color: #FFFFFF;  
+}
+
+.category-list .category-item button:active {
+    background-color: #f48282;
+}

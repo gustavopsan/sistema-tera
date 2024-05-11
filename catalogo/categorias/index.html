@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="referrer" content="no-referrer">
     <link rel="icon" type="image/x-icon" href="/tera.ico">
+    <meta name="referrer" content="no-referrer">
     <title>TERA - CATALOG</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,14 +13,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../../assets/css/base.css">
-    <link rel="stylesheet" href="../../../assets/css/produtos.css">
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../../assets/css/categorias.css">
 </head>
 <body>
     <header class="header-container">
         <div class="header-content-left">
             <button onclick="toggleMenu()">
-                <img src="../../../assets/img/menu.svg" alt="menu-icon">
+                <img src="../../assets/img/menu.svg" alt="menu-icon">
             </button>
         </div>
         <div class="header-content-right">
@@ -29,7 +29,7 @@
                 <span>Módulo Catálogo</span>
             </div>
             <button onclick="toggleMenuLogout()">
-                <img src="../../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
+                <img src="../../assets/img/arrow.svg" alt="logout-icon" id="logout-icon">
             </button>
         </div>
 
@@ -55,7 +55,7 @@
             <div class="aside-menu-content">
                 <div class="aside-menu-content-header">
                     <button class="menu-button" onclick="toggleMenu()">
-                        <img src="../../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
+                        <img src="../../assets/img/menu-w.svg" width="24px" height="24px" alt="menu-icon">
                     </button>
                     <h2 class="logo-text">Catálogo | TERA</h2>
                 </div>
@@ -85,7 +85,7 @@
                             </a>
                         </li>
                         <li class="aside-menu-item">
-                            <a href="/catalogo/categorias/" class="aside-menu-link">
+                            <a href="#" class="aside-menu-link">
                                 <svg width="25" height="25" viewBox="0 0 25 29" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                                     <rect width="25" height="25" fill="url(#pattern0_70_299)"/>
                                     <defs>
@@ -95,9 +95,7 @@
                                     <image id="image0_70_299" width="652" height="772" xlink:href="data:image/png;base64,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"/>
                                     </defs>
                                 </svg>
-                                    
-                                    
-                                    
+                                
                                 <b>Categorias</b>
                             </a>
                         </li>
@@ -154,67 +152,40 @@
     </header>
     <div class="main-content-container">
         <div class="sub-header">
-            <span>Editar Produto</span>
-            <div>
-                <a href="javascript:history.back()">Voltar</a>
-            </div>
+            <span>Categorias</span>
+            <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <form action="javascript:;" class="form-container" id="form-produto" action="javascript:;" onsubmit="sendChanges()">
-            <div class="form-wrapper">
-                <div>
-                    <span>Nome</span>
-                    <input type="text" name="name" id="name" placeholder="Nome do produto" required onchange="prepareChanges(event)"/>
-                </div>
-            </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Preço</span>
-                    <input type="number" name="originalValue" id="productValue" required inputMode="decimal" placeholder="R$ 0,00" onchange="prepareValueChanges(event)">
-                </div>
-                <div>
-                    <span>Preço promocional</span>
-                    <input type="number" name="promotionalValue" id="promotionalValue" required inputMode="decimal" placeholder="R$ 0,00" onchange="prepareValueChanges(event)">
-                </div>
-            </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Imagem do produto</span>
-                    <img src="/assets/img/image-gray.svg" alt="image" class="item-image" id="imagePreview">
+        <div class="category-header">
+            <b>Todas as categorias</b>
+        </div>
 
-                    <input type="file" name="imageInput" id="imageInput" onchange="uploadImage()">
-                </div>
+        <div class="category-list" id="categoryList">
+            <div class="category-item">
+                <span>Teste</span>
+                <button>X</button>
             </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Descrição do produto</span>
-                    <textarea name="description" id="description" required placeholder="Descrição do produto" onchange="prepareChanges(event)"></textarea>
-                </div>
+            <div class="category-item">
+                <span>Teste</span>
+                <button>X</button>
             </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Categoria do produto</span>
-                    <select name="category" id="category" onchange="prepareChanges(event)">
-                        <option value="">Selecione uma categoria</option>
-                    </select>
-                </div>
+            <div class="category-item">
+                <span>Teste</span>
+                <button>X</button>
             </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Produto ativo?</span>
-                    <select name="isActive" id="active" onchange="prepareChanges(event)">
-                        <option value="true">Sim</option>
-                        <option value="false">Não</option>
-                    </select>
-                </div>
+            <div class="category-item">
+                <span>Teste</span>
+                <button>X</button>
             </div>
-
-            <div class="submit-options">
-                <button type="submit" class="submit-button">
-                    Salvar
-                </button>
+            <div class="category-item">
+                <span>Teste</span>
+                <button>X</button>
             </div>
-        </form>
+            <div class="category-item">
+                <span>Teste</span>
+                <button>X</button>
+            </div>
+        </div>
 
     </div>
 
@@ -226,6 +197,5 @@
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/product/editProduct.js"></script>
 </body>
 </html>
