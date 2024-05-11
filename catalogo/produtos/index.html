@@ -158,7 +158,7 @@
             <a href="/catalogo/produtos/novo">Novo Produto</a>
         </div>
         <div class="search-container">
-            <input type="text" name="search" id="searchInput" placeholder="Pesquisar"/>
+            <input type="text" name="search" id="searchInput" placeholder="Pesquisar" onkeyup="searchProducts()"/>
             <img src="../../assets/img/lupa.svg" alt="icon-search">
         </div>
 
@@ -258,5 +258,6 @@
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
     <script src="/assets/js/queries/product/listProducts.js"></script>
+    <script src="/assets/js/queries/product/searchProducts.js"></script>
 </body>
 </html>

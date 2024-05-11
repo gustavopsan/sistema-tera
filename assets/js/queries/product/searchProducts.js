@@ -1,27 +1,26 @@
-const listContainer = document.getElementById('listContainer');
+const searchInput = document.getElementById('searchInput');
+const productList = document.getElementById('listContainer');
 
-async function listProducts() {
-    const requestData = await fetch(
-        `${BASEPATH}/product/list`,
+async function searchProducts() {
+    const productStr = searchInput.value;
+
+    const searchedProducts = await fetch(
+        `${BASEPATH}/product/search`,
         {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({
-                sellerId: sellerId
-            })
+            body: JSON.stringify({ queryString: productStr, sellerId: sellerId })
         }
     );
 
-    const products = await requestData.json();
+    let response = await searchedProducts.json()
 
-    listContainer.innerHTML = "";
+    productList.innerHTML = "";
 
-    products.forEach(product => {
-        console.log(product);
-
+    response.forEach(product => {
         var newProduct = document.createElement('div');
         newProduct.setAttribute('class', 'list-item');
 
@@ -30,7 +29,7 @@ async function listProducts() {
             <div class="item-info">
                 <b>${product.name}</b>
                 <div>
-                <span>${product.originalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
+                    <span>${product.originalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
                     <a href="/catalogo/produtos/editar?pid=${product._id}" class="list-item-button">
                         <img src="/assets/img/pen.svg" alt="edit">
                     </a>
@@ -38,8 +37,6 @@ async function listProducts() {
             </div>
         `;
 
-        listContainer.innerHTML += newProduct;
-    })
+        productList.append(newProduct);
+    });
 }
-
-window.onload = listProducts;
