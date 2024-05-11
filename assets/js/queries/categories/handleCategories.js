@@ -1,7 +1,9 @@
 var cadastroContainer = document.getElementById('create-category-container');
 var categoryList = document.getElementById('categoryList');
 var newCategoryName = document.getElementById('newCategoryName');
-var categories = [];
+var categories = null;
+
+console.log(categories)
 
 function handleCreateForm() {
     cadastroContainer.classList.toggle('hidden');
@@ -24,18 +26,45 @@ async function loadCategories() {
     
     categoryList.innerHTML = "";
 
-    categories = response.categories;
+    if (response != null) {
+        categories = response.categories;
 
-    categories.forEach(category => {
-        var categ = `
-        <div class="category-item">
-            <span>${category[0].name}</span>
-            <button>X</button>
-        </div>
-        `;
+        categories.forEach((category, index) => {
+            var categ = `
+            <div class="category-item">
+                <span>${category[0].name}</span>
+                <button data-category-id="${index}" onclick="removeCategory(event)">X</button>
+            </div>
+            `;
 
-        categoryList.innerHTML += categ;
+            categoryList.innerHTML += categ;
+        });
+    }
+}
+
+async function removeCategory(event) {
+    var categoryId = event.target.dataset.categoryId;
+
+    categories.splice(categoryId, 1);
+
+    let requestData = JSON.stringify({
+        sellerId: sellerId,
+        categories: categories
     });
+
+    let request = await fetch(
+        `${BASEPATH}/categories/update`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: requestData
+        }
+    );
+
+    loadCategories();
 }
 
 async function createCategory() {
@@ -43,7 +72,9 @@ async function createCategory() {
         name: newCategoryName.value,
     };
 
-    if (categories.length <= 0) {
+    console.log(categories, categories.length);
+
+    if (categories.length == null) {
 
         categories.push(newCategory);
 
@@ -63,6 +94,8 @@ async function createCategory() {
                 body: requestData
             }
         );
+
+        console.log(await request.json());
 
         loadCategories();
         handleCreateForm();
@@ -86,6 +119,8 @@ async function createCategory() {
                 body: requestData
             }
         );
+
+        console.log(await request.json());
 
         loadCategories();
         handleCreateForm();
