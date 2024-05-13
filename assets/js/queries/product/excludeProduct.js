@@ -1,5 +1,3 @@
-const Params = new URLSearchParams(window.location.search);
-const productId = Params.get("pid");
 const exclusionButton = document.getElementById("delete-button");
 
 async function excludeProduct() {
