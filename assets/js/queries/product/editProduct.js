@@ -57,6 +57,8 @@ async function loadCategories() {
 }
 
 async function loadProductData() {
+    loadCategories();
+
     var requestData = JSON.stringify({
         productId: productId
     })
@@ -151,5 +153,4 @@ function sendChanges(){
     }
 }
 
-window.addEventListener('load', loadCategories);
 window.addEventListener('load', loadProductData);
