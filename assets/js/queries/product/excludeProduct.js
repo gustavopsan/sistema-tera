@@ -2,7 +2,7 @@ const exclusionButton = document.getElementById("delete-button");
 
 async function excludeProduct() {
     const request = await fetch(
-        `${BASEPATH}/products/remove`,
+        `${BASEPATH}/product/remove`,
         {
             method: 'POST',
             mode: 'cors',
