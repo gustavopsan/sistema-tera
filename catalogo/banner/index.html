@@ -154,7 +154,7 @@
     </header>
     <div class="main-content-container">
         <div class="sub-header">
-            <span>Informações Gerais</span>
+            <span>Banner do Catálogo</span>
             <div>
                 <a href="javascript:history.back()">Voltar</a>
             </div>
@@ -163,23 +163,15 @@
         <form action="javascript:;" class="form-container" id="form-produto">
             <div class="form-wrapper">
                 <div>
-                    <span>Título do Catálogo</span>
-                    <input type="text" name="catalogName" id="catalogName" placeholder="" required/>
-                </div>
-            </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Número de atendimento (Whatsapp)</span>
-                    <input type="tel" name="wppNumber" id="wppNumber" placeholder="" required/>
-                </div>
-            </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Link do Instagram</span>
-                    <input type="text" name="description" id="description" required placeholder=""/>
-                </div>
-            </div>
+                    <span>Imagem do Banner</span>
+                    <img src="/assets/img/image-gray.svg" alt="image" class="item-image" id="imagePreview">
 
+                    <label for="imageInput" class="edit-image-button">
+                        <img src="/assets/img/pen.svg" alt="edit">
+                    </label>
+                    <input type="file" name="imageInput" id="imageInput" onchange="uploadImage()">
+                </div>
+            </div>
             <div class="submit-options">
                 <button type="submit" class="submit-button">
                     Salvar
