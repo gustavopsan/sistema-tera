@@ -25,6 +25,18 @@
     font-weight: 400;
 }
 
+.sub-header button {
+    padding: 10px;
+    background-color: #f26464;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    border: none;
+    cursor: pointer;
+}
+
 .list-container {
     display: grid;
     padding: 20px;

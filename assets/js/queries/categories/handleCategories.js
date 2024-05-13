@@ -45,26 +45,43 @@ async function loadCategories() {
 async function removeCategory(event) {
     var categoryId = event.target.dataset.categoryId;
 
-    categories.splice(categoryId, 1);
-
-    let requestData = JSON.stringify({
-        sellerId: sellerId,
-        categories: categories
-    });
-
-    let request = await fetch(
-        `${BASEPATH}/categories/update`,
+    let requestCategory = await fetch(
+        `${BASEPATH}/product/listCategoryProducts`,
         {
             method: 'POST',
             mode: 'cors',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: requestData
+            body: JSON.stringify({ sellerId: sellerId ,category: categoryId })
         }
-    );
+    )
 
-    loadCategories();
+    let categoryProducts = await requestCategory.json();
+
+    if (categoryProducts.length < 0) {
+
+        categories.splice(categoryId, 1);
+
+        let request = await fetch(
+            `${BASEPATH}/categories/update`,
+            {
+                method: 'POST',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    sellerId: sellerId,
+                    categories: categories
+                })
+            }
+        );
+
+        loadCategories();
+    } else {
+        alert("Categoria contém produtos ativos")
+    }
 }
 
 async function createCategory() {
