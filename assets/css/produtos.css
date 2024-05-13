@@ -94,6 +94,30 @@
     cursor: pointer;
 }
 
+.edit-image-button {
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: none;
+    background-color: #0e0762;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    bottom: 55px;
+    left: 245px;
+}
+
+.edit-image-button img {
+    height: 15px;
+}
+
+#imageInput {
+    display: none;
+}
+
 .list-container .list-item .item-info b {
     overflow-x: hidden;
     text-overflow: ellipsis;
@@ -182,6 +206,7 @@
 }
 
 .form-container .form-wrapper img {
+    width: 300px;
     max-width: 300px;
     border-radius: 20px;
 }
