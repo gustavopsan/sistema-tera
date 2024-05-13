@@ -36,6 +36,26 @@ async function uploadImage() {
     prepareImageChanges(response.data.link)
 }
 
+async function loadCategories() {
+    const request = await fetch(
+        `${BASEPATH}/categories/get`,
+        {
+            method: 'POST',
+            mode: 'cors',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ sellerId: sellerId })
+        }
+    );
+
+    const response = await request.json();
+
+    response.categories.forEach(category => {
+        productCategory.innerHTML += `<option value="${category[0].name}">${category[0].name}</option>`;
+    });
+}
+
 async function loadProductData() {
     var requestData = JSON.stringify({
         productId: productId
@@ -131,4 +151,5 @@ function sendChanges(){
     }
 }
 
+window.addEventListener('load', loadCategories);
 window.addEventListener('load', loadProductData);
