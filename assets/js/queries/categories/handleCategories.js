@@ -33,7 +33,7 @@ async function loadCategories() {
             var categ = `
             <div class="category-item">
                 <span>${category[0].name}</span>
-                <button data-category-id="${index}" onclick="removeCategory(event)">X</button>
+                <button data-category-id="${index}" data-category-name="${category[0].name}" onclick="removeCategory(event)">X</button>
             </div>
             `;
 
@@ -44,6 +44,7 @@ async function loadCategories() {
 
 async function removeCategory(event) {
     var categoryId = event.target.dataset.categoryId;
+    var categoryName = event.target.dataset.categoryName;
 
     let requestCategory = await fetch(
         `${BASEPATH}/product/listCategoryProducts`,
@@ -53,13 +54,15 @@ async function removeCategory(event) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ sellerId: sellerId ,category: categoryId })
+            body: JSON.stringify({ sellerId: sellerId, category: categoryName })
         }
     )
 
     let categoryProducts = await requestCategory.json();
 
-    if (categoryProducts.length < 0) {
+    console.log(categoryProducts.length)
+
+    if (categoryProducts.length <= 0) {
 
         categories.splice(categoryId, 1);
 

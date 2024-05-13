@@ -26,7 +26,7 @@ async function listProducts() {
         newProduct.setAttribute('class', 'list-item');
 
         newProduct.innerHTML = `
-            <img src="${product.imagePath + '?width=150' ?? '/assets/img/image-gray.svg'}" alt="image" class="item-image">
+            <img src="${product.imagePath ?? '/assets/img/image-gray.svg'}" alt="image" class="item-image">
             <div class="item-info">
                 <b>${product.name}</b>
                 <div>
