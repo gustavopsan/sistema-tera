@@ -16,6 +16,10 @@ async function excludeProduct() {
     let response = await request.json();
 
     console.log(response);
+
+    if (response._id) {
+        window.location.pathname = "/catalogo/produtos";
+    }
 }
 
 exclusionButton.addEventListener("click", excludeProduct);
