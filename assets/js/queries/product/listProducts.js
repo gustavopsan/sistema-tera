@@ -27,7 +27,7 @@ async function listProducts() {
 
         newProduct.innerHTML = `
             <img src="${product.imagePath ?? '/assets/img/image-gray.svg'}" alt="image" class="item-image">
-            <div class="item-info">
+            <div class="item-info" style="${ product.isActive ? "" : "color: gray;" }">
                 <b>${product.name}</b>
                 <div>
                     <span>${product.originalValue.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
