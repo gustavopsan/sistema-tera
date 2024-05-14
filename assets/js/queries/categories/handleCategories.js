@@ -28,22 +28,28 @@ async function loadCategories() {
     );
 
     var response = await request.json();
+
+    console.log(response)
     
     categoryList.innerHTML = "";
 
     if (response != null) {
         categories = response.categories;
 
-        categories.forEach((category, index) => {
-            var categ = `
-            <div class="category-item">
-                <span>${category[0].name}</span>
-                <button data-category-id="${index}" data-category-name="${category[0].name}" onclick="removeCategory(event)">X</button>
-            </div>
-            `;
-
-            categoryList.innerHTML += categ;
-        });
+        if (response.categories.length > 0){
+            categories.forEach((category, index) => {
+                var categ = `
+                <div class="category-item">
+                    <span>${category[0].name}</span>
+                    <button data-category-id="${index}" data-category-name="${category[0].name}" onclick="removeCategory(event)">X</button>
+                </div>
+                `;
+    
+                categoryList.innerHTML += categ;
+            });
+        } else {
+            categories = [];
+        }
     }
 }
 
@@ -97,9 +103,9 @@ async function createCategory() {
         name: newCategoryName.value,
     };
 
-    console.log(categories, categories.length);
+    if (categories == null) {
 
-    if (categories.length == null) {
+        categories = []; 
 
         categories.push(newCategory);
 
