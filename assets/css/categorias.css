@@ -85,7 +85,7 @@
     background-color: #f48282;
 }
 
-.create-category-container {
+.create-category-container, .category-warning-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -102,7 +102,7 @@
     z-index: 10;
 }
 
-.create-category-wrapper {
+.create-category-wrapper, .category-warning-wrapper {
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -116,7 +116,7 @@
     z-index: 12;
 }
 
-.create-category-wrapper button {
+.create-category-wrapper button, .category-warning-wrapper button {
     height: 40px;
     width: 150px;
     align-self: center;

@@ -1,4 +1,5 @@
 var cadastroContainer = document.getElementById('create-category-container');
+var categoryWarningContainer = document.getElementById('category-warning-container');
 var categoryList = document.getElementById('categoryList');
 var newCategoryName = document.getElementById('newCategoryName');
 var categories = null;
@@ -7,6 +8,10 @@ console.log(categories)
 
 function handleCreateForm() {
     cadastroContainer.classList.toggle('hidden');
+}
+
+function handleCategoryWarning() {
+    categoryWarningContainer.classList.toggle('hidden');
 }
 
 async function loadCategories() {
@@ -83,7 +88,7 @@ async function removeCategory(event) {
 
         loadCategories();
     } else {
-        alert("Categoria contém produtos ativos")
+        handleCategoryWarning();
     }
 }
 
