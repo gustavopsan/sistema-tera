@@ -1,5 +1,5 @@
 var catalogNameInput = document.getElementById('catalogName');
-var wppNumberInput = document.getElementById('wppNumber');
+var wppNumberInput = document.getElementById('whatsappNumber');
 var instaLinkInput = document.getElementById('instaLink');
 var isSetted = false;
 
@@ -31,6 +31,20 @@ async function getCatalogInfo() {
     }
 };
 
+
+var catalogChanges = [];
+
+function prepareChanges(event) {
+    var change = {
+        sellerId: sellerId,
+        key: event.target.name,
+        newvalue: event.target.value
+    }
+
+    catalogChanges.push(change);
+    console.log(catalogChanges)
+}
+
 async function updateCatalogInfo() {
 
     if (!isSetted) {
@@ -61,7 +75,29 @@ async function updateCatalogInfo() {
             window.location.href = "/catalogo/info";
         }
     } else {
-        
+        if (catalogChanges.length > 0) {
+            catalogChanges.forEach(async change => {
+                const updatedCatalog = await fetch(
+                    `${BASEPATH}/cataloginfo/update`,
+                    {
+                        method: 'POST',
+                        mode: 'cors',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(change)
+                    }
+                );
+
+                let response = await updatedCatalog.json();
+
+                if (response._id) {
+                    window.location.reload();
+                }
+            })
+        } else {
+            alert("Nenhuma alteração foi feita");
+        }
     }
 }
 

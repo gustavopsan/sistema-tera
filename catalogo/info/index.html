@@ -164,19 +164,19 @@
             <div class="form-wrapper">
                 <div>
                     <span>Título do Catálogo</span>
-                    <input type="text" name="catalogName" id="catalogName" placeholder="" required/>
+                    <input type="text" name="catalogName" id="catalogName" placeholder="" onchange="prepareChanges(event)" required/>
                 </div>
             </div>
             <div class="form-wrapper">
                 <div>
                     <span>Número de atendimento (Whatsapp)</span>
-                    <input type="tel" name="wppNumber" id="wppNumber" placeholder="" required/>
+                    <input type="tel" name="whatsappNumber" id="whatsappNumber" placeholder="" onchange="prepareChanges(event)" required/>
                 </div>
             </div>
             <div class="form-wrapper">
                 <div>
                     <span>Link do Instagram</span>
-                    <input type="text" name="instaLink" id="instaLink" required placeholder=""/>
+                    <input type="text" name="instaLink" id="instaLink" required onchange="prepareChanges(event)" placeholder=""/>
                 </div>
             </div>
 
