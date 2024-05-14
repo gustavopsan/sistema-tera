@@ -169,6 +169,7 @@
     border: solid 1px #f0f1f7;
     padding-left: 15px;
     color: #0e0762;
+    min-width: 300px;
 }
 
 .form-container .form-wrapper input[type="file"] {
@@ -235,5 +236,9 @@
 @media (max-width: 460px) {
     .list-container  {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .form-container .form-wrapper {
+        flex-direction: column;
     }
 }
