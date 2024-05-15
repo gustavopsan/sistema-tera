@@ -63,7 +63,7 @@ async function updateCatalogInfo() {
                         instaLink: instaLinkInput.value, 
                         catalogName: catalogNameInput.value, 
                         topoBannerUrl: "", 
-                        openHour: []
+                        openHour: {}
                     }
                 )
             }

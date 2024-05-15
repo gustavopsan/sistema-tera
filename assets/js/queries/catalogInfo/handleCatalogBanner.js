@@ -41,7 +41,12 @@ async function loadBannerImage() {
 
     console.log(catalogData);
 
-    imagePreview.setAttribute("src", `${catalogData.topoBannerUrl}`);
+    if (catalogData.topoBannerUrl == "") {
+        imagePreview.setAttribute("src", "/assets/img/image-gray.svg");
+    } else {
+
+        imagePreview.setAttribute("src", catalogData.topoBannerUrl);
+    }
 }
 
 async function handleCatalogBanner() {
@@ -64,7 +69,7 @@ async function handleCatalogBanner() {
     let response = await updatedCatalog.json();
 
     if (response._id) {
-        console.log(response)
+        window.location.reload();
     }
 }
 

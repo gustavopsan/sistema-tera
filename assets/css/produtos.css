@@ -193,6 +193,10 @@
     color: #0e0762;
 }
 
+.form-container .form-wrapper select.day-select, .form-container .form-wrapper input[type="time"] {
+    width: 320px;
+}
+
 .form-container .form-wrapper textarea {
     height: 30px;
     font-family: 'Mulish', sans-serif;
