@@ -139,7 +139,7 @@
                             </a>
                         </li>
                         <li class="aside-menu-item remove">
-                            <a href="/catalogo/pagamento/" class="aside-menu-link">
+                            <a href="/catalogo/pagamentos/" class="aside-menu-link">
                                 <svg width="20" height="25" viewBox="0 0 20 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M9.20766 33.42V30.432C4.20366 30.072 0.999656 27.156 0.891656 22.764H5.49966C5.53566 24.816 6.86766 26.112 9.20766 26.4V18.732L8.05566 18.48C3.51966 17.508 1.25166 14.988 1.25166 11.028C1.25166 6.816 4.41966 3.792 9.20766 3.288V0.227999H11.9797V3.288C16.5157 3.756 19.3237 6.6 19.4677 10.92H15.0037C14.9317 8.976 13.8517 7.716 11.9797 7.32V15.06L13.2037 15.348C17.8117 16.356 19.8997 18.588 19.8997 22.404C19.8997 26.796 16.8037 29.82 11.9797 30.36V33.42H9.20766ZM9.06366 14.412L9.20766 14.448V7.284C7.04766 7.644 5.75166 8.94 5.75166 10.884C5.75166 12.792 6.75966 13.908 9.06366 14.412ZM12.2317 19.38L11.9797 19.308V26.328C14.1397 25.896 15.4357 24.636 15.4357 22.8C15.4357 20.964 14.3917 19.848 12.2317 19.38Z" fill="white"/>
                                 </svg>
@@ -154,38 +154,68 @@
     </header>
     <div class="main-content-container">
         <div class="sub-header">
-            <span>Informações Gerais</span>
+            <span>Dados de Pagamento</span>
             <div>
                 <a href="javascript:history.back()">Voltar</a>
             </div>
         </div>
 
-        <form action="javascript:;" class="form-container" id="form-produto" onsubmit="updateCatalogInfo()">
+        <div class="form-container">
             <div class="form-wrapper">
                 <div>
-                    <span>Título do Catálogo</span>
-                    <input type="text" name="catalogName" id="catalogName" placeholder="" onchange="prepareChanges(event)" required/>
+                    <b>Formas de Pagamento Disponíveis</b>
                 </div>
             </div>
-            <div class="form-wrapper">
-                <div>
-                    <span>Número de atendimento (Whatsapp)</span>
-                    <input type="tel" name="whatsappNumber" id="whatsappNumber" placeholder="" onchange="prepareChanges(event)" required/>
-                </div>
+            
+            <div class="form-wrapper spaced">
+                <b>PIX</b>
+                <label class="switch">
+                    <input type="checkbox" id="checkPix">
+                    <span class="slider round"></span>
+                </label>
             </div>
+            <div class="form-wrapper spaced">
+                <b>Dinheiro</b>
+                <label class="switch">
+                    <input type="checkbox" id="checkMoney">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="form-wrapper spaced">
+                <b>Cartão de Crédito/Débito</b>
+                <label class="switch">
+                    <input type="checkbox" id="checkCard">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="form-wrapper spaced">
+                <b>Ticket Refeição</b>
+                <label class="switch">
+                    <input type="checkbox" id="checkTicket">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+
+            <br><br>
+
             <div class="form-wrapper">
                 <div>
-                    <span>Link do Instagram</span>
-                    <input type="text" name="instaLink" id="instaLink" required onchange="prepareChanges(event)" placeholder=""/>
+                    <b>Taxa de Entrega</b>
+                    <div class="tax-list">
+                        <div class="tax-item">
+                            <span class="tax-span">Centro - R$ 2,00</span>
+                            <button data-category-id="${index}" data-category-name="${category[0].name}" onclick="removeCategory(event)">X</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="submit-options">
-                <button type="submit" class="submit-button">
-                    Salvar
+                <button class="submit-button">
+                    Adicionar taxa de entrega
                 </button>
             </div>
-        </form>
+        </div>
 
     </div>
 
@@ -197,6 +227,6 @@
     <script src="/assets/js/misc/config.js"></script>
     <script src="/assets/js/misc/base.js"></script>
     <script src="/assets/js/auth/checkSession.js"></script>
-    <script src="/assets/js/queries/catalogInfo/handleCatelogInfo.js"></script>
+    <script src="/assets/js/queries/catalogInfo/handlePaymentOptions.js"></script>
 </body>
 </html>

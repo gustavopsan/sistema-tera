@@ -142,13 +142,24 @@
     gap: 20px
 }
 
+.form-container .form-wrapper.spaced {
+    justify-content: space-between;
+    max-width: 270px;
+}
+
+.form-container .form-wrapper b {
+    font-family: 'Inter', sans-serif;
+    font-weight: bold;
+    font-size: 13px;
+}
+
 .form-container .form-wrapper div {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
 
-.form-container .form-wrapper span {
+.form-container .form-wrapper span:not(.slider):not(.tax-span) {
     padding: 8px;
     background-color: #ef9616;
     border-radius: 8px;
@@ -159,7 +170,7 @@
     width: fit-content;
 }
 
-.form-container .form-wrapper input {
+.form-container .form-wrapper input:not([type="checkbox"]) {
     height: 30px;
     font-family: 'Mulish', sans-serif;
     font-size: 12px;
@@ -171,6 +182,69 @@
     color: #0e0762;
     min-width: 300px;
 }
+
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 21px;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 15px;
+    width: 15px;
+    left: 4px;
+    bottom: 3px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+  }
+  
+  input:checked + .slider {
+    background-color: #0E0762;
+  }
+  
+  input:focus + .slider {
+    box-shadow: 0 0 1px #0E0762;
+  }
+  
+  input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+  }
+  
+  /* Rounded sliders */
+  .slider.round {
+    border-radius: 34px;
+  }
+  
+  .slider.round:before {
+    border-radius: 50%;
+  }
 
 .form-container .form-wrapper input[type="file"] {
     padding: 15px 15px 0 15px;
@@ -216,6 +290,38 @@
     border-radius: 20px;
 }
 
+.tax-list .tax-item {
+    border: 1px solid #DDDDDD;
+    padding: 5px 10px 5px 20px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row !important;
+    justify-content: space-between;
+    min-width: 270px;
+    align-items: center;
+}
+
+.tax-list .tax-item span {
+    font-family: "Inter";
+    font-size: 12px;
+    color: #0e0762;
+    font-weight: bold;
+}
+
+.tax-list .tax-item button {
+    border: none;
+    padding: 10px;
+    border-radius: 50%;
+    width: 35px;
+    background-color: #f26464;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+.tax-list .tax-item button:active {
+    background-color: #f48282;
+}
+
 .submit-options {
     padding: 30px 10px;
 }
@@ -242,7 +348,7 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .form-container .form-wrapper {
+    .form-container .form-wrapper:not(.spaced) {
         flex-direction: column;
     }
 }
