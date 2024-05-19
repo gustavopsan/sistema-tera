@@ -62,8 +62,7 @@ async function updateCatalogInfo() {
                         whatsappNumber: wppNumberInput.value, 
                         instaLink: instaLinkInput.value, 
                         catalogName: catalogNameInput.value, 
-                        topoBannerUrl: "", 
-                        openHour: {}
+                        topoBannerUrl: ""
                     }
                 )
             }

@@ -170,28 +170,28 @@
             <div class="form-wrapper spaced">
                 <b>PIX</b>
                 <label class="switch">
-                    <input type="checkbox" id="checkPix">
+                    <input type="checkbox" data-format="pix" id="checkPix" onchange="handlePaymentOptions(event)">
                     <span class="slider round"></span>
                 </label>
             </div>
             <div class="form-wrapper spaced">
                 <b>Dinheiro</b>
                 <label class="switch">
-                    <input type="checkbox" id="checkMoney">
+                    <input type="checkbox" data-format="money" id="checkMoney" onchange="handlePaymentOptions(event)">
                     <span class="slider round"></span>
                 </label>
             </div>
             <div class="form-wrapper spaced">
                 <b>Cartão de Crédito/Débito</b>
                 <label class="switch">
-                    <input type="checkbox" id="checkCard">
+                    <input type="checkbox" data-format="card" id="checkCard" onchange="handlePaymentOptions(event)">
                     <span class="slider round"></span>
                 </label>
             </div>
             <div class="form-wrapper spaced">
                 <b>Ticket Refeição</b>
                 <label class="switch">
-                    <input type="checkbox" id="checkTicket">
+                    <input type="checkbox" data-format="ticket" id="checkTicket" onchange="handlePaymentOptions(event)">
                     <span class="slider round"></span>
                 </label>
             </div>
@@ -201,19 +201,26 @@
             <div class="form-wrapper">
                 <div>
                     <b>Taxa de Entrega</b>
-                    <div class="tax-list">
-                        <div class="tax-item">
-                            <span class="tax-span">Centro - R$ 2,00</span>
-                            <button data-category-id="${index}" data-category-name="${category[0].name}" onclick="removeCategory(event)">X</button>
-                        </div>
+                    <div class="tax-list" id="taxList">
+                        
                     </div>
                 </div>
             </div>
 
             <div class="submit-options">
-                <button class="submit-button">
+                <button class="submit-button" onclick="handleCreateForm()">
                     Adicionar taxa de entrega
                 </button>
+            </div>
+
+            <div class="create-tax-container hidden" id="create-tax-container">
+                <div class="blurred-bg" onclick="handleCreateForm()"></div>
+                <div class="create-tax-wrapper">
+                    <b>Nova taxa de entrega</b>
+                    <input type="text" placeholder="Local" id="newTaxName">
+                    <input type="number" id="newTaxValue" placeholder="R$ 0,00">
+                    <button onclick="createTax()">Salvar</button>
+                </div>
             </div>
         </div>
 
