@@ -357,7 +357,7 @@
 .create-tax-wrapper, .tax-warning-wrapper {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
     justify-content: center;
     background-color: #0e0762;
     padding: 30px;
