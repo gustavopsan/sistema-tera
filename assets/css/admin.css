@@ -1,0 +1,93 @@
+#userTable {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 35px;
+}
+
+#userTable thead tr {
+    display: table;
+    justify-content: space-evenly;
+    width: 100vw;
+    align-items: center;
+    height: 45px;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    background-color: #eff0f6;
+    border-bottom: 1px solid #e6e6e6;
+    padding: 5px 0;
+}
+
+#userTable tbody tr {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100vw;
+    align-items: center;
+    height: fit-content;
+    color: #767676;
+    font-family: 'Inter';
+    font-size: 13px;
+    border-bottom: 1px solid #d5d5d5;
+    padding: 5px 0;
+}
+
+#userTable tbody tr td {
+    padding-left: 5%;
+}
+
+#userTable thead tr td {
+    padding-left: 5%;
+    padding-right: 9%;
+}
+
+#userTable a {
+    background-color: transparent;
+    border: none;
+    padding-right: 20px;
+    cursor: pointer;    
+    color: #767676;
+    text-decoration: none;
+}
+    
+
+#userTable tbody tr td:nth-child(1),
+#userTable thead tr td:nth-child(1) {
+    width: 40%; /* Largura da coluna 'Nome' */
+}
+
+#userTable tbody tr td:nth-child(2),
+#userTable thead tr td:nth-child(2) {
+    width: 35%; /* Largura da coluna email */
+}
+
+#userTable tbody tr td:nth-child(3),
+#userTable thead tr td:nth-child(3) {
+    width: 14%; /* Largura da coluna endereco */
+}
+
+.new-user-link {
+    position: sticky;
+    left: 10px;
+    bottom: 20px;
+    height: fit-content;
+    background-color: #0e0762;
+    border: none;
+    border-radius: 8px;
+    padding: 10px;
+    text-decoration: none;
+    color: #d6d7e3;
+    font-family: 'Inter';
+    font-size: 13px;
+}
+
+@media (max-width: 768px) {
+    #userTable tbody tr td:nth-child(2),
+    #userTable thead tr td:nth-child(2) {
+        display: none;
+    }
+
+    #userTable tbody tr td:nth-child(3),
+    #userTable thead tr td:nth-child(3) {
+    width: 45%;
+}
+}

@@ -5,10 +5,10 @@ const modulesArray = modulesString.split(",")
 const moduleSelector = document.getElementById("moduleSelector");
 
 const moduleInfo = [
-    { key: 'personal', name: 'Finança Pessoal'},
     { key: 'guarantee', name: 'Crediário' },
     { key: 'erp', name: 'Empresarial' },
-    { key: 'catalogo', name: 'Catálogo' }
+    { key: 'catalogo', name: 'Catálogo' },
+    { key: 'admin', name: 'Administração' },
 ]
 
 modulesArray.forEach(moduleApi => {

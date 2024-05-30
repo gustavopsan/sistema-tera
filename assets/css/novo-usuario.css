@@ -1,0 +1,195 @@
+.sub-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 10px;
+    height: 40px;
+    background-color: #f1f1f3;
+}
+
+.sub-header span {
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    color: #767676;
+    font-weight: 700;
+}
+
+.sub-header a {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #0e0762;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.sub-header #excludeUser {
+    text-decoration: none;
+    padding: 10px;
+    background-color: #F26464;
+    border-radius: 8px;
+    border: none;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.form-container .form-wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 0 10px;
+    gap: 10px
+}
+
+.form-container .form-wrapper input[type="checkbox"] {
+    display: none;
+}
+
+.form-container .form-wrapper .modules {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    row-gap: 10px;
+}
+
+.form-container .form-wrapper .modules label {
+    cursor: pointer;
+    width: fit-content;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #0e0762;
+    display: flex;
+    padding: 5px;
+    border: 1px solid #0e0762;
+    border-radius: 8px;
+}
+
+.form-container .form-wrapper .modules input[type="checkbox"]:checked + label {
+    background-color: #0e0762;
+    color: #fff;
+}
+
+.form-container .form-wrapper.license label {
+    cursor: pointer;
+    width: fit-content;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    color: #F26464;
+    display: flex;
+    padding: 5px;
+    border: 1px solid #F26464;
+    border-radius: 8px;
+}
+
+.form-container .form-wrapper.license input[type="checkbox"]:checked + label {
+    border: 1px solid #00B649;
+    color: #00B649;
+}
+
+
+.form-container .form-wrapper div {
+    display: flex;
+    gap: 5px;
+}
+
+.form-container .form-wrapper span {
+    padding: 8px;
+    background-color: #ef9616;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    width: fit-content;
+}
+
+.form-container .form-wrapper input {
+    height: 30px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 12px;
+    font-weight: 800;
+    width: 95%;
+    height: 40px;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    padding-left: 15px;
+    color: #0e0762;
+}
+
+.form-container .form-wrapper input::placeholder {
+    color: #0e0762;
+}
+
+.form-container .form-wrapper select {
+    appearance: none;
+    padding: 15px;
+    font-weight: 400;
+    border-radius: 8px;
+    border: solid 1px #f0f1f7;
+    padding-left: 15px;
+    color: #0e0762;
+}
+
+.form-container .form-wrapper.finish {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-container .form-wrapper.finish button, .form-container .form-wrapper.finish a {
+    padding: 10px 30px;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    border: none;
+    width: fit-content;
+    align-self: flex-end;
+    text-decoration: none;
+    background-color: #0e0762;
+}
+
+
+.error-message-container {
+    display: none;
+    flex-direction: column;
+    
+}
+
+#error-message {
+    align-self: center;
+    padding: 3px 5px;
+    margin-top: 5px;
+    border-radius: 6px;
+    color: #fff;
+    font-family: "Mulish";
+    font-size: 12px;
+}
+
+#error-message.error {
+    background-color: red;
+}
+
+#error-message.success {
+    background-color: green;
+}
+
+@media (max-width: 460px) {
+    .form-container .form-wrapper .modules {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
