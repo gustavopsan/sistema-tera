@@ -15,7 +15,7 @@ async function listUsers() {
 
     let response = await users.json();
 
-    console.log(response);
+    //console.log(response);
 
     userList.innerHTML = "";
 
@@ -26,7 +26,7 @@ async function listUsers() {
             <td>${user.name}</td>
             <td>${user.email}</td>
             <td>${user.isActive ? "Ativa" : "Inativa"}</td>
-            <td><a href="/admin/editar-usuario/?uid=${user._id}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
+            <td><a href="/admin/editar-usuario/?uid=${user.userId}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
         </tr>`
 
         userList.innerHTML += newUser;

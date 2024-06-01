@@ -85,18 +85,18 @@
             <a href="/admin/">Voltar</a>
         </div>
 
-        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCustomer()">
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="sendChanges()">
             <div class="form-wrapper">
                 <span>Nome completo</span>
-                <input type="text" name="name" id="nameInput" placeholder="Digite o nome aqui" required>
+                <input type="text" name="name" id="nameInput" placeholder="Digite o nome aqui" required onchange="prepareChanges(event)">
             </div>
             <div class="form-wrapper">
                 <span>CPF</span>
-                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeyup="formatDocId(this,cpfCnpj)" maxlength="14" required/>
+                <input type="cpfcnpj" name="cpfcnpj" id="cpfcnpjInput" placeholder="000.000.000-00" onkeyup="formatDocId(this,cpfCnpj)" maxlength="14" required onchange="prepareChanges(event)"/>
             </div>
             <div class="form-wrapper">
                 <span>Permissão</span>
-                <select name="role" id="roleInput" required>
+                <select name="role" id="roleInput" required onchange="prepareChanges(event)">
                     <option value="user">Usuário</option>
                     <option value="admin">Administração</option>
                 </select>
@@ -104,30 +104,30 @@
             <div class="form-wrapper">
                 <span>Módulos</span>
                 <div class="modules">
-                    <input type="checkbox" name="guarantee" id="guarantee">
+                    <input type="checkbox" name="guarantee" id="guarantee" onchange="prepareModuleChanges(event)">
                     <label for="guarantee">Crediário</label>
 
-                    <input type="checkbox" name="catalog" id="catalog">
+                    <input type="checkbox" name="catalogo" id="catalog" onchange="prepareModuleChanges(event)">
                     <label for="catalog">Catálogo</label>
 
-                    <input type="checkbox" name="erp" id="erp">
+                    <input type="checkbox" name="erp" id="erp" onchange="prepareModuleChanges(event)">
                     <label for="erp">Empresarial</label>
 
-                    <input type="checkbox" name="admin" id="admin">
+                    <input type="checkbox" name="admin" id="admin" onchange="prepareModuleChanges(event)">
                     <label for="admin">Administração</label>
                 </div>  
             </div>
             <div class="form-wrapper">
                 <span>E-Mail</span>
-                <input type="email" name="email" id="emailInput" placeholder="Digite o e-mail aqui" required>
+                <input type="email" name="email" id="emailInput" placeholder="Digite o e-mail aqui" required onchange="prepareChanges(event)">
             </div>
             <div class="form-wrapper">
                 <span>Contato</span>
-                <input type="tel" name="phone" id="phoneInput"  placeholder="+55 (00) 00000-0000" required>
+                <input type="tel" name="phone" id="phoneInput"  placeholder="+55 (00) 00000-0000" required onchange="prepareChanges(event)">
             </div>
             <div class="form-wrapper license">
                 <span>Licença</span>
-                <input type="checkbox" name="isActive" id="isActive">
+                <input type="checkbox" name="isActive" id="isActive" onchange="handleActivate(event)">
                 <label for="isActive">Inativa</label>
             </div>
             <div class="error-message-container" id="error-message-container">
@@ -140,5 +140,6 @@
     </div>
 
     <script src="/assets/js/auth/formatDoc.js"></script>
+    <script src="/assets/js/queries/users/editUser.js"></script>
 </body>
 </html>

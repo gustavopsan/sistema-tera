@@ -85,7 +85,7 @@
             <a href="/admin/">Voltar</a>
         </div>
 
-        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createCustomer()">
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="createUser()">
             <div class="form-wrapper">
                 <span>Nome completo</span>
                 <input type="text" name="name" id="nameInput" placeholder="Digite o nome aqui" required>
@@ -104,16 +104,16 @@
             <div class="form-wrapper">
                 <span>Módulos</span>
                 <div class="modules">
-                    <input type="checkbox" name="guarantee" id="guarantee">
+                    <input type="checkbox" name="guarantee" id="guarantee" onchange="addModule(event)">
                     <label for="guarantee">Crediário</label>
 
-                    <input type="checkbox" name="catalog" id="catalog">
+                    <input type="checkbox" name="catalogo" id="catalog" onchange="addModule(event)">
                     <label for="catalog">Catálogo</label>
 
-                    <input type="checkbox" name="erp" id="erp">
+                    <input type="checkbox" name="erp" id="erp" onchange="addModule(event)">
                     <label for="erp">Empresarial</label>
 
-                    <input type="checkbox" name="admin" id="admin">
+                    <input type="checkbox" name="admin" id="admin" onchange="addModule(event)">
                     <label for="admin">Administração</label>
                 </div>  
             </div>
@@ -135,5 +135,6 @@
     </div>
 
     <script src="/assets/js/auth/formatDoc.js"></script>
+    <script src="/assets/js/queries/users/createUser.js"></script>
 </body>
 </html>
