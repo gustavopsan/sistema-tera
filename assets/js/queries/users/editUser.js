@@ -102,9 +102,11 @@ function handleActivate(event) {
     switch (event.target.checked) {
         case true:
             userChanges.push({ userId: userData.id, key: "isActive", newvalue: true });
+            document.querySelector(".license label").innerHTML = "Ativa";
             break;
         case false:
             userChanges.push({ userId: userData.id, key: "isActive", newvalue: false });
+            document.querySelector(".license label").innerHTML = "Inativa";
             break;
     }
 
