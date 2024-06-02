@@ -56,7 +56,7 @@ async function filterCredits(initialDate, finalDate) {
         newPayment = `
             <tr>
                 <td>${formateAMerdaDaData(parsedDate)}</td>
-                <td>${payment.clientName}</td>
+                <td>${payment.clientName.split(" ")[0]}</td>
                 <td>R$ ${payment.paymentValue}</td>
             </tr>
         `;
