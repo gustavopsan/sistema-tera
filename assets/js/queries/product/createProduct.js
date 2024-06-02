@@ -58,7 +58,7 @@ async function createProduct(e) {
     const response = await requestData.json();
 
     if(response._id) {
-        window.location.href = "/catalogo/produtos";
+        window.location.reload();
     } else {
         console.log(response);
     }
