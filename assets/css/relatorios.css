@@ -152,6 +152,11 @@
 
 #paymentTable thead tr td:nth-child(2), #paymentTable tbody tr td:nth-child(2) {
     width: 50%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-wrap: nowrap;
+    white-space: nowrap;
+    max-width: 170px;
 }
 
 #paymentTable thead tr td:nth-child(3), #paymentTable tbody tr td:nth-child(3) {
