@@ -4,7 +4,7 @@ const paidValueEl = document.getElementById('paid-value');
 
 function formateAMerdaDaData(data) {
     let newArr = data.split("-"); 
-    return `${newArr[2]}/${newArr[1]}/${newArr[0]}`
+    return `${newArr[2]}/${newArr[1]}`
 }
 
 var initialDate;
