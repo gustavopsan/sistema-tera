@@ -70,7 +70,7 @@ async function filterCredits() {
 
     response.payments.forEach(payment => {
         var newPayment;
-        var date = new Date(payment.paymentDate);
+        var date = new Date(payment.paymentDate || payment.debitDate);
         date.setHours(date.getHours() - 3);
 
         var parsedDate = date.toISOString().split("T")[0];
@@ -79,7 +79,7 @@ async function filterCredits() {
             <tr>
                 <td>${formateAMerdaDaData(parsedDate)}</td>
                 <td><span>${payment.clientName}</span></td>
-                <td>R$ ${payment.paymentValue}</td>
+                <td>R$ ${payment.paymentValue || payment.debitValue.$numberDecimal}</td>
             </tr>
         `;
 
