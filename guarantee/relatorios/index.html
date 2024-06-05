@@ -117,20 +117,31 @@
             <a href="javascript:history.back()">Voltar</a>
         </div>
 
-        <form class="form-container" id="form-cadastro" action="javascript:;">
-            <div class="form-wrapper horizontal">
-                <div class="data-container">
-                    <b>Do Dia</b>
-                    <input type="date" name="date" id="initialDate" onchange="handleInitialDateChange(event)"/>
+        <form class="form-container" id="form-cadastro" action="javascript:;" onsubmit="filterCredits()">
+            <div class="form-wrapper vertical">
+                <div class="vertical-container">
+                    <b>Tipo de relatório:</b>
+                    <select name="filter" id="filterType" onchange="handleFilterTypeChange(event)">
+                        <option value="payment">Entradas</option>
+                        <option value="debit">Saídas</option>
+                    </select>
                 </div>
+                <div>
+                    <div class="data-container">
+                        <b>Do Dia</b>
+                        <input type="date" name="date" id="initialDate" onchange="handleInitialDateChange(event)"/>
+                    </div>
 
-                <div class="data-container">
-                    <b>Ao Dia</b>
-                    <input type="date" name="date" id="finalDate" onchange="handleFinalDateChange(event)"/>
+                    <div class="data-container">
+                        <b>Ao Dia</b>
+                        <input type="date" name="date" id="finalDate" onchange="handleFinalDateChange(event)"/>
+                    </div>
+
+                    <div class="form-wrapper finish">
+                        <button type="submit" id="filter">Filtrar</button>
+                    </div>
                 </div>
-                <div class="form-wrapper finish">
-                    <button type="submit" id="filter">Filtrar</button>
-                </div>
+               
             </div>
             <div class="list-container">
                 <table id="paymentTable">
@@ -147,8 +158,12 @@
                 </table>
             </div>
 
-            <div class="span-info">
-                <p><b>Valor total pago: </b><span id="paid-value"></span></p>
+            <div class="content-card">
+                <div class="entry-el green">R$</div>
+                <div class="info">
+                    <b id="valueEl">R$ 0,00</b>
+                    <span id="valueDesc">Valor recebido no período</span>
+                </div>
             </div>
         </form>
     </div>

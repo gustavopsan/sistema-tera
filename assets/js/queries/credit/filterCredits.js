@@ -1,6 +1,10 @@
 const filterButton = document.getElementById('filter');
 const paymentList = document.getElementById('paymentList');
 const paidValueEl = document.getElementById('paid-value');
+const valueEl = document.getElementById('valueEl');
+const valueDesc = document.getElementById('valueDesc');
+const iconEl = document.querySelector('.entry-el');
+const filterTypeEl = document.getElementById('filterType');
 
 function formateAMerdaDaData(data) {
     let newArr = data.split("-"); 
@@ -9,6 +13,7 @@ function formateAMerdaDaData(data) {
 
 var initialDate;
 var finalDate;
+var filterType = filterTypeEl.value;
 
 function handleInitialDateChange(event) {
     initialDate = new Date(event.target.value).toISOString();
@@ -18,14 +23,31 @@ function handleFinalDateChange(event) {
     var newDate = new Date(event.target.value);
     newDate.setHours(newDate.getHours() + 23, 59, 59);  
     
-    finalDate = newDate.toISOString();
+    finalDate = newDate.toISOString(); 
 }
 
-async function filterCredits(initialDate, finalDate) {
+function handleFilterTypeChange(event) {
+    filterType = event.target.value;
+
+    if (filterType === "payment") {
+        iconEl.classList.add("green");
+        iconEl.classList.remove("orange");
+
+        valueDesc.textContent = "Valor recebido nesse período";
+    } else if (filterType === "debit") {
+        iconEl.classList.add("orange");
+        iconEl.classList.remove("green");
+
+        valueDesc.textContent = "Valor liberado nesse período";
+    }
+}
+
+async function filterCredits() {
     var requestBody = {
         initialDate: initialDate,
         finalDate: finalDate,
-        sellerId: sellerId
+        sellerId: sellerId,
+        filterType: filterType
     };
 
     console.log(requestBody);
@@ -64,9 +86,5 @@ async function filterCredits(initialDate, finalDate) {
         paymentList.innerHTML += newPayment;
     });
 
-    paidValueEl.innerHTML = `R$ ${response.totalValue}`;
+    valueEl.innerHTML = `R$ ${response.totalValue}`;
 }
-
-filterButton.addEventListener('click', () => {
-    filterCredits(initialDate, finalDate);
-});
