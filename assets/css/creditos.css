@@ -7,7 +7,7 @@
 #creditTable thead tr {
     display: flex;
     width: -webkit-fill-available;
-    justify-content: space-between; /* Espaça uniformemente os elementos do cabeçalho */
+    gap: 2vw;
     align-items: center;
     height: 45px;
     color: #767676;
@@ -20,8 +20,8 @@
 
 #creditTable tbody tr {
     display: flex;
-    justify-content: space-between;
     width: -webkit-fill-available;
+    gap: 2vw;
     align-items: center;
     height: fit-content;
     color: #767676;
@@ -53,38 +53,43 @@
     color: #767676;
 }
 
+#creditTable tbody tr td,
+#creditTable thead tr td {
+    text-align: center;
+}
+
 #creditTable tbody tr td:nth-child(1),
 #creditTable thead tr td:nth-child(1) {
-    width: 10%; /* Largura da coluna 'Nome' */
+    width: 10%; /* Largura da coluna 'ID' */
     padding-right: 10px;
 }
 
 #creditTable tbody tr td:nth-child(2),
 #creditTable thead tr td:nth-child(2) {
-    width: 45%; /* Largura da coluna 'Cota' */
+    width: 30%; /* Largura da coluna 'Nome' */
 }
 
 #creditTable tbody tr td:nth-child(3),
 #creditTable thead tr td:nth-child(3) {
-    width: 20%; /* Largura da coluna 'Pagamentos' */
+    width: 10%; /* Largura da coluna 'Cota' */
     text-align: center;
 }
 
 #creditTable tbody tr td:nth-child(4),
 #creditTable thead tr td:nth-child(4) {
-    width: 30%; /* Largura da coluna 'Valor Remanescente' */
+    width: 10%; /* Largura da coluna 'Último Valor' */
     text-align: center;
 }
 
 #creditTable tbody tr td:nth-child(5),
 #creditTable thead tr td:nth-child(5) {
-    width: 20%; /* Largura da coluna 'Valor Remanescente' */
+    width: 10%; /* Largura da coluna 'Valor Pagamento' */
     text-align: center;
 }
 
 #creditTable tbody tr td:nth-child(6),
 #creditTable thead tr td:nth-child(6) {
-    min-width: 30px;
+    width: 10%;
     padding-right: 10px;
 }
 
