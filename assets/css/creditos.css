@@ -35,6 +35,10 @@
     color: #00B649;
 }
 
+#creditTable tbody tr.paid .value {
+    color: #ff7b00;
+}
+
 #creditTable tbody tr.paid a {
     color: #00B649;
 }

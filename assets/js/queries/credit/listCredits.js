@@ -39,7 +39,7 @@ async function listCredits() {
                 <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
                 <td>R$ ${(credit.totalValue / credit.paymentsAmount)}</td>
-                ${!isPaidToday ? "<td></td>" : `<td>R$ ${credit.payments[arrayLength][0].value}</td>` }
+                ${!isPaidToday ? "<td></td>" : `<td class="value">R$ ${credit.payments[arrayLength][0].value}</td>` }
                 <td>${credit.payments.length}/${credit.paymentsAmount}</td>
                 <td>R$ ${credit.valueRemaing}</td>
                 <td><button class="pay-button" data-debit-id="${credit.debitId}" data-client-name="${credit.customerData.name}">R$</button></td>
