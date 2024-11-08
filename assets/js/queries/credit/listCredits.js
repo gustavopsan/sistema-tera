@@ -19,8 +19,6 @@ async function listCredits() {
     creditList.innerHTML = "";
 
     response.forEach(credit => {
-        console.log(credit)
-
         var newCredit;
         var arrayLength = parseInt(credit.payments.length) - 1;
 
@@ -36,7 +34,7 @@ async function listCredits() {
 
             newCredit = `
             <tr class=${isPaidToday ? "paid" : "" }>
-                <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
+                <td>${parseInt(credit.debitId.split("_")[1]).toString()}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
                 <td>R$ ${(credit.totalValue / credit.paymentsAmount)}</td>
                 ${!isPaidToday ? "<td></td>" : `<td class="value">R$ ${credit.payments[arrayLength][0].value}</td>` }
@@ -48,7 +46,7 @@ async function listCredits() {
         } else {
             newCredit = `
             <tr>
-                <td>${parseInt(credit.customerData.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
+                <td>${parseInt(credit.debitId.split("_")[1]).toString()}</td>
                 <td><a href="/guarantee/crediarios/informativo/?debit=${credit.debitId}">${credit.customerData.name}</a></td>
                 <td>R$ ${(credit.totalValue / credit.paymentsAmount)}</td>
                 <td></td>
