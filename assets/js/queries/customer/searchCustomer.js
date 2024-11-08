@@ -26,7 +26,8 @@ async function searchCustomers() {
         if (isMobile) {
             newCustomer = `
             <tr>
-                <td>${customer.name}</td>
+                <td>${parseInt(customer.customerId.split("_")[1]).toString().padStart(3, 0)}</td>
+                <td><a href="/guarantee/clientes/resumo/?cid=${customer._id}">${customer.name}</a></td>
                 <td>${customer.address.street}, ${customer.address.number}</td>
                 <td><a href="/guarantee/clientes/editar/?cid=${customer._id}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
             </tr>
@@ -34,7 +35,8 @@ async function searchCustomers() {
         } else {
             newCustomer = `
             <tr>
-                <td>${customer.name}</td>
+                <td>${customer.customerId.split("_")[1]}</td>
+                <td><a href="/guarantee/clientes/resumo/?cid=${customer._id}">${customer.name}</a></td>
                 <td>${customer.address.street}, ${customer.address.number} - ${customer.address.hood}, ${customer.address.city} - ${customer.address.uf}</td>
                 <td><a href="/guarantee/clientes/editar/?cid=${customer._id}"><img src="../../assets/img/icon-edit.svg" alt="icon-edit"></a></td>
             </tr>
